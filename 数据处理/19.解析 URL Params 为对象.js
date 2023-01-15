@@ -11,7 +11,7 @@ parseParam(url)
 }
 */
 
-
+// 简单版本
 
 let url = 'https://campus.meituan.com/index?key=value&key2=value2';
 function abstractPara(url) {

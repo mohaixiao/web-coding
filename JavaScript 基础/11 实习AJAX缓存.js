@@ -2,7 +2,7 @@ const SERVER_URL = "/server";
 function getUrl(url) {
     let xhr = new XMLHttpRequest();
     // 创建 Http 请求
-    xhr.open("GET", url, true);
+    xhr.open("GET", url + Math.random(), true);
     // 设置状态监听函数
     xhr.onreadystatechange = function () {
         if (this.readyState !== 4) return;

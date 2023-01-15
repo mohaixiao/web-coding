@@ -17,7 +17,7 @@ class EventEmitter {
     }
 
     // 3. 触发事件，参数：事件名 事件参数
-    dispatchEvent(type, ...params) {
+    dispatchEvent(type, once = false, ...params) {
         // 若没有注册该事件则抛出错误
         if (!this.handlers[type]) {
             return new Error('该事件未注册')
@@ -28,10 +28,13 @@ class EventEmitter {
         tasks.forEach(handler => {
             handler(...params)
         })
+        if (once) {
+            delete this.handlers[type]
+        }
     }
 
     // 4. 事件移除，参数：事件名 要删除事件，若无第二个参数则删除该事件的订阅和发布
-    removeEventListener(type, handler, once = false) {
+    removeEventListener(type, handler) {
         if (!this.handlers[type]) {
             return new Error('事件无效')
         }
@@ -46,9 +49,6 @@ class EventEmitter {
             // 移除事件
             this.handlers[type].splice(index, 1)
             if (this.handlers[type].length === 0) {
-                delete this.handlers[type]
-            }
-            if (once) {
                 delete this.handlers[type]
             }
         }

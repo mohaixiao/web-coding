@@ -3,3 +3,11 @@ function timeout(delay) {
         setTimeout(resolve, delay)
     })
 };
+
+function sleep(wait) {
+    return new Promsie((reslove, reject) => {
+        setTimeout(() => {
+            reslove();
+        }, wait)
+    })
+}

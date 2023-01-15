@@ -26,10 +26,12 @@ var preorderTraversal = function (root, res = []) {
     if (root) stack.push(root);
     while (stack.length) {
         const node = stack.pop();
+        // node为null
         if (!node) {
             res.push(stack.pop().val);
             continue;
         }
+        // 推入元素
         if (node.right) stack.push(node.right); // 右
         if (node.left) stack.push(node.left); // 左
         stack.push(node); // 中
@@ -49,6 +51,7 @@ var inorderTraversal = function (root, res = []) {
     if (root) stack.push(root);
     while (stack.length) {
         const node = stack.pop();
+        // node为null
         if (!node) {
             res.push(stack.pop().val);
             continue;
