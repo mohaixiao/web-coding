@@ -58,7 +58,7 @@ const task = (timer, light) =>
 const step = () => {
     task(3000, 'red')
         .then(() => task(2000, 'green'))
-        .then(() => task(2100, 'yellow'))
+        .then(() => task(1000, 'yellow'))
         .then(step)
 }
 step()

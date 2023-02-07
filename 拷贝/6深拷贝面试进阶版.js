@@ -10,6 +10,7 @@ function deepClone(value, hash = new WeakMap) { // 弱引用，不用map，weakM
     // 函数是不需要拷贝
     if (typeof value != 'object') return value;
     let obj = new value.constructor(); // [] {}
+    // let newObj = Array.isArray(object) ? [] : {};
     // 说明是一个对象类型
     if (hash.get(value)) {
         return hash.get(value)
