@@ -4,7 +4,7 @@ function proxy(func) {
     let handler = {
         constructor(target, args) {
             if (!instance) {
-                instance = Reflect.constructor(fun, args);
+                instance = Reflect.constructor(func, args);
             }
             return instance;
         }

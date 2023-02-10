@@ -5,7 +5,7 @@ Promise.race = function (promises) {
         let len = promises.length;
         if (len === 0) return;
         for (let i = 0; i < len; i++) {
-            Promise.resolve(promise[i]).then(data => {
+            Promise.resolve(promises[i]).then(data => {
                 resolve(data);
                 return;
             }).catch(err => {
