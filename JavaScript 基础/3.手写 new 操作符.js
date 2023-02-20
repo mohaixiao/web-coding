@@ -12,5 +12,5 @@ function myNew(fn, ...arg) {
     if (res && (typeof res === "object") || typeof res === "function") {
         return res;
     }
-    return obj;
+    return obj; 
 }
