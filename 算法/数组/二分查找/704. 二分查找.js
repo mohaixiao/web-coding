@@ -1,5 +1,7 @@
 // 数组为有序数组，同时题目还强调数组中无重复元素，因为一旦有重复元素，使用二分查找法返回的元素下标可能不是唯一的，这些都是使用二分法的前提条件，当大家看到题目描述满足如上条件的时候，可要想一想是不是可以用二分法了。
 
+// https://leetcode.cn/problems/binary-search/
+
 // JavaScript: （版本一）左闭右闭区间 [left, right]
 
 /**
@@ -7,7 +9,7 @@
  * @param {number} target
  * @return {number}
  */
-var search = function(nums, target) {
+var search = function (nums, target) {
     // right是数组最后一个数的下标，num[right]在查找范围内，是左闭右闭区间
     let mid, left = 0, right = nums.length - 1;
     // 当left=right时，由于nums[right]在查找范围内，所以要包括此情况
@@ -32,9 +34,9 @@ var search = function(nums, target) {
  * @param {number} target
  * @return {number}
  */
-var search = function(nums, target) {
+var search = function (nums, target) {
     // right是数组最后一个数的下标+1，nums[right]不在查找范围内，是左闭右开区间
-    let mid, left = 0, right = nums.length;    
+    let mid, left = 0, right = nums.length;
     // 当left=right时，由于nums[right]不在查找范围，所以不必包括此情况
     while (left < right) {
         // 位运算 + 防止大数溢出
