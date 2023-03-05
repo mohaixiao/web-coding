@@ -10,6 +10,24 @@ for (let i = 0; i < arr.length; i++) {
 }
 console.log('newArr1：', newArr1);
 
+// 1. 双层 for 循环
+
+function distinct(arr) {
+    for (let i = 0, len = arr.length; i < len; i++) {
+        for (let j = i + 1; j < len; j++) {
+            if (arr[i] == arr[j]) {
+                arr.splice(j, 1);
+                // splice 会改变数组长度，所以要将数组长度 len 和下标 j 减一
+                len--;
+                j--;
+            }
+        }
+    }
+    return arr;
+}
+
+// 思想: 双重 for 循环是比较笨拙的方法，它实现的原理很简单：先定义一个包含原始数组第一个元素的数组，然后遍历原始数组，将原始数组中的每个元素与新数组中的每个元素进行比对，如果不重复则添加到新数组中，最后返回新数组；因为它的时间复杂度是O(n^2)，如果数组长度很大，效率会很低
+
 // 方法二：使用 Set
 const newArr2 = [...new Set(arr)];
 console.log('newArr2：', newArr2);
@@ -108,3 +126,44 @@ function unique(arr) {
 var arr = [1, 2, 2, 4, 9, 6, 6, 7, 5, 2, 3, 5, 6, 5];
 console.log(unique(arr))
 
+
+// reduce 实现对象数组去重复
+
+var resources = [
+    { name: "张三", age: "18" },
+    { name: "张三", age: "19" },
+    { name: "张三", age: "20" },
+    { name: "李四", age: "19" },
+    { name: "王五", age: "20" },
+    { name: "赵六", age: "21" }
+]
+var temp = {};
+resources = resources.reduce((prev, curv) => {
+ // 如果临时对象中有这个名字，什么都不做
+ if (temp[curv.name]) {
+ 
+ }else {
+    // 如果临时对象没有就把这个名字加进去，同时把当前的这个对象加入到prev中
+    temp[curv.name] = true;
+    prev.push(curv);
+ }
+ return prev
+}, []);
+console.log("结果", resources);
+
+// 这种方法是利用高阶函数 reduce 进行去重， 这里只需要注意initialValue得放一个空数组[]，不然没法push
+
+// 对象数组如何去重
+// 根据每个对象的某一个具体属性来进行去重
+
+const responseList = [
+  { id: 1, a: 1 },
+  { id: 2, a: 2 },
+  { id: 3, a: 3 },
+  { id: 1, a: 4 },
+];
+const result = responseList.reduce((acc, cur) => {
+    const ids = acc.map(item => item.id);
+    return ids.includes(cur.id) ? acc : [...acc, cur];
+}, []);
+console.log(result); // -> [ { id: 1, a: 1}, {id: 2, a: 2}, {id: 3, a: 3} ]

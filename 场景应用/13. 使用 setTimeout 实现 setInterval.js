@@ -4,6 +4,8 @@
 
 // 实现思路是使用递归函数，不断地去执行 setTimeout 从而达到 setInterval 的效果
 
+// https://www.bilibili.com/video/BV1DA411Y7Xe/?spm_id_from=333.337.search-card.all.click&vd_source=037b856144283671f89f562ed7eeb263
+
 function mySetInterval(fn, timeout) {
     // 控制器，控制定时器是否继续执行
     var timer = {
