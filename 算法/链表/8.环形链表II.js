@@ -12,7 +12,6 @@ var detectCycle = function (head) {
   // 快慢节点
   let slow = head.next,
     fast = head.next.next;
-  ß;
   // fast 走2步， slow 走1步
   while (fast && fast.next && fast !== slow) {
     slow = slow.next;
@@ -36,7 +35,6 @@ var detectCycle = function (head) {
   // 快慢节点
   let slow = head.next,
     fast = head.next.next;
-  // 
   while (fast && fast.next) {
     slow = slow.next;
     fast = fast.next.next;
