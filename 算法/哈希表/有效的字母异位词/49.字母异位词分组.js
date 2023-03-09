@@ -1,3 +1,5 @@
+// https://leetcode.cn/problems/group-anagrams/
+
 /**
  * @param {string[]} strs
  * @return {string[][]}

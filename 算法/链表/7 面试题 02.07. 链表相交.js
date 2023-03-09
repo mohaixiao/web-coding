@@ -1,5 +1,6 @@
 // https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/
 
+// 计算链表的长度
 var getListLen = function (head) {
     let len = 0, cur = head;
     while (cur) {
@@ -8,6 +9,7 @@ var getListLen = function (head) {
     }
     return len;
 }
+
 var getIntersectionNode = function (headA, headB) {
     let curA = headA, curB = headB,
         lenA = getListLen(headA),   // 求链表A的长度
