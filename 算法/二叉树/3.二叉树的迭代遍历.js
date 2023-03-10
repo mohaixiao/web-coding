@@ -2,6 +2,8 @@
 // https://leetcode.cn/problems/binary-tree-inorder-traversal/
 // https://leetcode.cn/problems/binary-tree-postorder-traversal/
 
+// https://code-thinking.cdn.bcebos.com/gifs/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86%EF%BC%88%E8%BF%AD%E4%BB%A3%E6%B3%95%EF%BC%89.gif
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {

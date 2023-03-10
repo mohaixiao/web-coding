@@ -26,6 +26,7 @@ var strStr = function (haystack, needle) {
     return -1;
 };
 
+// 前缀表统一减一
 /**
  * @param {string} s
  * @return {boolean}
@@ -58,6 +59,7 @@ var repeatedSubstringPattern = function (s) {
     return false;
 };
 
+// 前缀表统一不减一
 /**
  * @param {string} s
  * @return {boolean}
