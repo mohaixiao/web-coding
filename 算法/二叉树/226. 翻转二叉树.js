@@ -35,7 +35,7 @@ var invertTree = function (root) {
 };
 
 // 使用递归版本的前序遍历
-git
+
 var invertTree = function (root) {
     //1. 首先使用递归版本的前序遍历实现二叉树翻转
     //交换节点函数

@@ -1,8 +1,9 @@
 // https://leetcode.cn/problems/spiral-matrix-ii/
 
 // 这里每一种颜色，代表一条边，我们遍历的长度，可以看出每一个拐角处的处理规则，拐角处让给新的一条边来继续画。
-
 // 这也是坚持了每条边左闭右开的原则。
+
+// 思路：设置X,Y等于0，loop等于循环圈数，mid等于中间位置，offset为每行，列不填充的个数，创建一个n*n的数组，进行循环，loop循环里面在使用for 4个循环，X,Y收拢++，直到循环结束，如果n为奇数的话，需要单独给矩阵最中间的位置赋值。
 
 /**
  * @param {number} n
@@ -34,11 +35,9 @@ var generateMatrix = function (n) {
         for (; row > startX; row--) {
             res[row][col] = count++;
         }
-
         // 更新起始位置
         startX++;
         startY++;
-
         // 更新offset
         offset += 2;
     }

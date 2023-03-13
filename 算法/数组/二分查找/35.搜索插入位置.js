@@ -1,5 +1,7 @@
 // https://leetcode.cn/problems/search-insert-position/
 
+// 思路：二分，在target >= nums【mids】 才更新ans。毕竟是在同样大的数值后边更新。
+
 var searchInsert = function (nums, target) {
     let l = 0, r = nums.length - 1, ans = nums.length;
     while (l <= r) {

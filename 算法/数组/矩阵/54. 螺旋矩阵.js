@@ -2,6 +2,8 @@
 
 // https://leetcode.cn/problems/spiral-matrix/solutions/275716/shou-hui-tu-jie-liang-chong-bian-li-de-ce-lue-kan-/?languageTags=javascript
 
+// 思路：设置一个新数组，声明数组的4个角落的点，在top < bottom && left < right的条件下，进行4个for循环，开始顺时针绕圈，并且收缩指针，循环结束之后判断是仅剩下一行还是一列，进而进行最后的for循环。
+
 var spiralOrder = function (matrix) {
     if (matrix.length === 0) return []
     const res = []

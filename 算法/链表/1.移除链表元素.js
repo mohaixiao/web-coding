@@ -1,5 +1,7 @@
 // https://leetcode.cn/problems/remove-linked-list-elements/
 
+// 思路：
+
 /**
  * @param {ListNode} head
  * @param {number} val

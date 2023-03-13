@@ -1,5 +1,7 @@
 // https://leetcode.cn/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/description/
 
+// 思路：l,r指针等于0，r小于s长度-1进行循环，r++，通过l到r的循环判断s[right] === s[i]来更新l。最后更新maxLength。
+
 /**
  * @param {string} s
  * @return {number}

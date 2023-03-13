@@ -1,5 +1,9 @@
 // https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/
 
+// 思路：通过两次二分查找，找到左边界和后边界，边界初始值都为-2，左边界和right保持一样，右边界和left保持一样。
+// 边界内部有-2 没找到 返回【-1，-1】 边界之间最少间隔2个数，相减大于1 返回对应 [leftBorder + 1, rightBorder - 1];
+// 其他情况返回 【-1，-1】
+
 /**
  * @param {number[]} nums
  * @param {number} target
