@@ -1,22 +1,23 @@
 // 101. 对称二叉树
 // https://leetcode.cn/problems/symmetric-tree/
 
+// 思路：使用递归，先判断root是否为null，在写递归函数判断腿缺，无，不一样大的情况，然后递归执行传入对称的腿
 
 // 递归判断是否为对称二叉树：
-
 var isSymmetric = function (root) {
     //使用递归遍历左右子树 递归三部曲
     // 1. 确定递归的参数 root.left root.right和返回值true false 
     const compareNode = function (left, right) {
         //2. 确定终止条件 空的情况
+        // 半条腿
         if ((left === null && right !== null) || (left !== null && right === null)) {
             return false;
-        } else if (left === null && right === null) {
+        } else if (left === null && right === null) { // 没有腿
             return true;
-        } else if (left.val !== right.val) {
+        } else if (left.val !== right.val) { // 腿不一样大
             return false;
         }
-        //3. 确定单层递归逻辑
+        //3. 确定单层递归逻辑 左左右右
         let outSide = compareNode(left.left, right.right);
         let inSide = compareNode(left.right, right.left);
         return outSide && inSide;
@@ -27,9 +28,8 @@ var isSymmetric = function (root) {
     return compareNode(root.left, root.right);
 };
 
-
+// 思路： 层序遍历， 先判断root是否null 直接返回，然后层序遍历 取出要判断的2个节点，先判断是否为null，在判断是否单个瘸腿或者不一样大，循环的对称的推入子节点，左左右右。
 // 队列实现迭代判断是否为对称二叉树：
-
 var isSymmetric = function (root) {
     //迭代方法判断是否是对称二叉树
     //首先判断root是否为空
@@ -56,8 +56,8 @@ var isSymmetric = function (root) {
     return true;
 };
 
+// 也是层序遍历
 // 栈实现迭代判断是否为对称二叉树：
-
 var isSymmetric = function (root) {
     //迭代方法判断是否是对称二叉树
     //首先判断root是否为空
@@ -83,73 +83,3 @@ var isSymmetric = function (root) {
     }
     return true;
 };
-
-
-// 100.相同的树
-var isSameTree = function (p, q) {
-    return compare(p, q)
-};
-
-// 递归
-function compare(left, right) {
-    // 空
-    if (left === null && right === null) {
-        return true;
-    }
-    // 一空一有
-    if ((left !== null && right === null) || (left === null && right !== null)) return false;
-    // 不同
-    else if (left.val !== right.val) return false;
-    let m = compare(left.left, right.left);
-    let n = compare(left.right, right.right);
-    return m && n;
-}
-
-// 队列迭代
-var isSameTree = function (p, q) {
-    let queue = [];
-    queue.push(p);
-    queue.push(q);
-    while (queue.length) {
-        let left = queue.shift();
-        let right = queue.shift();
-        if (left === null && right === null) {
-            continue;
-        }
-        if (left === null || right === null || left.val !== right.val) {
-            return false;
-        }
-        queue.push(left.left);//左节点左孩子入队
-        queue.push(right.left);//右节点右孩子入队
-        queue.push(left.right);//左节点右孩子入队
-        queue.push(right.right);//右节点左孩子入队
-    }
-    return true;
-};
-
-// 572. 另一棵树的子树
-// https://leetcode.cn/problems/subtree-of-another-tree/
-
-/**
- * @param {TreeNode} root
- * @param {TreeNode} subRoot
- * @return {boolean}
- */
-var isSubtree = function (root, subRoot) {
-    if (!root) return false
-    if (compare(root, subRoot)) return true;
-    return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
-};
-
-
-function compare(left, right) {
-    if (left === null && right === null) {
-        return true;
-    }
-    if ((left !== null && right === null) || (left === null && right !== null)) return false;
-    else if (left === right === null) return true;
-    else if (left.val !== right.val) return false;
-    let m = compare(left.left, right.left);
-    let n = compare(left.right, right.right);
-    return m && n;
-}

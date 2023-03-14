@@ -1,6 +1,8 @@
 // 111. 二叉树的最小深度
 // https://leetcode.cn/problems/minimum-depth-of-binary-tree/
 
+// 思路：层序遍历，内部for循环的时候，遇到叶子节点就直接返回当前的deep。
+// 思路：递归遍历，
 
 // 迭代法：
 var minDepth = function (root) {
@@ -15,6 +17,7 @@ var minDepth = function (root) {
         let len = queue.length;
         for (let i = 0; i < len; i++) {
             let node = queue.shift();
+            // 是叶子节点就返回
             if (!node.left && !node.right) return deep;
             // 存放当前层下一层的节点
             node.left && queue.push(node.left);

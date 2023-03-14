@@ -90,7 +90,6 @@ var invertTree = function (root) {
 };
 
 
-
 // 使用迭代版本(统一模板)) 的前序遍历：
 
 var invertTree = function (root) {

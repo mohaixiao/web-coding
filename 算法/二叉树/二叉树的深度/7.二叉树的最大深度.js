@@ -1,11 +1,15 @@
 // 104.二叉树的最大深度
 // https://leetcode.cn/problems/maximum-depth-of-binary-tree/
 
+// 思路： 使用层序遍历，使用变量deep记录深度，只要queue有长度就执行deep++。 循环推入时，二叉树就使用l，r，n茶树就使用for of
+// 思路：使用递归  终止条件为node为null deep = 0，其他情况为递归传入l，r 得到deep之后就使用Math.max 取得最值。
+
 var maxDepth = function (root) {
     //二叉树的层序遍历
     const queue = [];
     queue.push(root);
     let deep = 0;
+    // root为空记得直接返回
     if (!root) return root;
     while (queue.length) {
         deep++;
@@ -50,10 +54,10 @@ var maxdepth = function (root) {
 
 // N叉树的最大深度 递归写法
 
-var maxDepth = function(root) {
-    if(!root) return 0
+var maxDepth = function (root) {
+    if (!root) return 0
     let depth = 0
-    for(let node of root.children) {
+    for (let node of root.children) {
         depth = Math.max(depth, maxDepth(node))
     }
     return depth + 1
@@ -61,14 +65,14 @@ var maxDepth = function(root) {
 
 // N叉树的最大深度 层序遍历
 
-var maxDepth = function(root) {
-    if(!root) return 0
+var maxDepth = function (root) {
+    if (!root) return 0
     let count = 0
     let queue = [root]
-    while(queue.length) {
+    while (queue.length) {
         let size = queue.length
         count++
-        while(size--) {
+        while (size--) {
             let node = queue.shift()
             for (let item of node.children) {
                 item && queue.push(item);
