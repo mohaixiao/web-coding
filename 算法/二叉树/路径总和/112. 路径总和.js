@@ -1,5 +1,23 @@
 // https://leetcode.cn/problems/path-sum/
 
+// https://code-thinking-1253855093.file.myqcloud.com/pics/2021020316051216.png
+
+// 思路：递归递减目标值，直到为0并且为叶子节点。
+// 步骤：
+// root为null
+// 1 遇到叶子节点，并且计数为0。
+// 2 遇到叶子节点而没有找到合适的边(计数不为0)，直接返回
+// 3左（空节点不遍历）遇到叶子节点返回true，则直接返回true
+// 4右（空节点不遍历） 遇到叶子节点返回true，则直接返回true
+
+// 迭代：思路：
+// 设置2个数组分别存储val总和，和子节点
+// 步骤
+// 使用层序遍历进行遍历，取出节点，值，值累计之后判断
+// 然后遇到叶子节点并且val相等就直接true
+// 有子节点就推入数组，并且值也要推入对应数组
+
+
 // 递归
 /**
  * @param {treenode} root
@@ -28,6 +46,7 @@ let haspathsum = function (root, targetsum) {
     // if (!root.left && !root.right && targetsum === root.val) return true;
     // return haspathsum(root.left, targetsum - root.val) || haspathsum(root.right, targetsum - root.val);
 };
+
 
 // 迭代
 let hasPathSum = function (root, targetSum) {
