@@ -7,6 +7,7 @@
  * @return {number}
  */
 var totalFruit = function (fruits) {
+
     let i = 0;
     let n = 0; // 记录第一类水果最开始的位置并且更新给i
     let maxLen = 0;
