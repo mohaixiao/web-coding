@@ -1,5 +1,8 @@
 // https://leetcode.cn/problems/backspace-string-compare/
 
+// 思路：i,j分别为S,T字符串的末尾，开始循环(i >= 0 || j >= 0)，遇到#就存起来（i--，j--），有存#就删字母（i--
+// ，j--），然后再比较没有被删和不是#的字母（i--，j--）
+
 /**
  * @param {string} s
  * @param {string} t

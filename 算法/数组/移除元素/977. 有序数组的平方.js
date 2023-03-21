@@ -1,5 +1,7 @@
 // https://leetcode.cn/problems/squares-of-a-sorted-array/
 
+// 思路：先给数组排序，i,j指针遍历数组，收尾平方比大小，大的放新数组末尾。使用k设置新数组和数组一样长度。
+
 /**
  * @param {number[]} nums
  * @return {number[]}

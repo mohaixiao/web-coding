@@ -1,5 +1,7 @@
 // https://leetcode.cn/problems/sqrtx/
 
+// 思路：使用二分法 l为1 r为x 判断mid 和 x / mid ，mid + 1 和 x 的关系。
+
 /**
  * @param {number} x
  * @return {number}

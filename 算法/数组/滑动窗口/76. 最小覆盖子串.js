@@ -1,5 +1,9 @@
 // https://leetcode.cn/problems/minimum-window-substring/submissions/362545832/
 
+// 滑动窗口，就是不断的调节子序列的起始位置和终止位置，从而得出我们要想的结果。一般，lr等于0，拿r和长度进行循环，在循环里面某个条件更新l，在更新l之后一般就会计算r和l之间的长度或者什么。。
+
+// 思路：l，r指针都等于0，r指针和s长度进行while循环，l在更新res长度之后再移动，使用map存储t字符串（短的），while循环去掉map，直到map为空（Types === 0），取right + 1 - left长度，归还map一个字符，移动left。直到right 到 s末尾。
+
 /**
  * @param {string} s
  * @param {string} t

@@ -1,5 +1,7 @@
 // https://leetcode.cn/problems/remove-linked-list-elements/
 
+// 思路：增加一个头结点，cur 等于新头节点，使用cur，next进行循环删除，删除之后记得跳过本次循环。
+
 /**
  * @param {ListNode} head
  * @param {number} val
