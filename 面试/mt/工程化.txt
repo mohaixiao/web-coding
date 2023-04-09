@@ -1,0 +1,25 @@
+中间穿插一些关于项目的东西（项目没什么东西，所以问的不多），vite和webpack有什么区别，后端接口是哪里的
+34. webpack使用？
+35. webpack的原理？
+36. webpack 的 entry 支持哪些方式？
+37. 怎么利用webpack实现多页功能的打包
+38. 项目用webpack做了哪些代码分割
+webpack的作用
+vite为什么快
+webpack，vite的区别，vite缺点
+vite，如果有大量图片，会发生什么
+npm包会自己发送请求吗
+webpack有了解过吗
+vite 和 webpack 的区别
+webpack 的 loader 和 plugin 的区别
+webpack的优化方案
+webpack5新特性,3,4,5版本的差别
+JS压缩工具？如何进行压缩的？uglify和terser的区别，为什么terser压缩的代码更小
+介绍一下tree-shaking，webpack是如何进行tree-shaking的？
+14.npm install 发生的事情
+15.npm run start发生的事情
+webpack热启动原理
+3.为什么选择vite，是否了解过其他打包工具
+4.vite打包之后是什么样的
+webpack打包原理，vite更快的原因
+npm run serve 上面那个命令什么意思，执行的什么文件

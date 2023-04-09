@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>手写瀑布流</title>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #mainBorder {
+        position: relative;
+        width: 100vw;
+      }
+      .waterfallsFlow {
+        width: 200px;
+        position: absolute;
+        transition: all 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainBorder"></div>
+    <script type="text/javascript">
+      const imgWidth = 200; //设置图片宽度
+      const mainDom = document.getElementById("mainBorder");
+      const imgHeightMargin = 5; // 图片纵向间距
+      // 添加图片
+      for (let i = 0; i < 20; i++) {
+        const imgUrl = `https://img2.baidu.com/it/u=380068739,540564660&fm=253&fmt=auto&app=138&f=PNG?w=500&h=500`;
+        const img = document.createElement("img");
+        img.src = imgUrl;
+        img.className = "waterfallsFlow";
+        mainDom.appendChild(img);
+      }
+
+      // 计算瀑布流列数与外边距
+      function calc() {
+        const windowWidth = window.innerWidth;
+        const imgRow = parseInt(windowWidth / imgWidth);
+        const imgMargin = (windowWidth - imgRow * imgWidth) / (imgRow + 1);
+        return [imgRow, imgMargin];
+      }
+
+      function setPosition() {
+        const [imgRow /*瀑布流列数*/, imgMargin /*每张图片的外边距*/] = calc();
+        const imgs = mainDom.children;
+        // let [rowNum/*当前所在列数*/, imgHeight/*当前图片高度*/] = [1, 0]
+        let rowHeightList = new Array(imgRow); // 创建一个用来存储每一列高度的数组
+        // 数组初始化
+        for (let i = 0; i < rowHeightList.length; i++) {
+          rowHeightList[i] = 0;
+        }
+        for (let i = 0; i < imgs.length; i++) {
+          const minHeight = Math.min(...rowHeightList);
+          const rowNum = rowHeightList.indexOf(minHeight);
+          const imgHeight = imgs[i].offsetHeight;
+          // 由于子元素设置了absolute,故父元素不会被撑开，需要给父元素设置高度
+          mainDom.offsetHeight = Math.max(...rowHeightList);
+          imgs[i].style.cssText = `
+            width:${imgWidth}px;
+            top:${minHeight + imgHeightMargin}px;
+            left:${imgWidth * rowNum + imgMargin * (rowNum + 1)}px`;
+          rowHeightList[rowNum] += imgHeight + imgHeightMargin;
+        }
+      }
+
+      // 使用闭包完成防抖函数
+      function debounce(func, deplay) {
+        let timer = null;
+        return function () {
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(() => {
+            func();
+          }, deplay);
+        };
+      }
+
+      window.onload = setPosition;
+      window.onresize = debounce(setPosition, 100);
+    </script>
+  </body>
+</html>
+
+<!-- https://blog.csdn.net/zhaojiuyi/article/details/126519972 -->
+

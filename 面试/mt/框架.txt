@@ -1,0 +1,119 @@
+vue和react的对比？
+hooks
+vue react 差异，dom更新机制差异，diff，vue不同版本差异
+react类组件生命周期，useEffect
+避免重复渲染的方法
+父子组件的生命周期
+React技术关键特点
+React生命周期
+销毁的时候 React做一些什么事情？
+有看React源码吗？
+怎么理解React单向数据流？
+单向数据流 跟 双向数据绑定 比较有什么优劣？
+用Redux的背景？
+是单页应用吗？
+有了解其他状态管理方案吗？
+Redux执行机制
+connect把状态存到组件哪里？
+redux 中 和后端交互是在哪些地方发请求？（action异步方案）
+redux 的缺点
+connect 把状态存在 props，会有冲突吗？怎么办？
+什么场景用redux？推荐使用redux吗？
+错误边界的原理，怎么捕获错误？
+函数组件怎么捕获呢？
+错误边界生命周期里捕获是什么原理？
+try catch能捕获哪些错误呢？
+dva解决了redux和react什么问题
+你是怎么学习React的 应该不是学校教的 是自学的吗 怎么学习的
+react hooks函数 与类组件区别
+hooks容易出问题的地方？？
+hooks能不能放在if这种里面
+有没有自定义过hooks
+react组件通信，用过redux吗？?
+React 生命周期
+同步还是异步 18以前和以后的做法
+了解过其它哪些框架
+用过哪些状态管理库，说说区别
+什么情况下会使用泛型
+谈谈对高阶组件的理解
+Redux是用来干嘛的
+组件化模块化的理解
+你觉得组件划分的标准是什么？（功能和样式类似）
+一个页面，组件你会怎么划分？（就按照自己项目讲的）
+react生命周期
+React.memo，shallowEqual，怎么比较的
+react常用hooks,每个详细说说，useRef除了获取dom还能干嘛
+react组件间通信
+介绍一下diff算法
+MVVM和MVC的区别
+怎么看待vue和react。为什么学了vue，对react了解多少
+vue和react这些框架的出现解决了哪些问题（答复用和前端工程化）。面试官反问组件复用和前端工程化原生都可以做到，有多少了解（没了解，反问是微前端吗，不是）
+前端用的什么框架
+有了解react吗
+强制修改父组件传过来的props会造成什么结果?为什么?组件间通信
+React的class组件和hook组件的使用感受
+有用过哪些hook的api
+react生命周期
+react的hooks作用
+diff算法
+看过react或vue的官方demo吗
+你说dom消耗性能，如果不改变dom的节点,只是获得一个节点会不会消耗性能?
+不知道。讲了一下浏览器的渲染过程，然后猜大概不怎么消耗{面试官露出了难绷的笑容)
+介绍MVVM和双向绑定
+了解过除了MVVM的其他架构吗（MVC之类的架构）
+怎么启动（npm run serve)
+
+
+谈谈你对vue的认识
+vue2怎么监听数组
+讲点vue3的新特性
+keep-alive组件
+vue的理解，响应式
+vue虚拟DOM，diff算法，v-for中key的作用
+vue-router原理？看完不会，又问了浏览器的pushState API，哈希路由和parse路由
+手写vue双向数据绑定（用Object.defineProperty或Proxy来实现）
+vue相比原生js有什么优点？
+vue的响应式是怎么实现的？Defineproperty有什么API，proxy又有什么API 
+vue会帮忙操作dom，那么原生js操作dom的api有哪些
+vue组件懒加载怎么用
+vuex 和 pinia 的区别？
+vuex 和 pinia 源码有了解过吗？
+vue 的核心实现原理介绍一下，说一下 2 3的区别
+vue3 在数据处理(比如数组，对象添加新属性)上和vue2的区别
+说说组件间传参，emit 存在哪些弊端，再举出一些 子组件向父组件传参 的方式
+详细说说 vue2 和 vue3 的区别
+说说 vue3 比起 vue2 在哪些性能上有了提高
+说说响应式数据被修改后 vue 如何处理的全过程
+为什么 flushJobs 要在微任务里
+nextTick 的原理
+vue中的style可以设置scope，问原理是什么，加属性data-id啥的，然后问，那么多组件都加scope，会有什么问题上一题我回答的时候提到了样式穿透，问我样式穿透的各种语法
+对vue响应式的理解
+Vue跨平台原理？虚拟dom的优势？
+了解的SSR和Koa
+虚拟DOM和diff算法
+v-router原理是什么？（答了个切换hash实现组件局部刷新。。。）
+vuex的内容，state, mutation,action都是干什么的
+为什么一定要通过mutation和action来改?直接用this.$store来改为什么不行(大概是不知道来源，如果用mutation和action中的函数来改就知道改动的来源之类的)
+vue框架&vue2和vue3的区别
+数据劫持&defineProperty，数据劫持有什么缺点?
+
+
+怎么做到双向绑定
+讲一下vue的spa页面刷新原理
+讲一下spa的路由实现
+vue中如何确认dom是否更新完成
+vue中如何确认dom是否更新完成
+v-if和v-show的区别，以及各自的使用场景
+css中能用哪些方法实现v-show的效果
+vue2和vue3区别
+vue生命周期created和mounted区别
+登录鉴权 角色区分
+事件总线是什么设计模式 手写on方法
+vue父子组件等交流方式
+Vue组件通信方式
+v-show v-if区别。（原理，开销，使用场景）
+vue的实现原理（底层框架）
+vue2有什么特性，对比原生js有什么优点（我说了开发友好、MVVM、虚拟DOM之类的，后端的MVVM）
+vue的其他方面优化，给我举了一个例子，比如说频繁更新数据，会不会立刻更新视图？（我所知道的是浏览器的渲染队列，不知道vue在这方面是怎么优化的）
+vue怎么学（先学视频，然后找项目练手）
+

@@ -1,0 +1,14 @@
+会不会用node启动一个服务
+nodejs和java的区别
+nodejs和js时间循环
+NodeJS一个服务器如何起多个线程
+后端用什么语言，用过node.js吗，node.js12中的一个什么和es6什么的区别
+知道nodejs 吗
+node的事件循环和浏览器的事件循环什么区别？
+如何开启一个 node 服务？原生 and express
+linux 如何搜索一些特定内容要求的文件？
+如何用 nodejs 实现？
+node 的事件循环和浏览器的事件循环细说
+nodejs了解多少（平时下载库，项目里面搭建了一个服务器，启动了一个端口）
+node了解多少
+nodejs的事件循环和浏览器的事件循环区别
