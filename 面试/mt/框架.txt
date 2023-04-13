@@ -96,8 +96,6 @@ vuex的内容，state, mutation,action都是干什么的
 为什么一定要通过mutation和action来改?直接用this.$store来改为什么不行(大概是不知道来源，如果用mutation和action中的函数来改就知道改动的来源之类的)
 vue框架&vue2和vue3的区别
 数据劫持&defineProperty，数据劫持有什么缺点?
-
-
 怎么做到双向绑定
 讲一下vue的spa页面刷新原理
 讲一下spa的路由实现

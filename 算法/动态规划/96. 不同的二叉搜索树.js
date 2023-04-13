@@ -12,4 +12,4 @@ const numTrees = (n) => {
     }
 
     return dp[n];
-};
+}; 
