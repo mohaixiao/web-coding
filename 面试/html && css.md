@@ -495,7 +495,7 @@ div {
 
 [面试官：用CSS实现垂直居中的方法有哪些？](https://www.bilibili.com/video/BV1ne4y137MY/?spm_id_from=333.788&vd_source=037b856144283671f89f562ed7eeb263)
 
-### display 有哪些值？说明他们的作用。
+#### display 有哪些值？说明他们的作用。
 
 | **属性值**      | **作用**                        |
 | ------------ | ----------------------------- |
@@ -532,7 +532,7 @@ grid grid 布局
 
 [MDN display](https://developer.mozilla.org/zh-CN/docs/Web/CSS/display)、[w3c display](https://www.w3cschool.cn/cssref/pr-class-display.html)、[菜鸟教程 display](https://www.runoob.com/cssref/pr-class-display.html)
 
-### position 的值 relative 和 absolute 定位原点是？
+#### position 的值 relative 和 absolute 定位原点是？
 
 relative 定位的元素，是相对于元素本身的正常位置来进行定位的。
 absolute 定位的元素，是相对于它的第一个 position 值不为 static 的祖先元素的 padding box 来进行定位的。这句话
@@ -551,7 +551,7 @@ absolute 定位的元素，是相对于它的第一个 position 值不为 static
 在从右向左书写的语言中，容纳块的右边界是第一个框体内容区的右边界，左边界是最后一个框体内容区的左边界;顶边和底边与前述情况一样。
 ③ 如果没有祖辈元素,元素的容纳块是初始容纳块。
 
-### CSS3 有哪些新特性？（根据项目回答）
+#### CSS3 有哪些新特性？（根据项目回答）
 
 新增各种 CSS 选择器 （:not(.input)：所有 class 不是“input”的节点）
 圆角 （border-radius:8px）
@@ -564,7 +564,7 @@ absolute 定位的元素，是相对于它的第一个 position 值不为 static
 缩放，定位，倾斜，动画，多背景
 例如：transform:\scale(0.85,0.90)\translate(0px,-30px)\skew(-9deg,0deg)\Animation:
 
-### 请解释一下 CSS3 的 Flex box（弹性盒布局模型），以及适用场景？说一下 flex，flex:1，以及其他 flex 属性尽可能多，接着问 grow 和 shrink 代表什么? flex 布局 有哪些属性？
+#### 请解释一下 CSS3 的 Flex box（弹性盒布局模型），以及适用场景？说一下 flex，flex:1，以及其他 flex 属性尽可能多，接着问 grow 和 shrink 代表什么? flex 布局 有哪些属性？
 
 > flex 布局是 CSS3 新增的一种布局方式，我们可以通过将一个元素的 display 属性值设置为 flex 从而使它成为一个 flex 容器，它的所有子元素都会成为弹性子元素。
 
@@ -1755,7 +1755,7 @@ info
 
 #### 什么是 Cookie 隔离？（或者说：请求资源的时候不要让它带 cookie 怎么做）
 
-info
+
 网站向服务器请求的时候，会自动带上 cookie 这样增加表头信息量，使请求变慢。
 
 如果静态文件都放在主域名下，那静态文件请求的时候都带有的 cookie 的数据提交给 server 的，非常浪费流量，所以不如隔离开
@@ -2263,12 +2263,12 @@ label 标签来定义表单控件的关系：当用户选择 label 标签时，�
 **文档声明的作用：** 文档声明是为了告诉浏览器，当前 HTML 文档使用什么版本的 HTML 来写的，这样浏览器才能按照声明的版本来正确的解析。
 **<!doctype html> 的作用：** 就是让浏览器进入标准模式(严格模式)，使用最新的 HTML5 标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。
 
-### 17. **严格模式与混杂模式的区分：**
+### 17. 严格模式与混杂模式的区分：
 
 - **严格模式**： 又称为标准模式，指浏览器按照 W3C 标准解析代码；
 - **混杂模式**： 又称怪异模式、兼容模式，是指浏览器用自己的方式解析代码。混杂模式通常模拟老式浏览器的行为，以防止老站点无法工作；
 
-### 18.**HTML5 为什么只需要写 `<! DOCTYPE HTML>` ？**
+### 18.HTML5 为什么只需要写 `<! DOCTYPE HTML>` ？
 
 HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。而 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为。
 其中，SGML 是标准通用标记语言, 简单的说，就是比 HTML, XML 更老的标准，HTML，XML 这两者都是由 SGML 发展而来的，而 HTML5 不是的。
@@ -2365,7 +2365,7 @@ XML 的要求会比较严格:
 但是目前来讲大部分浏览器都不会对音视频进行播放。
 **video**标签来向网页中引入一个视频，使用方法和 audio 基本上是一样的，包括各种 audio 拥有的属性，video 也有。
 
-### 28. **前端页面由哪三层构成，分别作用是什么？**
+### 28. 前端页面由哪三层构成，分别作用是什么？
 
 分成：结构层、表示层、行为层。
 
