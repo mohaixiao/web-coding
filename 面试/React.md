@@ -1,0 +1,118 @@
+### React SSR
+
+### React单向数据流
+
+### React父子组件传值
+
+### hooks
+
+### 函数式组件实现闭环
+
+### hooks相比class有什么优点
+
+### 对 React SSR 的理解
+
+服务端渲染是数据与模版组成的 html，即 HTML = 数据 ＋ 模版。将组件或页面通过服务器生成 html 字符串，再发送到浏览器，最后将静态标记"混合"为客户端上完全交互的应用程序。页面没使用服务渲染，当请求页面时，返回的 body 里为空，之后执行 js 将 html 结构注入到 body 里，结合 css 显示出来;
+
+**SSR 的优势：**
+
+- 对 SEO 友好
+- 所有的模版、图片等资源都存在服务器端
+- 一个 html 返回所有数据
+- 减少 HTTP 请求
+- 响应快、用户体验好、首屏渲染快
+
+**1）更利于 SEO**
+
+不同爬虫工作原理类似，只会爬取源码，不会执行网站的任何脚本使用了 React 或者其它 MVVM 框架之后，页面大多数 DOM 元素都是在客户端根据 js 动态生成，可供爬虫抓取分析的内容大大减少。另外，浏览器爬虫不会等待我们的数据完成之后再去抓取页面数据。服务端渲染返回给客户端的是已经获取了异步数据并执行 JavaScript 脚本的最终 HTML，网络爬中就可以抓取到完整页面的信息。
+
+**2）更利于首屏渲染**
+
+首屏的渲染是 node 发送过来的 html 字符串，并不依赖于 js 文件了，这就会使用户更快的看到页面的内容。尤其是针对大型单页应用，打包后文件体积比较大，普通客户端渲染加载所有所需文件时间较长，首页就会有一个很长的白屏等待时间。
+
+**SSR 的局限：**
+
+**1）服务端压力较大**
+
+本来是通过客户端完成渲染，现在统一到服务端 node 服务去做。尤其是高并发访问的情况，会大量占用服务端 CPU 资源;
+
+**2）开发条件受限**
+
+在服务端渲染中，只会执行到 componentDidMount 之前的生命周期钩子，因此项目引用的第三方的库也不可用其它生命周期钩子，这对引用库的选择产生了很大的限制;
+
+**3）学习成本相对较高** 除了对 webpack、MVVM 框架要熟悉，还需要掌握 node、 Koa2 等相关技术。相对于客户端渲染，项目构建、部署过程更加复杂。
+
+**时间耗时比较：**
+
+**1）数据请求**
+
+由服务端请求首屏数据，而不是客户端请求首屏数据，这是"快"的一个主要原因。服务端在内网进行请求，数据响应速度快。客户端在不同网络环境进行数据请求，且外网 http 请求开销大，导致时间差。
+
+### 怎么解决React重复渲染 memo 应用场景 第二个参数
+
+在 React 应用中，memo 是一种优化组件性能的方式，它可以避免组件在 props 没有变化时不必要的重新渲染。memo 函数使用了浅层比较来判断当前传入的 props 是否与之前传入的相同。如果相同，则 React 会复用之前的组件实例，从而避免了无谓的渲染操作。
+
+然而，在某些场景下，即使父组件的 props 没有改变，memo 包装的子组件仍然会重新渲染。这通常是因为引用类型（数组、对象等）的值发生了变化，而这些值被作为 props 传递给了子组件，导致子组件也跟着重新渲染。
+
+为了避免这种情况，React.memo() 函数提供了一个可选参数 `areEqual`，它允许我们自定义比较函数。如果传入了该属性，则 React 会调用这个函数来决定是否需要更新组件。这个函数接受两个参数：前一个 props 和后一个 props；如果这个函数返回 `true`，则 React 会认为这两个 props 是相等的，从而避免更新组件。反之则会更新。
+
+例如，假设我们的子组件接受一个对象类型的 prop，我们可以通过以下方式来防止不必要的渲染：
+
+```
+function MyComponent(props) {
+  // ...
+}
+
+function areEqual(prevProps, nextProps) {
+  return prevProps.objectProp.id === nextProps.objectProp.id;
+}
+
+export default React.memo(MyComponent, areEqual);
+```
+
+在上面的例子中，我们传递了 `areEqual` 函数给 `React.memo()`，用来比较前后 props 是否相等。具体来说，我们使用了对象的 `id` 属性来作为比较依据，只有当 `id` 相等时才认为 props 不变。
+
+总之，通过自定义 `areEqual` 比较函数，我们可以避免 memo 组件在某些情况下不必要的渲染，提高应用程序的性能和响应速度。
+
+### React.memo 作用及实现
+
+```
+作用：为函数组件提供类似PureComponent的功能，调用方式
+React.memo(Component, [isEqual])
+其中isEqual方法的返回值与shouldComponentUpdate返回值相反
+// 3种实现方式
+// 函数式组件
+function memo(Component, isEqual) {
+  function MemoComponent(props) {
+    const prevProps = React.useRef(props)
+    React.useEffect(() => {
+      prevProps.current = props
+    })
+    return React.useMemo(() => <Component {...props} />, [
+      isEqual(prevProps.current, props),
+    ])
+  }
+  return MemoComponent
+}
+// 使用PureComponent
+function memo(Component, isEqual) {
+  return class MemoComponent extends React.PureComponent {
+    render() {
+      return <Component {...this.props} />
+    }
+  }
+}
+
+// 使用shouldComponentUpdate
+function memo(Component, isEqual) {
+  return class MemoComponent extends React.Component {
+    shouldComponentUpdate(prevProps) {
+      return !isEqual(prevProps, this.props)
+    }
+    render() {
+      return <Component {...this.props} />
+    }
+  }
+}
+
+```

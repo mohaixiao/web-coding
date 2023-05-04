@@ -51,6 +51,7 @@ rem和em区别 具体是基于什么，怎么设置rem等于窗口高度）
 四种定位  
 
 bind、call、apply具体使用方法  
+
 箭头函数，箭头函数中的this指向？说一下 this，改变this的方法 call apply bind
 如果new一个箭头函数的会怎么样
 箭头函数和普通函数区别，什么情况用箭头函数？

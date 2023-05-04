@@ -139,15 +139,15 @@ var resources = [
 ]
 var temp = {};
 resources = resources.reduce((prev, curv) => {
- // 如果临时对象中有这个名字，什么都不做
- if (temp[curv.name]) {
- 
- }else {
-    // 如果临时对象没有就把这个名字加进去，同时把当前的这个对象加入到prev中
-    temp[curv.name] = true;
-    prev.push(curv);
- }
- return prev
+    // 如果临时对象中有这个名字，什么都不做
+    if (temp[curv.name]) {
+
+    } else {
+        // 如果临时对象没有就把这个名字加进去，同时把当前的这个对象加入到prev中
+        temp[curv.name] = true;
+        prev.push(curv);
+    }
+    return prev
 }, []);
 console.log("结果", resources);
 
@@ -157,13 +157,182 @@ console.log("结果", resources);
 // 根据每个对象的某一个具体属性来进行去重
 
 const responseList = [
-  { id: 1, a: 1 },
-  { id: 2, a: 2 },
-  { id: 3, a: 3 },
-  { id: 1, a: 4 },
+    { id: 1, a: 1 },
+    { id: 2, a: 2 },
+    { id: 3, a: 3 },
+    { id: 1, a: 4 },
 ];
+
 const result = responseList.reduce((acc, cur) => {
     const ids = acc.map(item => item.id);
     return ids.includes(cur.id) ? acc : [...acc, cur];
 }, []);
 console.log(result); // -> [ { id: 1, a: 1}, {id: 2, a: 2}, {id: 3, a: 3} ]
+
+
+// 使用JSON.stirngify
+function uniqueArray(arr) {
+    const res = new Set();
+
+    // 遍历原数组，将每一项深拷贝后放入 Set 中
+    arr.forEach((item) => {
+        const stringifyItem = JSON.stringify(item);
+        if (!res.has(stringifyItem)) {
+            // 如果 Set 中没有该项，则将其添加进去
+            res.add(stringifyItem);
+        }
+    });
+
+    // 将 Set 转换为数组输出，这里需要对每一项进行 JSON 解析
+    return Array.from(res, (item) => JSON.parse(item));
+}
+
+const arr = [
+    { a: 2 },
+    { a: 2 },
+    { a: 2, b: 1 },
+    { a: { b: 1, c: { a: 1 } } },
+    { a: { b: 1, c: { a: 1 } } }
+]
+
+console.log(uniqueArray(arr)); // [{a: 2}, {a: 2, b: 1}, {a: {b: 1, c: {a: 1}}}]
+
+
+function deepEqual(obj1, obj2) {
+    // 如果两个对象都不是引用类型，直接比较它们是否相等
+    if (typeof obj1 !== 'object' || obj1 === null ||
+        typeof obj2 !== 'object' || obj2 === null) {
+        return obj1 === obj2;
+    }
+
+    // 获取两个对象的所有属性
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+
+    // 如果属性数量不同，两个对象不相等
+    if (keys1.length !== keys2.length) {
+        return false;
+    }
+
+    // 遍历第一个对象的所有属性，递归比较第二个对象的对应属性
+    for (const key of keys1) {
+        // 如果第二个对象中没有这个属性，两个对象不相等
+        if (!keys2.includes(key)) {
+            return false;
+        }
+
+        const val1 = obj1[key];
+        const val2 = obj2[key];
+
+        // 递归判断两个嵌套的对象是否相等
+        if (!deepEqual(val1, val2)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function deepUnique(arr) {
+    const seen = new Set(); // 用来存储已经出现过的对象
+
+    return arr.filter((item) => {
+        // 如果该项是原始类型，直接返回true保留
+        if (typeof item !== 'object' || item === null) {
+            return true;
+        }
+
+        // 否则，遍历该项的属性，对每一个属性进行递归比较
+        for (const key in item) {
+            const value = item[key];
+
+            if (typeof value === 'object' && value !== null) {
+                // 遇到嵌套对象或数组，则递归去重
+                item[key] = deepUnique([value])[0];
+            }
+        }
+
+        // 判断该项是否已经出现过
+        for (const seenItem of seen) {
+            if (deepEqual(item, seenItem)) {
+                // 如果出现过，则过滤掉当前项
+                return false;
+            }
+        }
+
+        // 否则，将该项加入已经出现过的Set中，并保留该项
+        seen.add(item);
+        return true;
+    });
+}
+
+const arr = [
+    { a: 2 },
+    { a: 2 },
+    { a: 2, b: 1 },
+    { a: { b: 1, c: { a: 1 } } },
+    { a: { b: 1, c: { a: 1 } } }
+];
+
+console.log(deepUnique(arr)); // [{a: 2}, {a: 2, b: 1}, {a: {b: 1, c: {a: 1}}}]
+
+
+/**
+ * @description: 检查两个对象 obj1 和 obj2 是否值相等
+ * @param {*} obj1
+ * @param {*} obj2
+ * @return {*}
+ */
+function checkObj(obj1, obj2) {
+    // 指向同一内存
+    if (obj1 === obj2) return true;
+    let arr1 = Object.keys(obj1),
+        arr2 = Object.keys(obj2);
+    // 判断属性值是否相等
+    if (arr1.length != arr2.length) return false;
+    for (const k in arr1) {
+        if (typeof arr1[k] == "object" || typeof arr2[k] == "object") {
+            if (!checkObj(arr1[k], arr2[k])) return false;
+        } else if (arr1[k] !== arr2[k]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+/**
+ * @description: 在数组原型上写方法
+ * @param {*} itemObj
+ * @return {*}
+ */
+Array.prototype.includesObj = function (itemObj) {
+    let flag = false;
+    for (let i = 0; i < this.length; i++) {
+        if (checkObj(this[i], itemObj)) {
+            flag = true;
+            break;
+        }
+    }
+    return flag;
+};
+
+/**
+ * @description: 针对对象数组，且可能出现对象引用的问题
+ * @param {*} nums
+ * @return {*}
+ */
+function uniqSpecial(nums) {
+    const result = [];
+    for (let i = 0; i < nums.length; i++) {
+        // 如果不存在
+        if (!result.includesObj(nums[i])) result.push(nums[i]);
+    }
+    return result;
+}
+let a = { a: 1 };
+let b = { a: 1 };
+let c = { b: 2 };
+let nums = [a, b, c];
+
+console.log(uniqSpecial(nums));
+  // [ { a: 1 }, { b: 2 } ]

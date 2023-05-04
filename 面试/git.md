@@ -14,6 +14,38 @@ git中实现回滚操作有多种方法，以下是其中一种常见的方法�
 
  [git实现回滚](https://cloud.tencent.com/developer/article/1582800) 。
 
-### 说一说-f的作用， reset和revert有什么区别，给定场景a,b,c三个版本，用具体的命令实现回滚
+### 说一说-f的作用， reset和revert有什么区别，给定场景a,b,c三个版本，用具体的命令实现回滚？
 
+`git push -f` 的作用是将本地仓库的代码强制推送到远程仓库，会导致之前的提交记录都会被覆盖。这个命令应该谨慎使用，只有在个人仓库或者 team 之间协作时某些误操作需要进行回滚时才应该使用。
 
+在 Git 中，`git reset` 和 `git revert` 都可以用来回滚代码。它们的区别在于对历史版本的处理方式不同。
+
+- `git reset` 会移动 HEAD 指针到某个指定的提交，将当前工作目录的内容恢复成这个提交的内容。同时，如果使用 `--hard` 参数，那么 Git 会彻底删除之前的提交记录，让之前的记录“消失”。
+- `git revert` 会创建一个新的提交，作为之前某次提交的反向操作，撤销之前提交的变更。同时，不会修改历史记录，不会删除之前提交，而是新增一个反向的提交。
+
+下面给出三种场景下具体的回滚命令：
+
+- 场景 A：回滚到最近一次提交
+  
+  shellCopy Code
+  
+  `git reset --hard HEAD~1 git push -f`
+
+- 场景 B：回滚到某个特定的提交
+  
+  shellCopy Code
+  
+  `git reset --hard <commit-id> git push -f`
+
+- 场景 C：撤销某次提交，创建一个新的提交
+  
+  shellCopy Code
+  
+  `git revert <commit-id> git push`
+
+以上命令会在本地进行操作，如果需要将回滚操作同步到远程仓库需要使用 `git push` 命令。
+
+这里的知识来源为：
+
+- [[1](https://segmentfault.com/a/1190000038436305)] 关于 `git push -f` 命令的说明；
+- [[2](https://zhuanlan.zhihu.com/p/412482122)] `git reset` 和 `git revert` 的区别及使用场景。
