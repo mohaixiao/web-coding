@@ -2089,7 +2089,7 @@ eg. 像百度搜索，就应该用防抖，当我连续不断输入时，不会�
 
 [《轻松理解 JS 函数节流和函数防抖》](https://juejin.im/post/5a35ed25f265da431d3cc1b1) [《JavaScript 事件节流和事件防抖》](https://juejin.im/post/5aa60b0e518825556b6c6d1a) [《JS 的防抖与节流》](https://juejin.im/entry/5b1d2d54f265da6e2545bfa4)
 
-### 92. Object.is() 与原来的比较操作符 “===”、“==” 的区别？
+### 92. Object.is() 与原来的比较操作符 “===”、“==” 的区别？ ==和===之间的区别？
 
 > 使用双等号进行相等判断时，如果两边的类型不一致，则会进行强制类型转化后再进行比较。
 
@@ -2098,10 +2098,13 @@ eg. 像百度搜索，就应该用防抖，当我连续不断输入时，不会�
 ECMAScript 6 规范新增了 Object.is()，这个方法与===很像，但同时也考虑到了上述边界情形。这个方法必须接收两个参数。增加了对 0、-0、+0 相等/不等判定， NaN 相等判定。
 
 要检查超过两个值，递归地利用相等性传递即可
+
+```
 function recursivelyCheckEqual(x, ...rest) {
 return Object.is(x, rest[0]) &&
 (rest.length < 2 || recursivelyCheckEqual(...rest));
 }
+```
 
 ```jsx
 function is(x, y) {
