@@ -37,7 +37,7 @@
 
 ### 内部属性 `[[Class]]` 是什么？
 
-> 所有 typeof 返回值为 "object" 的对象（如数组）都包含一个内部属性 [[Class]]（我们可以把它看作一个内部的分类，而非传统的面向对象意义上的类）。这个属性无法直接访问，一般通过 Object.prototype.toString(..) 来查看。例如：
+> 所有 typeof 返回值为 "object" 的对象（如数组）都包含一个内部属性 [[Class]]（我们可以把它看作一个内部的分类，而非传统的面向对象意义上的类）。这个属性无法直接访问，一般通过 `Object.prototype.toString(..)` 来查看。例如：
 
 ```js
 Object.prototype.toString.call([1, 2, 3]);
@@ -207,7 +207,7 @@ null 和 undefined 都没有属性或方法。事实上，使用.或[]访问这�
 
 ### 10. JavaScript 原型，原型链？ 有什么特点？
 
-> 在 js 中我们是使用构造函数来新建一个对象的，每一个构造函数的内部都有一个 prototype 属性值，这个属性值是一个对象，这个对象包含了可以由该构造函数的所有实例共享的属性和方法。当我们使用构造函数新建一个对象后，在这个对象的内部将包含一个指针，这个指针指向构造函数的 prototype 属性对应的值，在 ES5 中这个指针被称为对象的原型。一般来说我们是不应该能够获取到这个值的，但是现在浏览器中都实现了 **proto** 属性来让我们访问这个属性，但是我们最好不要使用这个属性，因为它不是规范中规定的。ES5 中新增了一个 Object.getPrototypeOf() 方法，我们可以通过这个方法来获取对象的原型。
+在 js 中我们是使用构造函数来新建一个对象的，每一个构造函数的内部都有一个 prototype 属性值，这个属性值是一个对象，这个对象包含了可以由该构造函数的所有实例共享的属性和方法。当我们使用构造函数新建一个对象后，在这个对象的内部将包含一个指针，这个指针指向构造函数的 prototype 属性对应的值，在 ES5 中这个指针被称为对象的原型。一般来说我们是不应该能够获取到这个值的，但是现在浏览器中都实现了 **proto** 属性来让我们访问这个属性，但是我们最好不要使用这个属性，因为它不是规范中规定的。ES5 中新增了一个 Object.getPrototypeOf() 方法，我们可以通过这个方法来获取对象的原型。
 
 当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么它就会去它的原型对象里找这个属性，这个原型对象又会有自己的原型，于是就这样一直找下去，也就是原型链的概念。原型链的尽头一般来说都是 Object.prototype 所以这就是我们新建的对象为什么能够使用 toString() 等方法的原因。
 
@@ -361,7 +361,7 @@ JS 中，类型转换只有三种：
 
 本题相关知识点：
 
-**《**你不知道的 JS 中》4.2.2 ToNumber 《JavaScript 权威指南第七版》3.9 类型转换 《JavaScript 高级程序设计第四版》3.4.6 String 类型 3. 转换为字符串
+《你不知道的 JS 中》4.2.2 ToNumber 《JavaScript 权威指南第七版》3.9 类型转换 《JavaScript 高级程序设计第四版》3.4.6 String 类型 3. 转换为字符串
 
 #### 17.3 其他值到布尔类型的值的转换规则？
 
@@ -382,7 +382,7 @@ JS 中，类型转换只有三种：
 
 ### 18. {} 和 [] 的 valueOf 和 toString 的结果是什么？
 
-> {} 的 valueOf 结果为 {} ，toString 的结果为 "[object Object]"
+{} 的 valueOf 结果为 {} ，toString 的结果为 "[object Object]"
 
 [] 的 valueOf 结果为 [] ，toString 的结果为 ""
 
@@ -1076,36 +1076,29 @@ mouseover 和 mouseout 事件冒泡，但很难适当处理，且经常需要计
 
 《JavaScript 高级程序设计第四版》6.2.13 迭代方法 3.4.5 Number 类型 4. 数值转换
 
-### 46. 什么是闭包，为什么要用它？
+### 什么是闭包，为什么要用它？
 
-```markdown
-## 什么是闭包？
+什么是闭包？
 
-tip
-**红宝书(p309)**上对于闭包的定义：闭包是指有权访问另外一个函数作用域中的变量的函数，
+**红宝书(p309)** 上对于闭包的定义：闭包是指有权访问另外一个函数作用域中的变量的函数，
 
-tip
 MDN 对闭包的定义为：闭包是指那些能够访问自由变量的函数。
 
 （其中自由变量，指在函数中使用的，但既不是函数参数 arguments 也不是函数的局部变量的变量，其实就是另外一个函数作用域中的变量。）
 
-## 闭包产生的原因?
+闭包产生的原因?
 
 首先要明白作用域链的概念，其实很简单，在 ES5 中只存在两种作用域————全局作用域和函数作用域，`当访问一个变量时，解释器会首先在当前作用域查找标示符，如果没有找到，就去父作用域找，直到找到该变量的标示符或者不在父作用域中，这就是作用域链`，值得注意的是，每一个子函数都会拷贝上级的作用域，形成一个作用域的链条。 比如:
 
-```js
+```
 var a = 1;
 function f1() {
-  var a = 2;
-  function f2() {
-    var a = 3;
-    console.log(a); //3
-  }
+ var a = 2;
+ function f2() {
+ var a = 3;
+ console.log(a); //3
+ }
 }
-```
-
-```
-
 ```
 
 在这段代码中，f1 的作用域指向有全局作用域(window)和它本身，而 f2 的作用域指向全局作用域(window)、f1 和它本身。而且作用域是从最底层向上找，直到找到全局作用域 window 为止，如果全局还没有的话就会报错。就这么简单一件事情！
@@ -1295,7 +1288,7 @@ let 使 JS 发生革命性的变化，让 JS 有函数作用域变为了块级�
 
 [喂，别忙着过七夕了，闭包彻底搞懂了吗？](https://juejin.cn/post/7127972897083097096) 《你不知道的JS上》第5章 作用域闭包
 
-### 47. javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？
+### javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？
 
 ECMAScript 5 首次引入严格模式的概念。严格模式用于选择以更严格的条件检查 JavaScript 代码错误，可以应用到全局，也可以应用到函数内部。
 
@@ -1349,7 +1342,7 @@ new 运算符创建一个用户定义的对象类型的实例或具有构造函�
 
 在使用 `new` 和 `bind` 同时对一个函数进行操作时，`this` 的绑定关系要遵循 `new` 操作符的优先级规则。如果在 `new` 过程中指定了 `this`，那么 `bind` 的 `this` 将被忽略。
 
-### 51. Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
+### Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
 
 hasOwnProperty(propertyName)：用于判断当前对象实例（不是原型）上是否存在给定的属
 性。要检查的属性名必须是字符串（如 o.hasOwnProperty("name")）或符号。
@@ -2225,7 +2218,7 @@ JavaScript的单线程，与它的用途有关。作为浏览器脚本语言,Jav
 而且主线程只有在将当前的消息执行完成后，才会去取下一个消息。这种机制就叫做事件循环机制，取一个消息并执行
 ```
 
-### 96. js 中的深浅拷贝实现？
+### js 中的深浅拷贝实现？
 
 ```javascript
 浅拷贝指的是将一个对象的属性值复制到另一个对象，如果有的属性的值为引用类型的话，那么会将这个引用的地址复制给对象，因此两个对象会有同一个引用类型的引用。
@@ -2291,139 +2284,37 @@ let arr = [1, 2, 3];
 let newArr = arr.concat();
 newArr[1] = 100;
 console.log(arr);//[ 1, 2, 3 ]
+
+4.slice 浅拷贝
+  开头的例子不就说的这个嘛！
+
+5....展开运算符
+  let arr = [1, 2, 3];
+  let newArr = [...arr];//跟 arr.slice()是一样的效果
 ```
-
-4. slice 浅拷贝
-   开头的例子不就说的这个嘛！
-
-5. ...展开运算符
-   let arr = [1, 2, 3];
-   let newArr = [...arr];//跟 arr.slice()是一样的效果
 
 深拷贝相对浅拷贝而言，如果遇到属性值为引用类型的时候，它新建一个引用类型并将对应的值复制给它，因此对象获得的一个新的引用类型而不是一个原有类型的引用。
-深拷贝对于一些对象可以使用 JSON 的两个函数来实现，但是由于 JSON 的对象格式比 js 的对象格式更加严格，
-所以如果属性值里边出现函数或者 Symbol 类型的值时，会转换失败。
+深拷贝对于一些对象可以使用 JSON 的两个函数来实现，但是由于 JSON 的对象格式比 js 的对象格式更加严格，所以如果属性值里边出现函数或者 Symbol 类型的值时，会转换失败。
 
-// 浅拷贝的实现;
+### 对于[{'a':1},{'b':2}]，最快的深拷贝的方法是什么 ？
 
-function shallowCopy(object) {
-// 只拷贝对象
-if (!object || typeof object !== "object") return;
-
-// 根据 object 的类型判断是新建一个数组还是对象
-let newObject = Array.isArray(object) ? [] : {};
-
-// 遍历 object，并且判断是 object 的属性才拷贝
-for (let key in object) {
-if (object.hasOwnProperty(key)) {
-newObject[key] = object[key];
-}
-}
-
-return newObject;
-}
-
-// 深拷贝
-function isObject(value) {
-const valueType = typeof value
-return (value !== null) && (valueType === "object" || valueType === "function")
-}
-
-function deepClone(originValue, map = new WeakMap()) {
-// 判断是否是一个 Set 类型
-if (originValue instanceof Set) {
-return new Set([...originValue])
-}
-
-// 判断是否是一个 Map 类型
-if (originValue instanceof Map) {
-return new Map([...originValue])
-}
-
-// 判断如果是 Symbol 的 value, 那么创建一个新的 Symbol
-if (typeof originValue === "symbol") {
-return Symbol(originValue.description)
-}
-
-// 判断如果是函数类型, 那么直接使用同一个函数
-if (typeof originValue === "function") {
-return originValue
-}
-
-// 判断传入的 originValue 是否是一个对象类型
-if (!isObject(originValue)) {
-return originValue
-}
-// 有就不创建新对象
-if (map.has(originValue)) {
-return map.get(originValue)
-}
-
-// 判断传入的对象是数组, 还是对象
-const newObject = Array.isArray(originValue) ? []: {}
-map.set(originValue, newObject)
-for (const key in originValue) {
-newObject[key] = deepClone(originValue[key], map)
-}
-
-// 对 Symbol 的 key 进行特殊的处理
-const symbolKeys = Object.getOwnPropertySymbols(originValue)
-for (const sKey of symbolKeys) {
-// const newSKey = Symbol(sKey.description)
-newObject[sKey] = deepClone(originValue[sKey], map)
-}
-
-return newObject
-}
-
-// deepClone({name: "why"})
-
-// 测试代码
-let s1 = Symbol("aaa")
-let s2 = Symbol("bbb")
-
-const obj = {
-name: "why",
-age: 18,
-friend: {
-name: "james",
-address: {
-city: "广州"
-}
-},
-// 数组类型
-hobbies: ["abc", "cba", "nba"],
-// 函数类型
-foo: function(m, n) {
-console.log("foo function")
-console.log("100 代码逻辑")
-return 123
-},
-// Symbol 作为 key 和 value
-[s1]: "abc",
-s2: s2,
-// Set/Map
-set: new Set(["aaa", "bbb", "ccc"]),
-map: new Map([["aaa", "abc"], ["bbb", "cba"]])
-}
-
-obj.info = obj
-
-const newObj = deepClone(obj)
-console.log(newObj === obj)
-
-obj.friend.name = "kobe"
-obj.friend.address.city = "成都"
-console.log(newObj)
-console.log(newObj.s2 === obj.s2)
-
-console.log(newObj.info.info.info)
+对于 `[{'a':1},{'b':2}]` 数组中含有的对象，最快的深拷贝方法是使用 `JSON.parse(JSON.stringify(obj))`，这种方法可以将一个对象或者数组深拷贝成一个新的对象或者数组。示例如下：
 
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666887687890-0d151daf-a9a8-46af-ae76-a6e31b3425ee.png#averageHue=%233a3c2f&clientId=ub7bd0e10-87d8-4&from=paste&height=236&id=u9585d14d&name=image.png&originHeight=354&originWidth=625&originalType=binary&ratio=1&rotation=0&showTitle=false&size=193381&status=done&style=none&taskId=u6011287d-9a8b-478d-98fb-93a370c46fd&title=&width=416.6666666666667)
-### 99. 为什么 0.1 + 0.2 != 0.3？如何解决这个问题？
+const arr1 = [{'a':1},{'b':2}];
+const arr2 = JSON.parse(JSON.stringify(arr1));
 
->
+console.log(arr1 === arr2); // false
+console.log(arr1[0] === arr2[0]); // false
+console.log(arr1[1] === arr2[1]); // false
+```
+
+`JSON.parse(JSON.stringify(obj))` 这种方法可以快速的进行深拷贝，但是需要注意的是该方法有一些限制，例如无法拷贝函数，正则表达式等类型的数据。此外，对于大规模、复杂的数据结构，在内存和性能方面也可能存在问题。
+
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666887687890-0d151daf-a9a8-46af-ae76-a6e31b3425ee.png#averageHue=%233a3c2f&clientId=ub7bd0e10-87d8-4&from=paste&height=236&id=u9585d14d&name=image.png&originHeight=354&originWidth=625&originalType=binary&ratio=1&rotation=0&showTitle=false&size=193381&status=done&style=none&taskId=u6011287d-9a8b-478d-98fb-93a370c46fd&title=&width=416.6666666666667)
+
+### 为什么 0.1 + 0.2 != 0.3？如何解决这个问题？
+
 当计算机计算 0.1+0.2 的时候，实际上计算的是这两个数字在计算机里所存储的二进制，0.1 和 0.2 在转换为二进制表示的时候会出现位数无限循环的情况。
 js 中是以 64 位双精度格式来存储数字的，只有 53 位的有效数字，超过这个长度的位数会被截取掉这样就造成了精度丢失的问题。
 这是第一个会造成精度丢失的地方。
@@ -2441,6 +2332,7 @@ js 中是以 64 位双精度格式来存储数字的，只有 53 位的有效数
 使用 es6 的 Number.EPSILON
 
 拓展
+
 若你回答出来，面试官还可能继续问你：“ 0.1+0.2 不等于 0.3 会引起那些BUG？”
 
 可以这样回答：“ 会引起统计页面展示错乱的BUG，还有 300.01 优惠300 元后，支付金额不足0.01 元等类似的BUG。”
@@ -2453,12 +2345,10 @@ js 中是以 64 位双精度格式来存储数字的，只有 53 位的有效数
 可以用Math.pow来做个简单的封装Math.round(Math.pow(10, m) * number) / Math.pow(10, m)，
 其中number是要四舍五入的数，m是保留几位小数。
 
-
  [《十进制的 0.1 为什么不能用二进制很好的表示？》](https://blog.csdn.net/Lixuanshengchao/article/details/82049191) [《十进制浮点数转成二进制》](https://blog.csdn.net/zhengyanan815/article/details/78550073) [《浮点数的二进制表示》](http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html) [《js 浮点数存储精度丢失原理》](https://juejin.im/post/5b372f106fb9a00e6714aa21) [《浮点数精度之谜》](https://juejin.im/post/594a31d0a0bb9f006b0b2624) [《JavaScript 浮点数陷阱及解法》](https://github.com/camsong/blog/issues/9) [《0.1+0.2 !== 0.3？》](https://juejin.im/post/5bd2f10a51882555e072d0c4) [《JavaScript 中奇特的~运算符》](https://juejin.im/entry/59cdd7fb6fb9a00a600f8eef)
 
 ### 100. 原码、反码和补码的介绍
 
-```javascript
 原码是计算机中对数字的二进制的定点表示方法，最高位表示符号位，其余位表示数值位。优点是易于分辨，缺点是不能够直接参与运算。
 
 正数的反码和其原码一样；负数的反码，符号位为1，数值部分按原码取反。
@@ -2472,7 +2362,6 @@ js 中是以 64 位双精度格式来存储数字的，只有 53 位的有效数
 在计算机中,对于有符号数都是以补码的形式存储的
 之所以在计算机中使用补码来表示负数的原因是，这样可以将加法运算扩展到所有的数值计算上，
 因此在数字电路中我们只需要考虑加法器的设计就行了，而不用再为减法设置新的数字电路。
-```
 
 ### 101. toPrecision 和 toFixed 和 Math.round 的区别？
 
@@ -3922,4 +3811,29 @@ callback、promise和async/await都是用于处理JavaScript中的异步编程�
 
 ### ES6新特性了解吗？
 
-# 
+### 调用函数的时候，函数的参数是值传递还是引用传递？函数调用的时候，为什么会修改调用方的参数？要避免函数的参数被修改，调用前应该做什么？
+
+在 JavaScript 中，函数的参数传递是按值传递的。这意味着，在调用函数时，实际参数的值被复制到函数的形式参数中。因此，当函数内部修改了参数的值时，不会影响到原始变量的值。
+
+然而，如果函数的参数是对一个对象引用的引用，那么形参和实参将指向同一内存地址，因此在函数内部可以修改对象的属性。这意味着函数中对参数对象属性的修改也会作用于调用方的对象。因为形参指向与实参相同的对象空间，并没有进行副本拷贝，所以就算在函数内部修改参数对象的属性，实参也能正确的“感知”到这个改动，从而起到了修改调用方参数的效果。
+
+为了避免函数的参数被修改，我们可以在调用函数前通过传递参数的方式创建参数的副本。这种做法被称为“复制参数”。在 JavaScript 中，我们可以使用 `Object.assign` 方法来复制一个对象。可以像下面这样使用：
+
+```
+function functionName(obj) {
+  // 复制 obj 对象
+  const newObj = Object.assign({}, obj);
+
+  // 在新对象上执行操作，而不是原始对象
+  newObj.someProperty = 'new value';
+
+  // 返回新对象或者对新对象进行操作
+  return newObj;
+}
+```
+
+这样，在调用函数时，我们传递的是参数对象的副本，函数内部对新对象进行操作，而原始参数对象并不会改变。
+
+https://www.w3schools.com/js/js_function_parameters.asp
+
+https://www.w3school.com.cn/js/js_function_parameters.asp

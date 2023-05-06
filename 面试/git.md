@@ -1,3 +1,5 @@
+### [Git - Book](https://git-scm.com/book/zh/v2)
+
 ### git如何实现回滚操作？
 
 git中实现回滚操作有多种方法，以下是其中一种常见的方法：
@@ -14,7 +16,7 @@ git中实现回滚操作有多种方法，以下是其中一种常见的方法�
 
  [git实现回滚](https://cloud.tencent.com/developer/article/1582800) 。
 
-### 说一说-f的作用， reset和revert有什么区别，给定场景a,b,c三个版本，用具体的命令实现回滚？
+### 说一说-f的作用， reset和revert有什么区别，给定场景a,b,c三个版本，用具体的命令实现回滚？为什么会发生冲突？冲突是怎么解决的？提到回退版本（revert和reset），这两个命令的区别
 
 `git push -f` 的作用是将本地仓库的代码强制推送到远程仓库，会导致之前的提交记录都会被覆盖。这个命令应该谨慎使用，只有在个人仓库或者 team 之间协作时某些误操作需要进行回滚时才应该使用。
 
@@ -49,3 +51,9 @@ git中实现回滚操作有多种方法，以下是其中一种常见的方法�
 
 - [[1](https://segmentfault.com/a/1190000038436305)] 关于 `git push -f` 命令的说明；
 - [[2](https://zhuanlan.zhihu.com/p/412482122)] `git reset` 和 `git revert` 的区别及使用场景。
+
+### 写项目的时候，常用的git操作的流程是什么？
+
+1. 手动解决冲突后，远程分支的内容就被修改了，之后再pull，可能会出现脏数据，遇到过吗？
+
+[git最详细的操作流程_git操作流程_龍大大少的博客-CSDN博客](https://blog.csdn.net/weixin_45620619/article/details/124618872)

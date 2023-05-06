@@ -114,5 +114,4 @@ function memo(Component, isEqual) {
     }
   }
 }
-
 ```

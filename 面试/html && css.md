@@ -33,8 +33,7 @@
 ![](https://cdn.nlark.com/yuque/0/2020/png/1500604/1603600820746-e10daafa-451a-454e-9705-f8c358769d5b.png?x-oss-process=image%2Fresize%2Cw_746%2Climit_0#align=left&display=inline&height=366&margin=%5Bobject%20Object%5D&originHeight=455&originWidth=746&size=0&status=done&style=none&width=600#averageHue=%23ddeeb2&from=url&id=fX4ho&originHeight=455&originWidth=746&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 ![](https://cdn.nlark.com/yuque/0/2020/png/1500604/1603600820555-dc6ed390-d47e-412b-942a-857bbe5f280d.png?x-oss-process=image%2Fresize%2Cw_791%2Climit_0#align=left&display=inline&height=368&margin=%5Bobject%20Object%5D&originHeight=462&originWidth=791&size=0&status=done&style=none&width=630#averageHue=%23f0e097&from=url&id=s4hoL&originHeight=462&originWidth=791&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-> 盒模型指的是网页元素的结构。当指定一个元素的宽度或高度时，便设置了元素内容（content）的尺寸——
-> 任何内边距（padding）、边框（border）、外边距（margin）都会基于它叠加。
+> 盒模型指的是网页元素的结构。当指定一个元素的宽度或高度时，便设置了元素内容（content）的尺寸——任何内边距（padding）、边框（border）、外边距（margin）都会基于它叠加。
 > 
 > 盒模型都是由四个部分组成的，分别是 margin、border、padding 和 content。
 > 
@@ -65,52 +64,38 @@
 
 > 双冒号和单冒号的区别
 > 
-> 在 css3 中伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互，也可能是由
-> 于元素相对于其父级或兄弟元素的位置。伪类选择器始终以一个冒号（:）开始。
+> 在 css3 中伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互，也可能是由于元素相对于其父级或兄弟元素的位置。伪类选择器始终以一个冒号（:）开始。
 > 
-> 在 css3 中伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML
-> 元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方
-> 插入内容。
+> 在 css3 中伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方插入内容。
 > 
 > 2 者都是伪元素选择器，单冒号是浏览器为了向后兼容而允许的。
 > 
 > ::after,::before 作用:
 > 
-> 创建一个伪元素，使其成为匹配元素的第(最后)一个子元素，
-> 该元素默认是行内元素，可用于插入文字、图片或其他形状，
-> 必须指定 content 属性才能让元素出现。
+> 创建一个伪元素，使其成为匹配元素的第(最后)一个子元素，该元素默认是行内元素，可用于插入文字、图片或其他形状，必须指定 content 属性才能让元素出现。
 
 《深入浅出 CSS》 附录 A 　选择器
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666697260759-ead31974-b19c-4ff2-affb-1bc83de8747c.png#averageHue=%23f3f3f3&clientId=u258f02ec-022e-4&from=paste&height=235&id=ua43a1d49&name=image.png&originHeight=246&originWidth=843&originalType=binary&ratio=1&rotation=0&showTitle=false&size=91147&status=done&style=none&taskId=u807d244a-f23d-452b-bce2-d9c46d1fdd7&title=&width=804)
 
-> 伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互，也可能是由
-> 于元素相对于其父级或兄弟元素的位置。伪类选择器始终以一个冒号（:）开始。
+> 伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互，也可能是由于元素相对于其父级或兄弟元素的位置。伪类选择器始终以一个冒号（:）开始。
 > 
-> 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML
-> 元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方
-> 插入内容。
+> 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方插入内容。
 > 
 > 这些选择器以双冒号（::）开头，尽管大多数浏览器也支持单冒号的语法以便向后兼容。
 > 
-> ::before——创建一个伪元素，使其成为匹配元素的第一个子元素。该元素默认是行内
-> 元素，可用于插入文字、图片或其他形状。必须指定 content 属性才能让元素出现，例
-> 如：.menu::before。
+> ::before——创建一个伪元素，使其成为匹配元素的第一个子元素。该元素默认是行内元素，可用于插入文字、图片或其他形状。必须指定 content 属性才能让元素出现，例如：.menu::before。
 > 
 > ::after——创建一个伪元素，使其成为匹配元素的最后一个子元素。该元素默认是行
-> 内元素，可用于插入文字、图片或其他形状。必须指定 content 属性才能让元素出现，
-> 例如：.menu::after。
+> 内元素，可用于插入文字、图片或其他形状。必须指定 content 属性才能让元素出现，例如：.menu::after。
 
 #### 伪类与伪元素的区别
 
 > css 引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，
 > 比如，一句话中的第一个字母（伪元素），或者是列表中的第一个元素（伪类）。
 > 
-> 伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互（:hover,:focus 等等），
-> 也可能是由于元素相对于其父级或兄弟元素的位置（child 类，type 类）。伪类选择器始终以一个冒号（:）开始。
+> 伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互（:hover,:focus 等等），也可能是由于元素相对于其父级或兄弟元素的位置（child 类，type 类）。伪类选择器始终以一个冒号（:）开始。
 > 
-> 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML
-> 元素的特定部分。伪元素选择器可能只匹配元素的一部分（一句话中的第一个字母::first-letter,等等），
-> 甚至向 HTML 标记中未定义的地方 （创建一个伪元素，使其成为匹配元素的第一个子元素::before,等等）
+> 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML元素的特定部分。伪元素选择器可能只匹配元素的一部分（一句话中的第一个字母::first-letter,等等），甚至向 HTML 标记中未定义的地方 （创建一个伪元素，使其成为匹配元素的第一个子元素::before,等等）
 > 插入内容。
 > 
 > 伪元素选择器以双冒号（::）开头，尽管大多数浏览器也支持单冒号的语法以便向后兼容。
@@ -143,7 +128,7 @@ p:first-child {
 }
 ```
 
-**总结**伪类是通过在元素选择器上加⼊伪类改变元素状态，⽽伪元素通过对元素的操作进⾏对元素的改变。
+**总结**伪类是通过在元素选择器上加⼊伪类改变元素状态，⽽伪元素通过对元素的操作进行对元素的改变。
 [《总结伪类与伪元素》](http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/)《深入浅出 CSS》 附录 A 　选择器
 
 #### CSS 中哪些属性可以继承？
@@ -360,19 +345,17 @@ type="email">`的值不是一个合法的邮箱地址时，该元素会被匹配
 
 （1）我们可以利用 margin:0 auto 来实现元素的水平居中。
 
-（2）利用绝对定位，设置四个方向的值都为 0，并将 margin 设置为 auto，由于宽高固定，因此对应方向实现平分，可以实现水
-平和垂直方向上的居中。
+（2）利用绝对定位，设置四个方向的值都为 0，并将 margin 设置为 auto，由于宽高固定，因此对应方向实现平分，可以实现水平和垂直方向上的居中。
 
-（3）利用绝对定位，先将元素的左上角通过 top:50%和 left:50%定位到页面的中心，然后再通过 margin 负值来调整元素
-的中心点到页面的中心。
-
-（4）利用绝对定位，先将元素的左上角通过 top:50%和 left:50%定位到页面的中心，然后再通过 translate 来调整元素
-的中心点到页面的中心。
-
-（5）使用 flex 布局，通过 align-items:center 和 justify-content:center 设置容器的垂直和水平方向上为居中对
-齐，然后它的子元素也可以实现垂直和水平的居中。
+（3）利用绝对定位，先将元素的左上角通过 top:50%和 left:50%定位到页面的中心，然后再通过 margin 负值来调整元素的中心点到页面的中心。
 
 > 对于宽高不定的元素，下面的后面两种方法，可以实现元素的垂直和水平的居中。
+
+**transform移动的是什么？**
+
+（4）利用绝对定位，先将元素的左上角通过 top:50%和 left:50%定位到页面的中心，然后再通过 translate 来调整元素的中心点到页面的中心。
+
+（5）使用 flex 布局，通过 align-items:center 和 justify-content:center 设置容器的垂直和水平方向上为居中对齐，然后它的子元素也可以实现垂直和水平的居中。
 
 ```css
 -水平居中：给div设置一个宽度，然后添加margin: 0 auto 属性 ```css div {
@@ -428,7 +411,7 @@ div{
 }
 ```
 
--水平垂直居中二
+-水平垂直居中二 
 
 ```css
 /*未知容器的宽高，利用`transform`属性*/
@@ -557,9 +540,7 @@ grid grid 布局
 #### position 的值 relative 和 absolute 定位原点是？
 
 relative 定位的元素，是相对于元素本身的正常位置来进行定位的。
-absolute 定位的元素，是相对于它的第一个 position 值不为 static 的祖先元素的 padding box 来进行定位的。这句话
-我们可以这样来理解，我们首先需要找到绝对定位元素的一个 position 的值不为 static 的祖先元素，然后相对于这个祖先元
-素的 padding box 来定位，也就是说在计算定位距离的时候，padding 的值也要算进去。
+absolute 定位的元素，是相对于它的第一个 position 值不为 static 的祖先元素的 padding box 来进行定位的。这句话我们可以这样来理解，我们首先需要找到绝对定位元素的一个 position 的值不为 static 的祖先元素，然后相对于这个祖先元素的 padding box 来定位，也就是说在计算定位距离的时候，padding 的值也要算进去。
 
 《深入浅出 CSS》 第 7 章 定位和层叠上下文
 
@@ -1035,28 +1016,6 @@ margin合并的3种场景：
 #### 对 BFC 规范（块级格式化上下文：block formatting context）的理解？
 
 ```javascript
-BFC指的是块级格式化上下文，一个元素形成了BFC之后，那么它内部元素产生的布局不会影响到外部元素，外部元素的布局也不会影响到BFC中的内部元素。一个BFC就像是一个隔离区域，和其他区域互不影响。
-
-一般来说根元素是一个BFC区域，
-浮动和绝对定位的元素也会形成BFC，
-display属性的值为inline-block、flex这些属性时也会创建BFC。
-元素的overflow的值不为visible时都会创建BFC。
-
-会产生BFC的情况
-
-根元素;
-float的属性不为none;
-position为absolute或fixed;
-display为inline-block，table-cell,table-caption，flex;
-overflow不为visible
-
-BFC特点
-1盒子在柔直方向上，从上到下的顺序排列
-2盒子的左边与容器的左边接触，即使浮动也如此3盒子上下外边距会合并
-4 BFC不会与浮动的盒子重叠
-5 BFC是独立的，内部不会影响外部，外部不会影响内部
-6 计算BFC高度的时候,浮动的元素也会参与计算
-
   <style>
   .box {
   background-color: pink;
@@ -1092,11 +1051,26 @@ BFC特点
 ```
 
 [P80080 BFC](https://www.bilibili.com/video/BV1G3411k7iV?p=80)《深入解析 CSS》4.4.1 BFC
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666859704014-966b69e4-7ed9-4373-9987-08ffa4e77c2e.png#averageHue=%23f7f7f7&clientId=ucf147f61-4011-4&from=paste&height=303&id=u225601ec&name=image.png&originHeight=454&originWidth=1094&originalType=binary&ratio=1&rotation=0&showTitle=false&size=160098&status=done&style=none&taskId=u8a708c00-11b6-4c99-bbe2-b9c32c12b8d&title=&width=729.3333333333334)![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666859787910-da792c40-a024-4279-a8f0-b56a905a8a26.png#averageHue=%23faf9f9&clientId=ucf147f61-4011-4&from=paste&height=188&id=u5a9a014e&name=image.png&originHeight=393&originWidth=784&originalType=binary&ratio=1&rotation=0&showTitle=false&size=59230&status=done&style=none&taskId=udf362388-ace1-43d6-9259-4d351472531&title=&width=374.66668701171875)
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666859704014-966b69e4-7ed9-4373-9987-08ffa4e77c2e.png#averageHue=%23f7f7f7&clientId=ucf147f61-4011-4&from=paste&height=303&id=u225601ec&name=image.png&originHeight=454&originWidth=1094&originalType=binary&ratio=1&rotation=0&showTitle=false&size=160098&status=done&style=none&taskId=u8a708c00-11b6-4c99-bbe2-b9c32c12b8d&title=&width=729.3333333333334)
 
-```
-块格式化上下文（Block Formatting Context，BFC）是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒
-子的区域，也是浮动元素与其他元素的交互限定区域。
+块级格式化上下文（block formatting context，BFC）。BFC 是网页的一块区域，元素基于这块区域布局
+ BFC 本身是环绕文档流的一部分，但它将内部的内容与外部的上下文隔离开。
+ 这种隔离为创建 BFC 的元素做出了以下 3 件事情
+ (1) 包含了内部所有元素的上下外边距。它们不会跟 BFC 外面的元素产生外边距折叠。
+ (2) 包含了内部所有的浮动元素。
+ (3) 不会跟 BFC 外面的浮动元素重叠。
+ BFC 里的内容不会跟外部的元素重叠或者相互影响。如果给元素增加 clear 属性，它只会清除自身所在 BFC 内的浮动。
+如果强制给一个元素生成一个新的 BFC，它不会跟其他 BFC 重叠。
+
+BFC特点
+1盒子在柔直方向上，从上到下的顺序排列
+2盒子的左边与容器的左边接触，即使浮动也如此
+3盒子上下外边距会合并
+4 BFC不会与浮动的盒子重叠
+5 BFC是独立的，内部不会影响外部，外部不会影响内部
+6 计算BFC高度的时候,浮动的元素也会参与计算
+
+块格式化上下文（Block Formatting Context，BFC）是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。
 
 通俗来讲
 
@@ -1110,25 +1084,8 @@ BFC特点
 （3）绝对定位元素position＝absolute或fixed
 （4）display＝inline-block|flex|inline-flex|table-cell或table-caption
 （5）overflow＝hidden|auto或scroll(≠visible)
-
-4.4.1 BFC
-
-    块级格式化上下文（block formatting context，BFC）。BFC 是网页的一块区域，元素基于这块区域布局
-    BFC 本身是环绕文档流的一部分，但它将内部的内容与外部的上下文隔离开。
-    这种隔离为创建 BFC 的元素做出了以下 3 件事情
-        (1) 包含了内部所有元素的上下外边距。它们不会跟 BFC 外面的元素产生外边距折叠。
-        (2) 包含了内部所有的浮动元素。
-        (3) 不会跟 BFC 外面的浮动元素重叠。
-    BFC 里的内容不会跟外部的元素重叠或者相互影响。如果给元素增加 clear 属性，它只会清除自身所在 BFC 内的浮动。
-如果强制给一个元素生成一个新的 BFC，它不会跟其他 BFC 重叠。
-    给元素添加以下的任意属性值都会创建 BFC。
-         float： left 或 right，不为 none 即可。
-         overflow：hidden、auto 或 scroll，不为 visible 即可。
-         display：inline-block、table-cell、table-caption、flex、inline-flex、grid 或 inline-grid。
+（6）display：inline-block、table-cell、table-caption、flex、inline-flex、grid 或 inline-grid。
 拥有这些属性的元素称为块级容器（block container）。
-         position：absolute 或 position: fixed。
-    网页的根元素也创建了一个顶级的 BFC。
-```
 
 #### IFC 是什么？
 
@@ -1161,17 +1118,11 @@ BFC特点
 
 clear:none|left|right|both
 
-如果单看字面意思，clear:left 应该是“清除左浮动”，clear:right 应该是“清除右浮动”的意思，实际上，这种解释是有问
-题的，因为浮动一直还在，并没有清除。
+如果单看字面意思，clear:left 应该是“清除左浮动”，clear:right 应该是“清除右浮动”的意思，实际上，这种解释是有问题的，因为浮动一直还在，并没有清除。
 
-官方对 clear 属性的解释是：“元素盒子的边不能和前面的浮动元素相邻。”，我们对元素设置 clear 属性是为了避免浮动元素
-对该元素的影响，而不是清除掉浮动。目标元素不是浮动元素。
+官方对 clear 属性的解释是：“元素盒子的边不能和前面的浮动元素相邻。”，我们对元素设置 clear 属性是为了避免浮动元素对该元素的影响，而不是清除掉浮动。目标元素不是浮动元素。
 
-还需要注意的一点是 clear 属性指的是元素盒子的边不能和前面的浮动元素相邻，注意这里“前面的”3 个字，也就是 clear 属
-性对“后面的”浮动元素是不闻不问的。考虑到 float 属性要么是 left，要么是 right，不可能同时存在，同时由于 clear
-属性对“后面的”浮动元素不闻不问，因此，当 clear:left 有效的时候，clear:right 必定无效，也就是此时 clear:left
-等同于设置 clear:both；同样地，clear:right 如果有效也是等同于设置 clear:both。由此可见，clear:left 和 cle
-ar:right 这两个声明就没有任何使用的价值，至少在 CSS 世界中是如此，直接使用 clear:both 吧。
+还需要注意的一点是 clear 属性指的是元素盒子的边不能和前面的浮动元素相邻，注意这里“前面的”3 个字，也就是 clear 属性对“后面的”浮动元素是不闻不问的。考虑到 float 属性要么是 left，要么是 right，不可能同时存在，同时由于 clear属性对“后面的”浮动元素不闻不问，因此，当 clear:left 有效的时候，clear:right 必定无效，也就是此时 clear:left等同于设置 clear:both；同样地，clear:right 如果有效也是等同于设置 clear:both。由此可见，clear:left 和 clear:right 这两个声明就没有任何使用的价值，至少在 CSS 世界中是如此，直接使用 clear:both 吧。
 
 要给包含浮动的元素清除浮动，而不是给别的元素，比如浮动元素本身，或包含浮动的元素后面的兄弟元素。
 
@@ -1183,17 +1134,14 @@ display:table;//也可以是'block'，或者是'list-item'
 clear:both;
 }
 
-clear 属性只有块级元素才有效的，而::after 等伪元素默认都是内联水平，这就是借助伪元素清除浮动影响时需要设置 disp
-lay 属性值的原因。
+clear 属性只有块级元素才有效的，而::after 等伪元素默认都是内联水平，这就是借助伪元素清除浮动影响时需要设置 display 属性值的原因。
 
 《CSS 权威指南》 10.2 清除浮动 《深入解析 CSS》4.2 容器折叠和清除浮动
 
 #### zoom:1 的清除浮动原理?
 
-```
 清除浮动，触发hasLayout；
-zoom属性是IE浏览器的专有属性，它可以设置或检索对象的缩放比例。解决ie下比较奇葩的bug。譬如外边距（margin）
-的重叠，浮动清除，触发ie的haslayout属性等。
+zoom属性是IE浏览器的专有属性，它可以设置或检索对象的缩放比例。解决ie下比较奇葩的bug。譬如外边距（margin）的重叠，浮动清除，触发ie的haslayout属性等。
 
 来龙去脉大概如下：
 当设置了zoom的值之后，所设置的元素就会就会扩大或者缩小，高度宽度就会重新计算了，这里一旦改变zoom值时其实也会发
@@ -1203,7 +1151,6 @@ zoom属性是IE浏览器的专有属性，火狐和老版本的webkit核心的�
 准化，出现在CSS3.0规范草案中。
 
 目前非ie由于不支持这个属性，它们又是通过什么属性来实现元素的缩放呢？可以通过css3里面的动画属性scale进行缩放。
-```
 
 [P582-7 清除浮动的四种解决办法](https://www.bilibili.com/video/BV1v7411G7JM?p=58)《CSS 权威指南》 10.2 清除浮动 《深入解析 CSS》4.2 容器折叠和清除浮动
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666850065715-baa3f055-5a85-470a-8365-bad3809261a4.png#averageHue=%23eeeeee&clientId=u2eb5bbcb-fb05-4&from=paste&height=194&id=u2cf7249d&name=image.png&originHeight=291&originWidth=707&originalType=binary&ratio=1&rotation=0&showTitle=false&size=130298&status=done&style=none&taskId=uc3e2c50d-b89e-4dbd-8cff-ca318a3c346&title=&width=471.3333333333333)
@@ -1379,13 +1326,9 @@ css雪碧图，同一页面相近部分的小图标
 
 #### 浏览器是怎样解析 CSS 选择器的？
 
-```
-样式系统从关键选择器开始匹配，然后左移查找规则选择器的祖先元素。只要选择器的子树一直在工作，样式系统就会持续左移，直
-到和规则匹配，或者是因为不匹配而放弃该规则。
+样式系统从关键选择器开始匹配，然后左移查找规则选择器的祖先元素。只要选择器的子树一直在工作，样式系统就会持续左移，直到和规则匹配，或者是因为不匹配而放弃该规则。
 
-试想一下，如果采用从左至右的方式读取CSS规则，那么大多数规则读到最后（最右）才会发现是不匹配的，这样做会费时耗能，
-最后有很多都是无用的；而如果采取从右向左的方式，那么只要发现最右边选择器不匹配，就可以直接舍弃了，避免了许多无效匹配。
-```
+试想一下，如果采用从左至右的方式读取CSS规则，那么大多数规则读到最后（最右）才会发现是不匹配的，这样做会费时耗能，最后有很多都是无用的；而如果采取从右向左的方式，那么只要发现最右边选择器不匹配，就可以直接舍弃了，避免了许多无效匹配。
 
 #### 在网页中应该使用奇数还是偶数的字体？为什么呢？
 
@@ -1394,7 +1337,6 @@ css雪碧图，同一页面相近部分的小图标
 
 #### margin 和 padding 分别适合什么场景使用？
 
-```
 margin是用来隔开元素与元素的间距；padding是用来隔开元素与内容的间隔。
 margin用于布局分开元素使元素与元素互不相干。
 padding用于元素与内容之间的间隔，让内容（文字）与（包裹）元素之间有一段距离。
@@ -1408,7 +1350,6 @@ padding用于元素与内容之间的间隔，让内容（文字）与（包裹�
 •需要在border内测添加空白时。
 •空白处需要背景（色）时。
 •上下相连的两个盒子之间的空白，希望等于两者之和时。如15px+20px的padding，将得到35px的空白。
-```
 
 《CSS 权威指南》 10.2 清除浮动 《深入解析 CSS》4.2 容器折叠和清
 
@@ -1762,6 +1703,10 @@ left:0;right:0; （2）使用flex布局，设置主轴为竖轴，第二个div�
 #### png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过 webp？
 
 [《图片格式那么多，哪种更适合你？》](https://www.cnblogs.com/xinzhao/p/5130410.html)
+
+### 图片压缩的方式?
+
+[前端性能优化篇 | 前端进阶之旅](https://interview.poetries.top/docs/excellent-docs/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html#%E4%B8%8D%E5%90%8C%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E5%9B%BE%E7%89%87%E6%96%B9%E6%A1%88%E9%80%89%E5%9E%8B)
 
 #### 浏览器如何判断是否支持 webp 格式图片
 
@@ -2464,4 +2409,17 @@ https://www.jianshu.com/p/72522cc7ca5c
 > .block__element
 > .block__element----modifier
 
-### 实现三个div元素并排
+### 实现三个div元素并排,一个div中有3个子块，水平排列，如何用flex布局实现？宽度相等，三等分父元素的宽度
+
+### 项目中用到sass，出一个sass的题，下面代码编译后是什么样子的？有什么区别？
+
+```
+.a{
+  .b{
+  }
+}
+.a{
+  &.b{
+  }
+}
+```

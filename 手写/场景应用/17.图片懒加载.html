@@ -8,12 +8,19 @@
   </head>
   <body>
     <div class="container">
-      <img src="loading.gif" data-src="pic.png" />
-      <img src="loading.gif" data-src="pic.png" />
-      <img src="loading.gif" data-src="pic.png" />
-      <img src="loading.gif" data-src="pic.png" />
-      <img src="loading.gif" data-src="pic.png" />
-      <img src="loading.gif" data-src="pic.png" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
+      <img src="user.jpg" data-src="user.jpg" />
     </div>
   </body>
 </html>
@@ -21,14 +28,32 @@
 <script>
   var imgs = document.querySelectorAll("img");
   function lozyLoad() {
-    var scrollTop =
-      document.body.scrollTop || document.documentElement.scrollTop;
     var winHeight = window.innerHeight;
     for (var i = 0; i < imgs.length; i++) {
-      if (imgs[i].offsetTop < scrollTop + winHeight) {
+      if (imgs[i].getBoundingClientRect() < winHeight) {
         imgs[i].src = imgs[i].getAttribute("data-src");
       }
+      console.log("scroll 触发");
     }
   }
   window.onscroll = lozyLoad;
 </script>
+
+<!-- <script>
+  const images = document.querySelectorAll("img");
+  const callback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const image = entry.target;
+        const data_src = image.getAttribute("data-src");
+        image.setAttribute("src", data_src);
+        console.log("触发");
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(callback);
+  images.forEach((image) => {
+    observer.observe(image);
+  });
+</script> -->
