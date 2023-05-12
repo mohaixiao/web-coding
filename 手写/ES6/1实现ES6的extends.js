@@ -1,6 +1,8 @@
 function B(name) {
     this.name = name;
 };
+
+
 function A(name, age) {
     //1.将A的原型指向B
     Object.setPrototypeOf(A, B);

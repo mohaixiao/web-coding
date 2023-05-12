@@ -31,8 +31,8 @@ function randomSort(arr) {
 
 function randomSort(arr) {
     for (var i = 0; i < arr.length; i++) {
-        const randomIndex = Math.round(Math.random() * (arr.length - 1 - i)) + i;
-        [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
+        const j = Math.round(Math.random() * (arr.length - 1 - i)) + i;
+        [arr[i], arr[j]] = [arr[j], arr[i]];
     }
 
     return arr;

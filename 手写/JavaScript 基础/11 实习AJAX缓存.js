@@ -25,3 +25,4 @@ function getUrl(url) {
 }
 
 
+// https://blog.csdn.net/weixin_42407741/article/details/119480824?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%AE%9E%E7%8E%B0ajax%E7%BC%93%E5%AD%98&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-119480824.nonecase&spm=1018.2226.3001.4187

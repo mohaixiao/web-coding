@@ -88,7 +88,7 @@ function object(o) {
 //     这种继承的优点就是对一个简单对象实现继承，如果这个对象不是我们的自定义类型时。缺点是没有办法实现函数的复用。
 
 function createAnother(original) {
-    let clone = object(original); // 通过调用函数创建一个新对象
+    let clone = Object(original); // 通过调用函数创建一个新对象
     clone.sayHi = function () { // 以某种方式增强这个对象
         console.log("hi");
     };

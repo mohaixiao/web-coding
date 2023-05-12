@@ -14,8 +14,8 @@ function objectFlat(obj = {}) {
     }
     flat(obj)
     return res
-}
-
-// 测试
-const source = { a: { b: { c: 1, d: 2 }, e: 3 }, f: { g: 2 } }
-console.log(objectFlat(source));
+  }
+  
+  // 测试
+  const source = { a: { b: { c: 1, d: 2 }, e: 3 }, f: { g: 2 }, x:'1'}
+  console.log(objectFlat(source));

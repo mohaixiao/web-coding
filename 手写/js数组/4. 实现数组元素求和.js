@@ -15,3 +15,13 @@ function add(arr) {
     return arr[0] + add(arr.slice(1))
 }
 console.log(add(arr)) // 21
+
+const arr = []
+// 求0~100000的和
+for (let i = 0; i <= 100000; i++) { arr.push(i) }
+
+function getSum(arr) {
+    return (arr[0] + arr[arr.length - 1]) * arr.length / 2
+}
+const sum = getSum(arr)
+console.log(sum)

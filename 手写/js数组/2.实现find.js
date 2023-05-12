@@ -10,10 +10,20 @@ var users = [
   { id: 4, name: "张三" },
 ];
 
-Array.prototype.myFind = function (callback) {
+Array.prototype.myFind = function (cb, thisBinding = globalThis) {
   // var callback = function (item, index) { return item.id === 4 }
-  for (var i = 0; i < this.length; i++) {
-    if (callback(this[i], i)) {
+  // 排除回调非函数情况
+  if (typeof cb !== "function") {
+    throw new TypeError(`${cb} is not a function`);
+  }
+  // 排除this为非可迭代对象情况
+  if (this == null || typeof this[Symbol.iterator] !== "function") {
+    throw new TypeError(`${this} is not a iterable`);
+  }
+  // 将可迭代对象转换成数组
+  const array = [...this];
+  for (let i = 0; i < this.length; i++) {
+    if (cb.call(thisBinding, array[i], i, this)) {
       return this[i];
     }
   }
@@ -24,5 +34,6 @@ var ret = users.myFind(function (item, index) {
 });
 
 console.log(ret);
+
 
 
