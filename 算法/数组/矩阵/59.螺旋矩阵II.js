@@ -19,11 +19,11 @@ var generateMatrix = function (n) {
     while (loop--) {
         let row = startX, col = startY;
         // 上行从左到右（左闭右开）
-        for (; col < startY + n - offset; col++) {
+        for (; col < n - offset; col++) {
             res[row][col] = count++;
         }
         // 右列从上到下（左闭右开）
-        for (; row < startX + n - offset; row++) {
+        for (; row < n - offset; row++) {
             res[row][col] = count++;
         }
         // 下行从右到左（左闭右开）
@@ -40,7 +40,7 @@ var generateMatrix = function (n) {
         startY++;
 
         // 更新offset
-        offset += 2;
+        offset++;
     }
     // 如果n为奇数的话，需要单独给矩阵最中间的位置赋值
     if (n % 2 === 1) {

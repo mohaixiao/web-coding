@@ -115,3 +115,47 @@ function memo(Component, isEqual) {
   }
 }
 ```
+
+### useCallback和useMemo的区别？
+
+`useCallback` 和 `useMemo` 都是 React Hooks 中用来优化性能的工具，它们之间的区别是：
+
+1. **使用场景不同**：`useCallback` 主要是用来缓存函数以提升组件的渲染性能，而 `useMemo` 则是用来缓存计算结果以避免重复计算。
+
+2. **返回值不同**：`useCallback` 返回一个 memoized（记忆化）的回调函数，而 `useMemo` 返回一个 memoized（记忆化）的计算结果。
+
+3. **参数不同**：`useCallback` 接受两个参数：回调函数和依赖项数组，当依赖项发生变化时才会创建新的 memoized 的回调函数；而 `useMemo` 接受两个参数：计算函数和依赖项数组，当依赖项发生变化时才会重新计算出 memoized 的结果。
+
+下面是一个例子，演示了 `useCallback` 和 `useMemo` 的差异：
+
+```ts
+import { useCallback, useMemo } from 'react';
+
+function MyComponent(props) {
+  const { count, onClick } = props;
+
+  const handleClick1 = () => {
+    onClick(count + 1);
+  };
+
+  const handleClick2 = useCallback(() => {
+    onClick(count + 1);
+  }, [count]);
+
+  const result = useMemo(() => {
+    return count * 2;
+  }, [count]);
+
+  return (
+    <div>
+      <button onClick={handleClick1}>Click me (non-memoized)</button>
+      <button onClick={handleClick2}>Click me (memoized)</button>
+      <p>Result: {result}</p>
+    </div>
+  );
+}
+```
+
+在这个例子中，`handleClick1` 是普通的函数，每次组件重新渲染时都会创建新的函数对象，而 `handleClick2` 是 memoized 的函数，只有当 `count` 发生变化时才会创建新的函数对象，从而避免了不必要的渲染。另外，`result` 是 memoized 的计算结果，只有当 `count` 发生变化时才会重新计算，也能够提高性能。
+
+在面试中，如果被问到 `useCallback` 和 `useMemo` 的区别，可以根据上面提到的三个方面来回答。同时，可以举一些具体的实际场景来解释它们是如何使用的，并且强调它们对性能优化的重要性。

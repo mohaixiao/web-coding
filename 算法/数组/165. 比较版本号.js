@@ -36,11 +36,11 @@ var compareVersion = function (version1, version2) {
         }
         ++i; // 跳过点号
         let y = 0;
-        for (; j < m && version2.charAt(j) !== '.'; ++j) {
+        for (; j < m && version2[j] !== '.'; ++j) {
             y = y * 10 + version2[j].charCodeAt() - '0'.charCodeAt();
         }
         ++j; // 跳过点号
-        if (x !== y) {
+        if (x !== y) { 
             return x > y ? 1 : -1;
         }
     }

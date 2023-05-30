@@ -7,9 +7,9 @@ var searchInsert = function (nums, target) {
         if (nums[mid] < target) {
             l = mid + 1;
         } else {
-            ans = mid;
+            ans = mid;// >= target 不断更新该位置
             r = mid - 1;
         }
     }
-    return ans;
+    return ans; 
 };

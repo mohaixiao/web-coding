@@ -1013,69 +1013,16 @@ margin合并的3种场景：
 •设置height或者min-height。
 ```
 
-#### 对 BFC 规范（块级格式化上下文：block formatting context）的理解？
+#### 对 BFC 规范（块级格式化上下文：block formatting context）的理解？如何生成一个BFC？BFC里面元素的排列顺序？
 
-```javascript
-  <style>
-  .box {
-  background-color: pink;
-  border: 1px solid #ccc;
-  height: 400px;
-}
-.box1 {
-  height: 200px;
-  width: 200px;
-  margin-bottom: 100px;
-  background-color: green;
-}
-.box2 {
-  height: 200px;
-  width: 100px;
-  margin-top: 50px;
-  background-color: red;
-}
-.box3 {
-  float: left;
-  height: 200px;
-  width: 400px;
-  background-color: blue;
-}
-</style>
-  <body>
-  <div class="box">
-  <div class="box1">1</div>
-  <div class="box2">2</div>
-  </div>
-  <div class="box3">3</div>
-  </body>
-```
-
-[P80080 BFC](https://www.bilibili.com/video/BV1G3411k7iV?p=80)《深入解析 CSS》4.4.1 BFC
+[P80080 BFC](https://www.bilibili.com/video/BV1G3411k7iV?p=80)
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666859704014-966b69e4-7ed9-4373-9987-08ffa4e77c2e.png#averageHue=%23f7f7f7&clientId=ucf147f61-4011-4&from=paste&height=303&id=u225601ec&name=image.png&originHeight=454&originWidth=1094&originalType=binary&ratio=1&rotation=0&showTitle=false&size=160098&status=done&style=none&taskId=u8a708c00-11b6-4c99-bbe2-b9c32c12b8d&title=&width=729.3333333333334)
 
-块级格式化上下文（block formatting context，BFC）。BFC 是网页的一块区域，元素基于这块区域布局
- BFC 本身是环绕文档流的一部分，但它将内部的内容与外部的上下文隔离开。
- 这种隔离为创建 BFC 的元素做出了以下 3 件事情
+块级格式化上下文（block formatting context，BFC）。BFC 是网页的一块区域，元素基于这块区域布局。BFC 本身是环绕文档流的一部分，但它将内部的内容与外部的上下文隔离开。这种隔离为创建 BFC 的元素做出了以下 3 件事情
  (1) 包含了内部所有元素的上下外边距。它们不会跟 BFC 外面的元素产生外边距折叠。
  (2) 包含了内部所有的浮动元素。
  (3) 不会跟 BFC 外面的浮动元素重叠。
- BFC 里的内容不会跟外部的元素重叠或者相互影响。如果给元素增加 clear 属性，它只会清除自身所在 BFC 内的浮动。
-如果强制给一个元素生成一个新的 BFC，它不会跟其他 BFC 重叠。
-
-BFC特点
-1盒子在柔直方向上，从上到下的顺序排列
-2盒子的左边与容器的左边接触，即使浮动也如此
-3盒子上下外边距会合并
-4 BFC不会与浮动的盒子重叠
-5 BFC是独立的，内部不会影响外部，外部不会影响内部
-6 计算BFC高度的时候,浮动的元素也会参与计算
-
-块格式化上下文（Block Formatting Context，BFC）是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。
-
-通俗来讲
-
-•BFC是一个独立的布局环境，可以理解为一个容器，在这个容器中按照一定规则进行物品摆放，并且不会影响其它环境中的物品。
-•如果一个元素符合触发BFC的条件，则BFC中的元素布局不受外部影响。
+ BFC 里的内容不会跟外部的元素重叠或者相互影响。如果给元素增加 clear 属性，它只会清除自身所在 BFC 内的浮动。如果强制给一个元素生成一个新的 BFC，它不会跟其他 BFC 重叠。
 
 创建BFC
 
@@ -1094,12 +1041,63 @@ BFC特点
 
 #### 请解释一下为什么需要清除浮动？清除浮动的方式
 
-> 有时，我们并不想让内容向浮动元素的一方流动，某些情况下甚至想刻意避免。
-> 如果把文档划分为多个区域，可能就不希望浮动元素从一个区域探出，进入另一个区域。
-> 此时，要禁止每个区域的第一个元素出现在浮动元素旁。
-> 倘若第一个元素在浮动元素旁，它的位置会下移到浮动的元素下方。
+浮动元素是 CSS 中的一种布局机制，可以使元素脱离文档流并沿着周围的元素流动，常用于实现文字环绕图片、多栏布局等效果。
 
-- 清除浮动的方式
+然而，当浮动元素的高度不够撑开父元素（或祖先元素）时，就会出现“高度塌陷”的问题，即父元素（或祖先元素）无法根据子元素的高度自动撑开，导致页面出现布局混乱和内容重叠的现象。这时就需要清除浮动。
+
+清除浮动的方式有很多，以下是几个常用的方法：
+
+1. **使用空元素清除浮动**：在浮动元素的后面添加一个具有清除浮动效果的空元素，如下所示：
+
+```html
+<div class="parent">
+  <div class="float-left">浮动元素</div>
+  <div class="clear-float"></div>
+</div>
+
+.clear-float {
+  clear: both;
+}
+```
+
+这里使用了 `.clear-float` 类来定义一个空元素，并设置 `clear: both` 来清除浮动。
+
+2. **使用 overflow 属性清除浮动**：将父元素（或祖先元素）的 overflow 属性设置为非 visible，如下所示：
+
+```html
+<div class="parent clearfix">
+  <div class="float-left">浮动元素</div>
+</div>
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.parent {
+  overflow: hidden;
+}
+```
+
+这里使用了 clearfix 技巧来清除浮动，通过在父元素上添加 `.clearfix` 类，并设置 `:after` 伪元素来清除浮动。同时，将父元素的 overflow 属性设置为 hidden，也能够实现清除浮动的效果。
+
+3. **使用 flex 布局清除浮动**：使用 flex 布局可以自然而然地清除子元素的浮动，如下所示：
+
+```html
+<div class="parent">
+  <div class="float-left">浮动元素</div>
+</div>
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+```
+
+这里使用了 flex 布局来实现自适应布局，并且自然而然地清除了子元素的浮动。
+
+需要注意的是，清除浮动时需要考虑兼容性和语义化，避免出现不必要的布局问题。同时，清除浮动也是前端开发中比较常见的问题，掌握清除浮动的技巧能够提高网页开发的效率和品质。
 
 清除浮动的方式
 
@@ -1109,7 +1107,9 @@ BFC特点
 
 因为 BFC 元素不会影响外部元素的特点，所以 BFC 元素也可以用来清除浮动的影响，因为如果不清除，子元素浮动则父元素高度塌陷，必然会影响后面元素布局和定位，这显然有违 BFC 元素的子元素不会影响外部元素的设定。
 
-[P582-7 清除浮动的四种解决办法](https://www.bilibili.com/video/BV1v7411G7JM?p=58)《CSS 权威指南》 10.2 清除浮动 《深入解析 CSS》4.2 容器折叠和清除浮动
+[CSS清除浮动的多种方法 - Web前端工程师面试题讲解](https://www.bilibili.com/video/BV1XJ411u72L/?spm_id_from=333.788&vd_source=037b856144283671f89f562ed7eeb263)
+
+《CSS 权威指南》 10.2 清除浮动 《深入解析 CSS》4.2 容器折叠和清除浮动
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666849453574-019aa093-7d9b-42dc-9187-b866ad7cf5e0.png#averageHue=%23eae9e9&clientId=u2eb5bbcb-fb05-4&from=paste&height=225&id=XFPcI&name=image.png&originHeight=647&originWidth=1200&originalType=binary&ratio=1&rotation=0&showTitle=false&size=219499&status=done&style=none&taskId=u9f4aabd5-4eea-4578-9ea1-5b5ce2d6a65&title=&width=418)![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666849943276-0226ee16-3a3a-4bdd-8a2a-b787b32e62b7.png#averageHue=%23f7faf7&clientId=u2eb5bbcb-fb05-4&from=paste&height=209&id=u6166191f&name=image.png&originHeight=313&originWidth=629&originalType=binary&ratio=1&rotation=0&showTitle=false&size=130583&status=done&style=none&taskId=ue8960a14-1aad-4b7b-8c0a-9e3301445a1&title=&width=419.3333333333333)
 
 #### 使用 clear 属性清除浮动的原理？
@@ -2423,3 +2423,15 @@ https://www.jianshu.com/p/72522cc7ca5c
   }
 }
 ```
+
+### 单行溢出变为省略号
+
+标签语义化
+
+行内元素和块级元素
+
+`<a>`标签平常用来做什么
+
+`localStorage`和`sessionStorage`
+
+结合`cookie`实现广告在某个时间段投放，到时就过期
