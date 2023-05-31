@@ -26,9 +26,11 @@ var findDuplicate = function (nums) {
         for (let i = 0; i < n; ++i) {
             cnt += nums[i] <= mid; // 统计数组nums中小于等于mid的元素个数
         }
+        // 如果 cnt 不大于 mid，则说明重复元素在 [mid+1, r] 范围内，更新 l = mid + 1；
         if (cnt <= mid) {
             l = mid + 1;
         } else {
+            // 如果 cnt 大于 mid，则说明重复元素在 [l, mid-1] 范围内，更新 r = mid - 1，并更新 ans = mid；
             r = mid - 1;
             ans = mid;
         }
