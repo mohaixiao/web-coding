@@ -4,9 +4,11 @@
 // ● 在任何情况下，Promise.all 返回的 promise 的完成状态的结果都是一个数组
 
 Promise._all = function (promises) {
+
     if (!(typeof promises === "object" && promises !== null && typeof promises[Symbol.iterator] === "function")) {
         throw new TypeError(`${promises} is not iterable`);
     }
+    
     return new Promise((resolve, reject) => {
         let count = 0; //计数器 不能使用promises.length
         let result = []; //结果
