@@ -100,7 +100,7 @@ TCP 四元组可以唯一的确定一个连接，四元组包括如下：
 
 UDP 不提供复杂的控制机制，利用 IP 提供面向「无连接」的通信服务。
 
-UDP 协议真的非常简，头部只有 `8` 个字节（64 位），UDP 的头部格式如下：
+UDP 协议真的非常简单，头部只有 `8` 个字节（64 位），UDP 的头部格式如下：
 
 ![UDP 头部格式](https://cdn.xiaolincoding.com//mysql/other/format,png-20230309230439961.png)
 
@@ -178,6 +178,12 @@ UDP 协议真的非常简，头部只有 `8` 个字节（64 位），UDP 的�
 
 - 第一种说法：因为为了网络设备硬件设计和处理方便，首部长度需要是 `4` 字节的整数倍。如果去掉 UDP 的「包长度」字段，那 UDP 首部长度就不是 `4` 字节的整数倍了，所以我觉得这可能是为了补全 UDP 首部长度是 `4` 字节的整数倍，才补充了「包长度」字段。
 - 第二种说法：如今的 UDP 协议是基于 IP 协议发展的，而当年可能并非如此，依赖的可能是别的不提供自身报文长度或首部长度的网络层协议，因此 UDP 报文首部需要有长度字段以供计算。
+
+![](C:\Users\mohaixiao\AppData\Roaming\marktext\images\2023-06-06-15-48-12-image.png)
+
+[ 一条视频讲清楚TCP协议与UDP协议-什么是三次握手与四次挥手](https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=trigger_reload&vd_source=037b856144283671f89f562ed7eeb263)
+
+[计算机网络微课堂第067讲 *UDP和TCP*的对比(有字幕有背景音乐版)](https://www.bilibili.com/video/av82831204)
 
 ### TCP 和 UDP 可以使用同一个端口吗？
 
@@ -1162,7 +1168,7 @@ TCP **巨复杂**，它为了保证可靠性，用了巨多的机制来保证�
 
 ---
 
-## [#](https://xiaolincoding.com/network/3_tcp/tcp_feature.html#%E9%87%8D%E4%BC%A0%E6%9C%BA%E5%88%B6)重传机制
+## 重传机制
 
 TCP 实现可靠传输的方式之一，是通过序列号与确认应答。
 
@@ -2299,7 +2305,7 @@ TCP 重复确认和快速重传的一个案例，用 Wireshark 分析，显示�
 
 ---
 
-## [#](https://xiaolincoding.com/network/3_tcp/tcp_tcpdump.html#tcp-%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6)TCP 流量控制
+## TCP 流量控制
 
 TCP 为了防止发送方无脑的发送数据，导致接收方缓冲区被填满，所以就有了滑动窗口的机制，它可利用接收方的接收窗口来控制发送方要发送的数据量，也就是流量控制。
 
@@ -2512,7 +2518,7 @@ tcp_retries1和tcp_retries2都是在TCP三次握手之后的场景。
 
 ---
 
-## [#](https://xiaolincoding.com/network/3_tcp/tcp_tcpdump.html#%E6%9C%80%E5%90%8E)最后
+## 最后
 
 文章中 Wireshark 分析的截图，可能有些会看的不清楚，为了方便大家用 Wireshark 分析，**我已把文中所有抓包的源文件，已分享到公众号了，大家在后台回复「抓包」，就可以获取了。**
 
@@ -2549,7 +2555,7 @@ tcp_retries1和tcp_retries2都是在TCP三次握手之后的场景。
 
 ---
 
-## [#](https://xiaolincoding.com/network/3_tcp/tcp_queue.html#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E5%8D%8A%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97%E5%92%8C%E5%85%A8%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97)什么是 TCP 半连接队列和全连接队列？
+## 什么是 TCP 半连接队列和全连接队列？
 
 在 TCP 三次握手的时候，Linux 内核会维护两个队列，分别是：
 
@@ -2697,7 +2703,7 @@ tcp_abort_on_overflow 共有两个值分别是 0 和 1，其分别表示：
 
 ---
 
-## [#](https://xiaolincoding.com/network/3_tcp/tcp_queue.html#%E5%AE%9E%E6%88%98-tcp-%E5%8D%8A%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA)实战 - TCP 半连接队列溢出
+## 实战 - TCP 半连接队列溢出
 
 > 如何查看 TCP 半连接队列长度？
 
@@ -2932,7 +2938,7 @@ syncookies = 1 时，半连接队列满后，后续的请求就不会存放到�
 
 ---
 
-## [#](https://xiaolincoding.com/network/3_tcp/tcp_queue.html#%E6%9C%80%E5%90%8E)最后
+## 最后
 
 本文是以 Linux 2.6.32 版本的内核用实验 + 源码的方式，给大家说明了 TCP 半连接队列和全连接队列，我们可以看到 TCP 半连接队列「并不是」如网上说的那样 tcp_max_syn_backlog 表示半连接队列。
 

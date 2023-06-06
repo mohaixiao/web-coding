@@ -1,5 +1,3 @@
-
-
 # Built-in React Hooks
 
 内置 React Hooks
@@ -169,8 +167,6 @@ You can also [define your own custom Hooks](https://react.dev/learn/reusing-logi
 
 您还可以将自己的自定义 Hooks 定义为 JavaScript 函数。
 
-
-
 # useCallback
 
 使用回调
@@ -185,8 +181,7 @@ const cachedFn = useCallback(fn, dependencies)
 
 - [Reference](https://react.dev/reference/react/useCallback#reference)
   - [`useCallback(fn, dependencies)`](https://react.dev/reference/react/useCallback#usecallback)
-    
-    
+
 - 参考  
   useCallback（fn，依赖项）
 - [Usage](https://react.dev/reference/react/useCallback#usage)
@@ -200,11 +195,9 @@ const cachedFn = useCallback(fn, dependencies)
   - 优化自定义 Hook
 - [Troubleshooting](https://react.dev/reference/react/useCallback#troubleshooting)
   - [Every time my component renders, `useCallback` returns a different function](https://react.dev/reference/react/useCallback#every-time-my-component-renders-usecallback-returns-a-different-function)
-    
-    
-  - [I need to call `useCallback` for each list item in a loop, but it’s not allowed](https://react.dev/reference/react/useCallback#i-need-to-call-usememo-for-each-list-item-in-a-loop-but-its-not-allowed)
-    
-    
+
+- [I need to call `useCallback` for each list item in a loop, but it’s not allowed](https://react.dev/reference/react/useCallback#i-need-to-call-usememo-for-each-list-item-in-a-loop-but-its-not-allowed)
+
 - 故障排除  
   每次我的组件呈现时，useCallback 都会返回一个不同的函数  
   我需要为循环中的每个列表项调用 useCallback，但这是不允许的
@@ -246,18 +239,12 @@ export default function ProductPage({ productId, referrer, theme }) {
 - `fn`: The function value that you want to cache. It can take any arguments and return any values. React will return (not call!) your function back to you during the initial render. On next renders, React will give you the same function again if the `dependencies` have not changed since the last render. Otherwise, it will give you the function that you have passed during the current render, and store it in case it can be reused later. React will not call your function. The function is returned to you so you can decide when and whether to call it.
   
   fn：要缓存的函数值。它可以接受任何参数并返回任何值。 React 将在初始渲染期间返回（而不是调用！）你的函数。在下一次渲染中，如果自上次渲染以来依赖关系没有改变，React 将再次为您提供相同的功能。否则，它将为您提供您在当前渲染期间传递的功能，并将其存储起来以备日后重用。 React 不会调用你的函数。该函数返回给您，因此您可以决定何时以及是否调用它。
-  
-  
 
 - `dependencies`: The list of all reactive values referenced inside of the `fn` code. Reactive values include props, state, and all the variables and functions declared directly inside your component body. If your linter is [configured for React](https://react.dev/learn/editor-setup#linting), it will verify that every reactive value is correctly specified as a dependency. The list of dependencies must have a constant number of items and be written inline like `[dep1, dep2, dep3]`. React will compare each dependency with its previous value using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison algorithm.
   
   dependencies：在 fn 代码中引用的所有反应值的列表。响应式值包括 props、state 以及直接在组件主体内声明的所有变量和函数。如果你的 linter 是为 React 配置的，它将验证每个反应值是否正确指定为依赖项。依赖项列表必须具有固定数量的项，并且像 [dep1, dep2, dep3] 一样内联编写。 React 将使用 Object.is 比较算法将每个依赖项与其先前的值进行比较。
-  
-  
 
 #### [Returns](https://react.dev/reference/react/useCallback#returns "Link for Returns")
-
-
 
 On the initial render, `useCallback` returns the `fn` function you have passed.
 
@@ -314,6 +301,7 @@ You need to pass two things to `useCallback`:
 1. A function definition that you want to cache between re-renders.
    
    要在重新呈现之间缓存的函数定义。
+
 2. A list of dependencies including every value within your component that’s used inside your function.
    
    依赖项列表，包括组件中在函数中使用的每个值。
@@ -430,8 +418,6 @@ function ProductPage({ productId, referrer, theme }) {
 
 useCallback 与 useMemo 有什么关系？
 
-
-
 You will often see [`useMemo`](https://react.dev/reference/react/useMemo) alongside `useCallback`. They are both useful when you’re trying to optimize a child component. They let you [memoize](https://en.wikipedia.org/wiki/Memoization) (or, in other words, cache) something you’re passing down:
 
 你会经常看到 useMemo 和 useCallback。当您尝试优化子组件时，它们都很有用。他们让你记住（或者，换句话说，缓存）你传递的东西：
@@ -521,15 +507,19 @@ Note that `useCallback` does not prevent *creating* the function. You’re alway
 1. When a component visually wraps other components, let it [accept JSX as children.](https://react.docschina.org/learn/passing-props-to-a-component#passing-jsx-as-children) Then, if the wrapper component updates its own state, React knows that its children don’t need to re-render.
    
    当一个组件在视觉上包装其他组件时，让它接受 JSX 作为子组件。然后，如果包装器组件更新了它自己的状态，React 知道它的子组件不需要重新渲染。
+
 2. Prefer local state and don’t [lift state up](https://react.docschina.org/learn/sharing-state-between-components) any further than necessary. Don’t keep transient state like forms and whether an item is hovered at the top of your tree or in a global state library.
    
    更喜欢本地状态，不要在不必要的情况下进一步提升状态。不要保持像表单这样的瞬时状态，无论项目是否悬停在树的顶部或全局状态库中。
+
 3. Keep your [rendering logic pure.](https://react.docschina.org/learn/keeping-components-pure) If re-rendering a component causes a problem or produces some noticeable visual artifact, it’s a bug in your component! Fix the bug instead of adding memoization.
    
    保持你的渲染逻辑纯净。如果重新渲染一个组件导致了一个问题或者产生了一些明显的视觉伪像，那么它就是你的组件中的一个错误！修复错误而不是添加记忆。
+
 4. Avoid [unnecessary Effects that update state.](https://react.docschina.org/learn/you-might-not-need-an-effect) Most performance problems in React apps are caused by chains of updates originating from Effects that cause your components to render over and over.
    
    避免更新状态的不必要的效果。 React 应用程序中的大多数性能问题都是由 Effects 引起的更新链引起的，这些更新链导致组件反复渲染。
+
 5. Try to [remove unnecessary dependencies from your Effects.](https://react.docschina.org/learn/removing-effect-dependencies) For example, instead of memoization, it’s often simpler to move some object or a function inside an Effect or outside the component.
    
    尝试从 Effects 中删除不必要的依赖项。例如，在 Effect 内部或组件外部移动某些对象或函数通常比记忆更简单。

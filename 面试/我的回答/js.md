@@ -3774,7 +3774,9 @@ for…of 是 ES6 新增的遍历方式，允许遍历一个含有 iterator 接�
 
 ![](C:\Users\mohaixiao\AppData\Roaming\marktext\images\2023-04-07-23-40-38-image.png)
 
-### callback promise async/await的区别
+### JS如何遍历对象的属性？
+
+[*JS遍历对象属性*的7种方式](https://www.baidu.com/link?url=2Wk2Oi1XOsAo0AcmbteFUlMEExrU8sSIAY7AU9Ukilf1AUD1xgoTvQQrP-kW1I1iNfsEdX6vbsZveF49gv6_u_OuJoJ7cxOtV2jslXJphma&wd=&eqid=c0e7a26500002bd700000006647efe7e)
 
 callback、promise和async/await都是用于处理JavaScript中的异步编程问题的技术。
 
@@ -3838,3 +3840,27 @@ function functionName(obj) {
 https://www.w3schools.com/js/js_function_parameters.asp
 
 https://www.w3school.com.cn/js/js_function_parameters.asp
+
+### 如何修改div的内容
+
+在JavaScript中，我们可以通过不同的方式来修改HTML元素的内容。
+
+一种常用的方法是通过元素的id属性获取该元素，然后使用innerHTML或innerText属性来修改元素的内容。
+
+例如，如果要修改一个id属性为myDiv的div元素的内容，可以使用以下代码：
+
+```javascript
+let div = document.getElementById("myDiv");
+div.innerHTML = "新的内容";
+```
+
+上述代码会将myDiv元素的内容设置为“新的内容”。
+
+需要注意的是，innerHTML和innerText之间存在一些差异。innerHTML会将所有HTML标签都解析出来，并且能够执行脚本。而innerText只会将文本内容解析出来，不包括HTML标签，也不会执行脚本。因此，在某些情况下，使用innerHTML可能存在一定的安全风险。
+
+除了innerHTML和innerText之外，还有其他一些属性可以用来修改HTML元素的内容，例如：
+
+- textContent：类似于innerText，但会将所有元素的文本内容合并在一起；
+- outerHTML：用指定的HTML替换当前元素。
+
+无论使用哪种属性，都需要先获取到对应的HTML元素，并确保该元素存在才能修改它的内容。
