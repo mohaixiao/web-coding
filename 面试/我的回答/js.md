@@ -1,3 +1,169 @@
+- [介绍 js 的基本数据类型。](#介绍-js-的基本数据类型)
+- [JavaScript 有几种类型的值？你能画一下他们的内存图吗？](#javascript-有几种类型的值你能画一下他们的内存图吗)
+- [什么是堆？什么是栈？它们之间有什么区别和联系？](#什么是堆什么是栈它们之间有什么区别和联系)
+- [内部属性 `[[Class]]` 是什么？](#内部属性-class-是什么)
+- [介绍 js 有哪些内置对象？](#介绍-js-有哪些内置对象)
+- [6. undefined 与 undeclared 的区别？](#6-undefined-与-undeclared-的区别)
+- [7. null 和 undefined 的区别？](#7-null-和-undefined-的区别)
+- [8. 如何获取安全的 undefined 值？](#8-如何获取安全的-undefined-值)
+- [9. 说几条写 JavaScript 的基本规范？](#9-说几条写-javascript-的基本规范)
+- [10. JavaScript 原型，原型链？ 有什么特点？](#10-javascript-原型原型链-有什么特点)
+- [11. js 获取原型的方法？](#11-js-获取原型的方法)
+- [12. 在 js 中不同进制数字的表示方式](#12-在-js-中不同进制数字的表示方式)
+- [13. js 中整数的安全范围是多少？](#13-js-中整数的安全范围是多少)
+- [14. typeof NaN 的结果是什么？](#14-typeof-nan-的结果是什么)
+- [15. isNaN 和 Number.isNaN 函数的区别？](#15-isnan-和-numberisnan-函数的区别)
+- [16. Array 构造函数只有一个参数值时的表现？](#16-array-构造函数只有一个参数值时的表现)
+- [17 JS 中类型转换有哪几种？](#17-js-中类型转换有哪几种)
+  - [17.1 其他值到字符串的转换规则？](#171-其他值到字符串的转换规则)
+  - [17.2 其他值到数字值的转换规则？](#172-其他值到数字值的转换规则)
+  - [17.3 其他值到布尔类型的值的转换规则？](#173-其他值到布尔类型的值的转换规则)
+- [18. {} 和 \[\] 的 valueOf 和 toString 的结果是什么？](#18--和--的-valueof-和-tostring-的结果是什么)
+- [19. 什么是假值对象？](#19-什么是假值对象)
+- [20. ~ 操作符的作用？](#20--操作符的作用)
+- [21. 解析字符串中的数字和将字符串强制类型转换为数字的返回结果都是数字，它们之间的区别是什么？](#21-解析字符串中的数字和将字符串强制类型转换为数字的返回结果都是数字它们之间的区别是什么)
+- [22. + 操作符什么时候用于字符串的拼接？](#22--操作符什么时候用于字符串的拼接)
+- [25. 什么情况下会发生布尔值的隐式强制类型转换？](#25-什么情况下会发生布尔值的隐式强制类型转换)
+- [26. || 和 \&\& 操作符的返回值？](#26--和--操作符的返回值)
+- [27. Symbol 值的强制类型转换？](#27-symbol-值的强制类型转换)
+- [28. == 操作符的强制类型转换规则？](#28--操作符的强制类型转换规则)
+- [29. 如何将字符串转化为数字，例如 '12.3b'?](#29-如何将字符串转化为数字例如-123b)
+- [31. 常用正则表达式](#31-常用正则表达式)
+- [32. 生成随机数的各种方法？](#32-生成随机数的各种方法)
+- [34. javascript 创建对象的几种方式？](#34-javascript-创建对象的几种方式)
+- [面向对象的设计一定是好的设计吗？](#面向对象的设计一定是好的设计吗)
+- [从设计思想上谈谈继承本身的问题](#从设计思想上谈谈继承本身的问题)
+- [37. Javascript 的作用域链？](#37-javascript-的作用域链)
+- [38. 谈谈 This 对象的理解。](#38-谈谈-this-对象的理解)
+- [DOM 事件绑定](#dom-事件绑定)
+- [39. eval 是做什么的？](#39-eval-是做什么的)
+- [40. 什么是 DOM 和 BOM？](#40-什么是-dom-和-bom)
+- [42. 事件是什么？IE 与火狐的事件机制有什么区别？ 如何阻止冒泡？说一说冒泡和事件捕获？](#42-事件是什么ie-与火狐的事件机制有什么区别-如何阻止冒泡说一说冒泡和事件捕获)
+- [43. 三种事件模型是什么？](#43-三种事件模型是什么)
+- [44. 事件委托是什么？什么场景应用，使用过代码实现吗](#44-事件委托是什么什么场景应用使用过代码实现吗)
+- [45. \["1", "2", "3"\].map(parseInt) 答案是多少？](#45-1-2-3mapparseint-答案是多少)
+- [什么是闭包，为什么要用它？](#什么是闭包为什么要用它)
+- [闭包有哪些表现形式?](#闭包有哪些表现形式)
+- [如何解决下面的循环输出问题？](#如何解决下面的循环输出问题)
+- [javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？](#javascript-代码中的-use-strict-是什么意思--使用它区别是什么)
+- [48. 如何判断一个对象是否属于某个类？](#48-如何判断一个对象是否属于某个类)
+- [49. instanceof 的作用？](#49-instanceof-的作用)
+- [new 操作符具体干了什么呢？如何实现？](#new-操作符具体干了什么呢如何实现)
+- [new bind 过后的函数 this 的问题?](#new-bind-过后的函数-this-的问题)
+- [Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？](#javascript-中有一个函数执行时对象查找时永远不会去查找原型这个函数是)
+- [52. 对于 JSON 的了解？](#52-对于-json-的了解)
+- [53. \[\].forEach.call($$("_"),function(a){a.style.outline="1px solid #"+(~~(Math.random()_(1\<\<24))).toString(16)}) 能解释一下这段代码的意思吗？](#53-foreachcallfunctionaastyleoutline1px-solid-mathrandom124tostring16-能解释一下这段代码的意思吗)
+- [54. js 延迟加载的方式有哪些？](#54-js-延迟加载的方式有哪些)
+- [63. 模块化开发怎么做？](#63-模块化开发怎么做)
+- [64. js 的几种模块规范？](#64-js-的几种模块规范)
+- [65. AMD 和 CMD 规范的区别？](#65-amd-和-cmd-规范的区别)
+- [66. ES6 模块与 CommonJS 模块、AMD、CMD 的差异。](#66-es6-模块与-commonjs-模块amdcmd-的差异)
+- [67. requireJS 的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何 缓存的？）](#67-requirejs-的核心原理是什么如何动态加载的如何避免多次加载的如何-缓存的)
+- [68. JS 模块加载器的轮子怎么造，也就是如何实现一个模块加载器？](#68-js-模块加载器的轮子怎么造也就是如何实现一个模块加载器)
+- [69. ECMAScript6 怎么写 class，为什么会出现 class 这种东西?](#69-ecmascript6-怎么写-class为什么会出现-class-这种东西)
+- [70. documen.write 和 innerHTML 的区别？](#70-documenwrite-和-innerhtml-的区别)
+- [71. DOM 操作——怎样添加、移除、移动、复制、创建和查找节点？](#71-dom-操作怎样添加移除移动复制创建和查找节点)
+- [72. innerHTML 与 outerHTML 的区别？](#72-innerhtml-与-outerhtml-的区别)
+- [73. .call() 和 .apply() 的区别？](#73-call-和-apply-的区别)
+- [74. JavaScript 类数组对象的定义？](#74-javascript-类数组对象的定义)
+- [75.数组有哪些原生方法？](#75数组有哪些原生方法)
+- [76. 数组的 fill 方法？](#76-数组的-fill-方法)
+- [77. \[,,,\] 的长度？](#77--的长度)
+- [78. JavaScript 中的作用域、函数提升与变量声明提升？](#78-javascript-中的作用域函数提升与变量声明提升)
+- [79. 如何编写高性能的 Javascript ？](#79-如何编写高性能的-javascript-)
+- [81. 哪些操作会造成内存泄漏？](#81-哪些操作会造成内存泄漏)
+- [82.需求：实现一个页面操作不会整页刷新的网站，并且能在浏览器前进、后退时正确响应。给出你的技术实现方案？](#82需求实现一个页面操作不会整页刷新的网站并且能在浏览器前进后退时正确响应给出你的技术实现方案)
+- [83. 如何判断当前脚本运行在浏览器还是 node 环境中？（阿里）](#83-如何判断当前脚本运行在浏览器还是-node-环境中阿里)
+- [84. 把 script 标签放在页面的最底部的 body 封闭之前和封闭之后有什么区别？浏览器会如何解析它们？](#84-把-script-标签放在页面的最底部的-body-封闭之前和封闭之后有什么区别浏览器会如何解析它们)
+- [85. 移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？](#85-移动端的点击事件的有延迟时间是多久为什么会有-怎么解决这个延时)
+- [86. 什么是“前端路由”？什么时候适合使用“前端路由”？“前端路由”有哪些优点和缺点？](#86-什么是前端路由什么时候适合使用前端路由前端路由有哪些优点和缺点)
+- [87. 如何测试前端代码么？ 知道 BDD, TDD, Unit Test 么？ 知道怎么测试你的前端工程么(mocha, sinon, jasmin, qUnit..)？](#87-如何测试前端代码么-知道-bdd-tdd-unit-test-么-知道怎么测试你的前端工程么mocha-sinon-jasmin-qunit)
+- [88. 检测浏览器版本版本有哪些方式？](#88-检测浏览器版本版本有哪些方式)
+- [89. 什么是 Polyfill ？](#89-什么是-polyfill-)
+- [90. 使用 JS 实现获取文件扩展名？](#90-使用-js-实现获取文件扩展名)
+- [91. 介绍一下 js 的节流与防抖？](#91-介绍一下-js-的节流与防抖)
+- [92. Object.is() 与原来的比较操作符 “===”、“==” 的区别？ ==和===之间的区别？](#92-objectis-与原来的比较操作符--的区别-和之间的区别)
+- [93. escape,encodeURI,encodeURIComponent 有什么区别？](#93-escapeencodeuriencodeuricomponent-有什么区别)
+- [94. Unicode 和 UTF-8 之间的关系？](#94-unicode-和-utf-8-之间的关系)
+- [95. js 的事件循环是什么？](#95-js-的事件循环是什么)
+- [js 中的深浅拷贝实现？](#js-中的深浅拷贝实现)
+- [对于\[{'a':1},{'b':2}\]，最快的深拷贝的方法是什么 ？](#对于a1b2最快的深拷贝的方法是什么-)
+- [为什么 0.1 + 0.2 != 0.3？如何解决这个问题？](#为什么-01--02--03如何解决这个问题)
+- [100. 原码、反码和补码的介绍](#100-原码反码和补码的介绍)
+- [101. toPrecision 和 toFixed 和 Math.round 的区别？](#101-toprecision-和-tofixed-和-mathround-的区别)
+- [106. 什么是点击劫持？如何防范点击劫持？](#106-什么是点击劫持如何防范点击劫持)
+- [108. 什么是 MVVM？比之 MVC 有什么区别？什么又是 MVP ？](#108-什么是-mvvm比之-mvc-有什么区别什么又是-mvp-)
+- [110. Object.defineProperty 介绍？](#110-objectdefineproperty-介绍)
+- [111. 使用 Object.defineProperty() 来进行数据劫持有什么缺点？](#111-使用-objectdefineproperty-来进行数据劫持有什么缺点)
+- [114. 什么是 requestAnimationFrame ？](#114-什么是-requestanimationframe-)
+- [116. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别？](#116-offsetwidthoffsetheightclientwidthclientheight-与-scrollwidthscrollheight-的区别)
+- [117. 谈一谈你理解的函数式编程？](#117-谈一谈你理解的函数式编程)
+- [118. 异步编程的实现方式？](#118-异步编程的实现方式)
+- [119. Js 动画与 CSS 动画区别及相应实现](#119-js-动画与-css-动画区别及相应实现)
+- [120. get 请求传参长度的误区](#120-get-请求传参长度的误区)
+- [121. URL 和 URI 的区别？](#121-url-和-uri-的区别)
+- [122. get 和 post 请求在缓存方面的区别](#122-get-和-post-请求在缓存方面的区别)
+- [124. mouseover 和 mouseenter 的区别？](#124-mouseover-和-mouseenter-的区别)
+- [125. js 拖拽功能的实现](#125-js-拖拽功能的实现)
+- [126. 为什么使用 setTimeout 实现 setInterval？怎么模拟？](#126-为什么使用-settimeout-实现-setinterval怎么模拟)
+- [127. let 和 const ,var 的注意点？如果用 const 定义变量可以不赋初始值吗？为什么不行？](#127-let-和-const-var-的注意点如果用-const-定义变量可以不赋初始值吗为什么不行)
+- [128. 什么是 rest 参数？](#128-什么是-rest-参数)
+- [129. 什么是尾调用，使用尾调用有什么好处？](#129-什么是尾调用使用尾调用有什么好处)
+- [130. Symbol 类型的注意点？](#130-symbol-类型的注意点)
+- [131. Set 和 WeakSet 结构？](#131-set-和-weakset-结构)
+- [Map 和 WeakMap 结构？](#map-和-weakmap-结构)
+- [map 和 set 区别 map.set()两次 symbol 会怎样?](#map-和-set-区别-mapset两次symbol会怎样)
+- [133. 什么是 Proxy ？](#133-什么是-proxy-)
+- [134. Reflect 对象创建目的？](#134-reflect-对象创建目的)
+- [135. require 模块引入的查找方式？](#135-require-模块引入的查找方式)
+- [136. 什么是 Promise 对象，什么是 Promises/A+ 规范？](#136-什么是-promise-对象什么是-promisesa-规范)
+- [138. 如何检测浏览器所支持的最小字体大小？](#138-如何检测浏览器所支持的最小字体大小)
+- [139. 怎么做 JS 代码 Error 统计？](#139-怎么做-js-代码-error-统计)
+- [140. 单例模式模式是什么？](#140-单例模式模式是什么)
+- [141. 策略模式是什么？](#141-策略模式是什么)
+  - [模式是什么？](#模式是什么)
+- [143. 中介者模式是什么？](#143-中介者模式是什么)
+- [144. 适配器模式是什么？](#144-适配器模式是什么)
+- [145. 观察者模式和发布订阅模式有什么不同？](#145-观察者模式和发布订阅模式有什么不同)
+- [157. 开发中常用的几种 Content-Type ？](#157-开发中常用的几种-content-type-)
+- [165. 如何确定页面的可用性时间，什么是 Performance API？](#165-如何确定页面的可用性时间什么是-performance-api)
+- [166. js 中的命名规则](#166-js-中的命名规则)
+- [167. js 语句末尾分号是否可以省略？](#167-js-语句末尾分号是否可以省略)
+- [168. Object.assign()](#168-objectassign)
+- [169. Math.ceil 和 Math.floor](#169-mathceil-和-mathfloor)
+- [171. 一个列表，假设有 100000 个数据，这个该怎么办？](#171-一个列表假设有-100000-个数据这个该怎么办)
+- [172. js 中倒计时的纠偏实现？](#172-js-中倒计时的纠偏实现)
+- [175. ele.getElementsByClassName 和 ele.querySelectorAll 的区别？](#175-elegetelementsbyclassname-和-elequeryselectorall-的区别)
+- [函数作用域和块级作用域](#函数作用域和块级作用域)
+- [DOM 常用 API](#dom-常用-api)
+- [事件流](#事件流)
+- [点击一个 input 依次触发的事件](#点击一个-input-依次触发的事件)
+- [addEventListener](#addeventlistener)
+- [typeof 和 instanceof 的区别](#typeof-和-instanceof-的区别)
+- [执行上下文](#执行上下文)
+- [渐进式网络应用（PWA）](#渐进式网络应用pwa)
+- [CommonJS 规范、AMD 规范、CMD 规范、ES6 Modules 规范](#commonjs-规范amd-规范cmd-规范es6-modules-规范)
+- [babel 编译原理](#babel-编译原理)
+- [null 是对象吗？为什么？](#null-是对象吗为什么)
+- ['1'.toString()为什么可以调用？](#1tostring为什么可以调用)
+- [什么是 BigInt?](#什么是-bigint)
+- [instanceof 能否判断基本数据类型？](#instanceof-能否判断基本数据类型)
+- [\[\] == !\[\]结果是什么？为什么？](#--结果是什么为什么)
+- [对象转原始类型是根据什么流程运行的？](#对象转原始类型是根据什么流程运行的)
+- [如何让 if(a == 1 \&\& a == 2)条件成立？](#如何让-ifa--1--a--2条件成立)
+- [原型对象和构造函数有何关系？](#原型对象和构造函数有何关系)
+- [能不能描述一下原型链？](#能不能描述一下原型链)
+- [什么是高阶函数？](#什么是高阶函数)
+- [reduce](#reduce)
+- [filter](#filter)
+- [sort](#sort)
+- [for...in 和 for...of 的区别，可枚举类型和可迭代类型的区别，在其他语言是否有实现](#forin-和-forof-的区别可枚举类型和可迭代类型的区别在其他语言是否有实现)
+- [JS 如何遍历对象的属性？](#js如何遍历对象的属性)
+- [如何数组取最后一个元素？](#如何数组取最后一个元素)
+- [ES6 新特性了解吗？](#es6新特性了解吗)
+- [调用函数的时候，函数的参数是值传递还是引用传递？函数调用的时候，为什么会修改调用方的参数？要避免函数的参数被修改，调用前应该做什么？](#调用函数的时候函数的参数是值传递还是引用传递函数调用的时候为什么会修改调用方的参数要避免函数的参数被修改调用前应该做什么)
+- [如何修改 div 的内容](#如何修改div的内容)
+
 ### 介绍 js 的基本数据类型。
 
 > js 一共有 7 种基本数据类型，分别是 Undefined、Null、Boolean、Number、String，还有在 ES6 中新增的 Symbol 和 ES10 中新增的 BigInt 类型。
@@ -1051,7 +1217,7 @@ mouseover 和 mouseout 事件冒泡，但很难适当处理，且经常需要计
 1. 减少内存开销：只需在父元素上绑定一个事件处理器，而不是在每个子元素上都绑定，可以减少内存占用。
 2. 动态绑定事件：通过事件委托，可以在运行时动态地添加删除子元素，而不需要重复为新添加的子元素绑定事件处理器。
 3. 代码优化：通过将事件处理放在父元素上，可以使代码更简洁和易于维护。
-4. document 对象随时可用，任何时候都可以给它添加事件处理程序（不用等待 DOMContentLoaded或 load 事件）。这意味着只要页面渲染出可点击的元素，就可以无延迟地起作用。
+4. document 对象随时可用，任何时候都可以给它添加事件处理程序（不用等待 DOMContentLoaded 或 load 事件）。这意味着只要页面渲染出可点击的元素，就可以无延迟地起作用。
 
 使用场景：在一个包含大量子元素的列表、表格或菜单中，如果我们需要为每个子元素都绑定事件处理器（如点击事件、鼠标移入移出等），那么这将会带来很大的开发负担，并且降低应用性能。因此，在这种情况下，可以考虑使用事件委托来优化代码。
 
@@ -1157,7 +1323,7 @@ function foo() {
 }
 function bar(fn) {
   // 这就是闭包
-var a  = 3;
+  var a = 3;
   fn();
 }
 // 输出2，而不是1
@@ -1271,9 +1437,9 @@ let 使 JS 发生革命性的变化，让 JS 有函数作用域变为了块级�
 
 为什么要用它？
 
-①函数在定义时的词法作用域以外的地方被调用。闭包使得函数可以继续访问定义时的词法作用域。
+① 函数在定义时的词法作用域以外的地方被调用。闭包使得函数可以继续访问定义时的词法作用域。
 
-②无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的引用，无论在何处执行这个函数都会使用闭包。
+② 无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的引用，无论在何处执行这个函数都会使用闭包。
 
 在定时器、事件监听器、 Ajax 请求、跨窗口通信、Web Workers 或者任何其他的异步（或者同步）任务中，只要使用了回调函数，实际上就是在使用闭包！
 
@@ -1287,7 +1453,7 @@ let 使 JS 发生革命性的变化，让 JS 有函数作用域变为了块级�
 内存消耗。闭包产生的变量无法被销毁。
 性能问题。由于闭包内部变量优先级高于外部变量，所以需要多查找作用域链的一个层次，一定程度影响查找速度。
 
-[喂，别忙着过七夕了，闭包彻底搞懂了吗？](https://juejin.cn/post/7127972897083097096) 《你不知道的JS上》第5章 作用域闭包
+[喂，别忙着过七夕了，闭包彻底搞懂了吗？](https://juejin.cn/post/7127972897083097096) 《你不知道的 JS 上》第 5 章 作用域闭包
 
 ### javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？
 
@@ -1298,7 +1464,7 @@ use strict 指的是严格运行模式，在这种模式对 js 的使用添加�
 些不合理的地方，以此来减少一些运行时的怪异的行为。同时使用严格运行模式也能够提高编译的效率，从而提高代码的运行速度。
 我认为严格模式代表了 js 一种更合理、更安全、更严谨的发展方向。
 
-《JavaScript高级程序设计第四版》附录 B 严格模式
+《JavaScript 高级程序设计第四版》附录 B 严格模式
 
 ### 48. 如何判断一个对象是否属于某个类？
 
@@ -1314,16 +1480,15 @@ use strict 指的是严格运行模式，在这种模式对 js 的使用添加�
 
 ### 49. instanceof 的作用？
 
-- instanceof原理
+- instanceof 原理
+  
+  1.instanceof 作用
+  instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+  是就返回 true，不是就返回 false。 2.实现原理
+  当使用 instanceof 时，如果 class 上有静态方法 Symbol.hasInstance，那就直接调用这个方法，
+  如果没有就使用 obj instanceOf Class 检查 Class.prototype 是否等于 obj 的原型链中的原型之一。
 
-1.instanceof作用
- instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
- 是就返回true，不是就返回false。
-2.实现原理
- 当使用instanceof时，如果class上有静态方法 Symbol.hasInstance，那就直接调用这个方法，
- 如果没有就使用 obj instanceOf Class 检查 Class.prototype 是否等于 obj 的原型链中的原型之一。
-
-[扒下JS的“底裤”之 instanceof 运算符详解](https://juejin.cn/post/7108552313546997767) 《你不知道的JS上》第5章 作用域闭包
+[扒下 JS 的“底裤”之 instanceof 运算符详解](https://juejin.cn/post/7108552313546997767) 《你不知道的 JS 上》第 5 章 作用域闭包
 
 ### new 操作符具体干了什么呢？如何实现？
 
@@ -1337,7 +1502,7 @@ new 运算符创建一个用户定义的对象类型的实例或具有构造函�
 (4) 执行构造函数内部的代码（给新对象添加属性）。
 (5) 如果构造函数返回非空对象，则返回该对象；否则，返回刚创建的新对象。
 
-《JavaScript高级程序设计第四版》8.4.2 类构造函数
+《JavaScript 高级程序设计第四版》8.4.2 类构造函数
 
 ### new bind 过后的函数 this 的问题?
 
@@ -1348,12 +1513,12 @@ new 运算符创建一个用户定义的对象类型的实例或具有构造函�
 hasOwnProperty(propertyName)：用于判断当前对象实例（不是原型）上是否存在给定的属
 性。要检查的属性名必须是字符串（如 o.hasOwnProperty("name")）或符号。
 
-《JavaScript高级程序设计第四版》3.4.8 Object 类型
+《JavaScript 高级程序设计第四版》3.4.8 Object 类型
 
 ### 52. 对于 JSON 的了解？
 
 JSON 是一种数据交换格式，基于文本，优于轻量，用于交换数据。
-JSON不是编程语言。JSON 不属于 JavaScript，它们只是拥有相同的语法。很多语言都有解析和序列化 JSON 的内置能力。
+JSON 不是编程语言。JSON 不属于 JavaScript，它们只是拥有相同的语法。很多语言都有解析和序列化 JSON 的内置能力。
 JSON 可以表示数字、布尔值、字符串、null、数组（值的有序序列），以及由这些值（或数组、对象）所组成的对象（字符串与
 值的映射）。
 
@@ -1374,21 +1539,21 @@ JSON 可以表示数字、布尔值、字符串、null、数组（值的有序�
 如果传入的字符串不是标准的 JSON 格式的字符串的话，将会抛出错误。
 当我们从后端接收到 JSON 格式的字符串时，我们可以通过这个方法来将其解析为一个 js 数据结构，以此来进行数据的访问。
 
-《JavaScript高级程序设计第四版》第23章 JSON
+《JavaScript 高级程序设计第四版》第 23 章 JSON
 
-### 53. [].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)}) 能解释一下这段代码的意思吗？
+### 53. [].forEach.call($$("_"),function(a){a.style.outline="1px solid #"+(~~(Math.random()_(1<<24))).toString(16)}) 能解释一下这段代码的意思吗？
 
 （1）选取页面所有 DOM 元素。在浏览器的控制台中可以使用$$()方法来获取页面中相应的元素，
- 这是现代浏览器提供的一个命令行 API 相当于 document.querySelectorAll 方法。
+这是现代浏览器提供的一个命令行 API 相当于 document.querySelectorAll 方法。
 
 （2）循环遍历 DOM 元素
 
 （3）给元素添加 outline 。由于渲染的 outline 是不在 CSS 盒模型中的，所以为元素添加 outline 并不会影响元素的大小和页面的布局。
 
-（4）生成随机颜色函数。Math.random()*(1<<24) 可以得到 0~2^24 - 1 之间的随机数，因为得到的是一个浮点数，
- 但我们只需要整数部分，使用取反操作符 ~ 连续两次取反获得整数部分，然后再用 toString(16) 的方式，转换为一个十六进制的字符串。
+（4）生成随机颜色函数。Math.random()\*(1<<24) 可以得到 0~2^24 - 1 之间的随机数，因为得到的是一个浮点数，
+但我们只需要整数部分，使用取反操作符 ~ 连续两次取反获得整数部分，然后再用 toString(16) 的方式，转换为一个十六进制的字符串。
 
-《JavaScript高级程序设计第四版》3.5.2 位操作符 5. 左移 1. 按位非 《JavaScript权威指南第七版》4.8.3 位操作符
+《JavaScript 高级程序设计第四版》3.5.2 位操作符 5. 左移 1. 按位非 《JavaScript 权威指南第七版》4.8.3 位操作符
 
 ### 54. js 延迟加载的方式有哪些？
 
@@ -2334,28 +2499,28 @@ js 中是以 64 位双精度格式来存储数字的，只有 53 位的有效数
 
 拓展
 
-若你回答出来，面试官还可能继续问你：“ 0.1+0.2 不等于 0.3 会引起那些BUG？”
+若你回答出来，面试官还可能继续问你：“ 0.1+0.2 不等于 0.3 会引起那些 BUG？”
 
-可以这样回答：“ 会引起统计页面展示错乱的BUG，还有 300.01 优惠300 元后，支付金额不足0.01 元等类似的BUG。”
+可以这样回答：“ 会引起统计页面展示错乱的 BUG，还有 300.01 优惠 300 元后，支付金额不足 0.01 元等类似的 BUG。”
 
 解决方式
 “怎么解决 0.1+0.2 不等于 0.3 这个问题”。
 可以这样回答：
-可以用Math.js数学计算库来解决，或者用toFixed()给计算结果四舍五入，但是toFixed()在chrome或者火狐浏览器下四舍五入也有精度误差。
-可以用Math.round来解决精度误差，四舍五入。
-可以用Math.pow来做个简单的封装Math.round(Math.pow(10, m) * number) / Math.pow(10, m)，
-其中number是要四舍五入的数，m是保留几位小数。
+可以用 Math.js 数学计算库来解决，或者用 toFixed()给计算结果四舍五入，但是 toFixed()在 chrome 或者火狐浏览器下四舍五入也有精度误差。
+可以用 Math.round 来解决精度误差，四舍五入。
+可以用 Math.pow 来做个简单的封装 Math.round(Math.pow(10, m) \* number) / Math.pow(10, m)，
+其中 number 是要四舍五入的数，m 是保留几位小数。
 
- [《十进制的 0.1 为什么不能用二进制很好的表示？》](https://blog.csdn.net/Lixuanshengchao/article/details/82049191) [《十进制浮点数转成二进制》](https://blog.csdn.net/zhengyanan815/article/details/78550073) [《浮点数的二进制表示》](http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html) [《js 浮点数存储精度丢失原理》](https://juejin.im/post/5b372f106fb9a00e6714aa21) [《浮点数精度之谜》](https://juejin.im/post/594a31d0a0bb9f006b0b2624) [《JavaScript 浮点数陷阱及解法》](https://github.com/camsong/blog/issues/9) [《0.1+0.2 !== 0.3？》](https://juejin.im/post/5bd2f10a51882555e072d0c4) [《JavaScript 中奇特的~运算符》](https://juejin.im/entry/59cdd7fb6fb9a00a600f8eef)
+[《十进制的 0.1 为什么不能用二进制很好的表示？》](https://blog.csdn.net/Lixuanshengchao/article/details/82049191) [《十进制浮点数转成二进制》](https://blog.csdn.net/zhengyanan815/article/details/78550073) [《浮点数的二进制表示》](http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html) [《js 浮点数存储精度丢失原理》](https://juejin.im/post/5b372f106fb9a00e6714aa21) [《浮点数精度之谜》](https://juejin.im/post/594a31d0a0bb9f006b0b2624) [《JavaScript 浮点数陷阱及解法》](https://github.com/camsong/blog/issues/9) [《0.1+0.2 !== 0.3？》](https://juejin.im/post/5bd2f10a51882555e072d0c4) [《JavaScript 中奇特的~运算符》](https://juejin.im/entry/59cdd7fb6fb9a00a600f8eef)
 
 ### 100. 原码、反码和补码的介绍
 
 原码是计算机中对数字的二进制的定点表示方法，最高位表示符号位，其余位表示数值位。优点是易于分辨，缺点是不能够直接参与运算。
 
-正数的反码和其原码一样；负数的反码，符号位为1，数值部分按原码取反。
+正数的反码和其原码一样；负数的反码，符号位为 1，数值部分按原码取反。
 如 [+7]原 = 00000111，[+7]反 = 00000111； [-7]原 = 10000111，[-7]反 = 11111000。
 
-正数的补码和其原码一样；负数的补码为其反码加1。
+正数的补码和其原码一样；负数的补码为其反码加 1。
 
 例如 [+7]原 = 00000111，[+7]反 = 00000111，[+7]补 = 00000111；
 [-7]原 = 10000111，[-7]反 = 11111000，[-7]补 = 11111001
@@ -2735,11 +2900,11 @@ ES6 引入了 rest 参数（形式为“ ．．． 变量名勺，用于获取�
 
 《红宝书》6.4 Map 6.5 WeakMap
 
-### map 和 set 区别 map.set()两次symbol会怎样?
+### map 和 set 区别 map.set()两次 symbol 会怎样?
 
 `Map` 和 `Set` 都是 ES6 新增的内置数据结构，但它们在用途和实现上有很大不同。`Map` 是一种键值对的集合，其中每个键只能出现一次，而值可以任意出现；而 `Set` 是一种无序且唯一的值的集合。
 
-至于问题的第二部分，Map.set()两次相同的Symbol作为key会将其视为同一个元素，即最后结果只有一个key-value，例如：
+至于问题的第二部分，Map.set()两次相同的 Symbol 作为 key 会将其视为同一个元素，即最后结果只有一个 key-value，例如：
 
 ```
 const s = Symbol('foo');
@@ -3668,6 +3833,7 @@ let newNums = nums.map(function (item, index, array) {
 }, obj);
 console.log(newNums); //[7, 10, 13]
 ```
+```
 
 当然，后面的参数都是可选的 ，不用的话可以省略。
 
@@ -3774,27 +3940,27 @@ for…of 是 ES6 新增的遍历方式，允许遍历一个含有 iterator 接�
 
 ![](C:\Users\mohaixiao\AppData\Roaming\marktext\images\2023-04-07-23-40-38-image.png)
 
-### JS如何遍历对象的属性？
+### JS 如何遍历对象的属性？
 
-[*JS遍历对象属性*的7种方式](https://www.baidu.com/link?url=2Wk2Oi1XOsAo0AcmbteFUlMEExrU8sSIAY7AU9Ukilf1AUD1xgoTvQQrP-kW1I1iNfsEdX6vbsZveF49gv6_u_OuJoJ7cxOtV2jslXJphma&wd=&eqid=c0e7a26500002bd700000006647efe7e)
+[*JS 遍历对象属性*的 7 种方式](https://www.baidu.com/link?url=2Wk2Oi1XOsAo0AcmbteFUlMEExrU8sSIAY7AU9Ukilf1AUD1xgoTvQQrP-kW1I1iNfsEdX6vbsZveF49gv6_u_OuJoJ7cxOtV2jslXJphma&wd=&eqid=c0e7a26500002bd700000006647efe7e)
 
-callback、promise和async/await都是用于处理JavaScript中的异步编程问题的技术。
+callback、promise 和 async/await 都是用于处理 JavaScript 中的异步编程问题的技术。
 
-1. Callback是一种传统的处理异步编程的方式，使用回调函数来处理异步事件。通过定义回调函数来处理异步操作的结果，以便在完成时进行响应。
+1. Callback 是一种传统的处理异步编程的方式，使用回调函数来处理异步事件。通过定义回调函数来处理异步操作的结果，以便在完成时进行响应。
 
-2. Promise是ECMAScript 6中引入的一种新的异步编程方法，它可以更好地处理异步操作。Promise本质上是提供了一个异步操作的容器，将异步操作与其完成之后的操作分离开来，以便更好地控制代码的流程，并可通过链式调用then()和catch()方法来进行后续处理。
+2. Promise 是 ECMAScript 6 中引入的一种新的异步编程方法，它可以更好地处理异步操作。Promise 本质上是提供了一个异步操作的容器，将异步操作与其完成之后的操作分离开来，以便更好地控制代码的流程，并可通过链式调用 then()和 catch()方法来进行后续处理。
 
-3. Async/await是在ES7中提出的一种用于处理异步编程的方式。它本质上是基于Promise的语法糖，可以让我们像处理同步代码一样处理异步操作，让异步代码像同步代码一样易于阅读和维护。
+3. Async/await 是在 ES7 中提出的一种用于处理异步编程的方式。它本质上是基于 Promise 的语法糖，可以让我们像处理同步代码一样处理异步操作，让异步代码像同步代码一样易于阅读和维护。
 
-总结：Callback已经是一种老旧的方式，虽然仍然能够使用，但不推荐。Promise在ES6中被引入并取得了广泛的应用，它能够更好地处理异步操作的情况，并且比Callback的代码可读性更强。而Async/await是在ES7中提出的，它对Promise进行了简化，是一种更优雅的处理异步编程的方法，也更加易于理解和维护。
+总结：Callback 已经是一种老旧的方式，虽然仍然能够使用，但不推荐。Promise 在 ES6 中被引入并取得了广泛的应用，它能够更好地处理异步操作的情况，并且比 Callback 的代码可读性更强。而 Async/await 是在 ES7 中提出的，它对 Promise 进行了简化，是一种更优雅的处理异步编程的方法，也更加易于理解和维护。
 
 [异步编程: 一次性搞懂 Promise, async, await (#js #javascript)](https://www.bilibili.com/video/BV1WP4y187Tu/?vd_source=037b856144283671f89f562ed7eeb263)
 
-[前端人 不了解的promise/async await - 掘金](https://juejin.cn/post/7144308012952322084#comment)
+[前端人 不了解的 promise/async await - 掘金](https://juejin.cn/post/7144308012952322084#comment)
 
 [理解 JavaScript 的 async/await - 边城客栈 - SegmentFault 思否](https://segmentfault.com/a/1190000007535316)
 
-[8张图让你一步步看清 async/await 和 promise 的执行顺序 - 掘金](https://juejin.cn/post/6844903734321872910#comment)
+[8 张图让你一步步看清 async/await 和 promise 的执行顺序 - 掘金](https://juejin.cn/post/6844903734321872910#comment)
 
 ### 如何数组取最后一个元素？
 
@@ -3810,9 +3976,9 @@ callback、promise和async/await都是用于处理JavaScript中的异步编程�
 
 3. 使用 Array.prototype.slice() 方法：将 `-1` 作为开始位置传递给该方法即可获取数组的最后一个元素。比如，`arr.slice(-1)[0]` 即为数组最后一个元素。
 
-[JavaScript 中获取数组最后一个元素4种方法及性能 - 掘金](https://juejin.cn/post/7197300642062204988)
+[JavaScript 中获取数组最后一个元素 4 种方法及性能 - 掘金](https://juejin.cn/post/7197300642062204988)
 
-### ES6新特性了解吗？
+### ES6 新特性了解吗？
 
 ### 调用函数的时候，函数的参数是值传递还是引用传递？函数调用的时候，为什么会修改调用方的参数？要避免函数的参数被修改，调用前应该做什么？
 
@@ -3841,26 +4007,26 @@ https://www.w3schools.com/js/js_function_parameters.asp
 
 https://www.w3school.com.cn/js/js_function_parameters.asp
 
-### 如何修改div的内容
+### 如何修改 div 的内容
 
-在JavaScript中，我们可以通过不同的方式来修改HTML元素的内容。
+在 JavaScript 中，我们可以通过不同的方式来修改 HTML 元素的内容。
 
-一种常用的方法是通过元素的id属性获取该元素，然后使用innerHTML或innerText属性来修改元素的内容。
+一种常用的方法是通过元素的 id 属性获取该元素，然后使用 innerHTML 或 innerText 属性来修改元素的内容。
 
-例如，如果要修改一个id属性为myDiv的div元素的内容，可以使用以下代码：
+例如，如果要修改一个 id 属性为 myDiv 的 div 元素的内容，可以使用以下代码：
 
 ```javascript
 let div = document.getElementById("myDiv");
 div.innerHTML = "新的内容";
 ```
 
-上述代码会将myDiv元素的内容设置为“新的内容”。
+上述代码会将 myDiv 元素的内容设置为“新的内容”。
 
-需要注意的是，innerHTML和innerText之间存在一些差异。innerHTML会将所有HTML标签都解析出来，并且能够执行脚本。而innerText只会将文本内容解析出来，不包括HTML标签，也不会执行脚本。因此，在某些情况下，使用innerHTML可能存在一定的安全风险。
+需要注意的是，innerHTML 和 innerText 之间存在一些差异。innerHTML 会将所有 HTML 标签都解析出来，并且能够执行脚本。而 innerText 只会将文本内容解析出来，不包括 HTML 标签，也不会执行脚本。因此，在某些情况下，使用 innerHTML 可能存在一定的安全风险。
 
-除了innerHTML和innerText之外，还有其他一些属性可以用来修改HTML元素的内容，例如：
+除了 innerHTML 和 innerText 之外，还有其他一些属性可以用来修改 HTML 元素的内容，例如：
 
-- textContent：类似于innerText，但会将所有元素的文本内容合并在一起；
-- outerHTML：用指定的HTML替换当前元素。
+- textContent：类似于 innerText，但会将所有元素的文本内容合并在一起；
+- outerHTML：用指定的 HTML 替换当前元素。
 
-无论使用哪种属性，都需要先获取到对应的HTML元素，并确保该元素存在才能修改它的内容。
+无论使用哪种属性，都需要先获取到对应的 HTML 元素，并确保该元素存在才能修改它的内容。
