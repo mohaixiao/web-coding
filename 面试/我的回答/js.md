@@ -27,7 +27,7 @@
 - [26. || 和 \&\& 操作符的返回值？](#26--和--操作符的返回值)
 - [27. Symbol 值的强制类型转换？](#27-symbol-值的强制类型转换)
 - [28. == 操作符的强制类型转换规则？](#28--操作符的强制类型转换规则)
-- [29. 如何将字符串转化为数字，例如 '12.3b'?](#29-如何将字符串转化为数字例如-123b)
+- [29. 如何将字符串转化为数字，例如 &#39;12.3b&#39;?](#29-如何将字符串转化为数字例如-123b)
 - [31. 常用正则表达式](#31-常用正则表达式)
 - [32. 生成随机数的各种方法？](#32-生成随机数的各种方法)
 - [34. javascript 创建对象的几种方式？](#34-javascript-创建对象的几种方式)
@@ -41,18 +41,18 @@
 - [42. 事件是什么？IE 与火狐的事件机制有什么区别？ 如何阻止冒泡？说一说冒泡和事件捕获？](#42-事件是什么ie-与火狐的事件机制有什么区别-如何阻止冒泡说一说冒泡和事件捕获)
 - [43. 三种事件模型是什么？](#43-三种事件模型是什么)
 - [44. 事件委托是什么？什么场景应用，使用过代码实现吗](#44-事件委托是什么什么场景应用使用过代码实现吗)
-- [45. \["1", "2", "3"\].map(parseInt) 答案是多少？](#45-1-2-3mapparseint-答案是多少)
+- [45. \[&#34;1&#34;, &#34;2&#34;, &#34;3&#34;\].map(parseInt) 答案是多少？](#45-1-2-3mapparseint-答案是多少)
 - [什么是闭包，为什么要用它？](#什么是闭包为什么要用它)
 - [闭包有哪些表现形式?](#闭包有哪些表现形式)
 - [如何解决下面的循环输出问题？](#如何解决下面的循环输出问题)
-- [javascript 代码中的 "use strict"; 是什么意思 ? 使用它区别是什么？](#javascript-代码中的-use-strict-是什么意思--使用它区别是什么)
+- [javascript 代码中的 &#34;use strict&#34;; 是什么意思 ? 使用它区别是什么？](#javascript-代码中的-use-strict-是什么意思--使用它区别是什么)
 - [48. 如何判断一个对象是否属于某个类？](#48-如何判断一个对象是否属于某个类)
 - [49. instanceof 的作用？](#49-instanceof-的作用)
 - [new 操作符具体干了什么呢？如何实现？](#new-操作符具体干了什么呢如何实现)
 - [new bind 过后的函数 this 的问题?](#new-bind-过后的函数-this-的问题)
 - [Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？](#javascript-中有一个函数执行时对象查找时永远不会去查找原型这个函数是)
 - [52. 对于 JSON 的了解？](#52-对于-json-的了解)
-- [53. \[\].forEach.call($$("_"),function(a){a.style.outline="1px solid #"+(~~(Math.random()_(1\<\<24))).toString(16)}) 能解释一下这段代码的意思吗？](#53-foreachcallfunctionaastyleoutline1px-solid-mathrandom124tostring16-能解释一下这段代码的意思吗)
+- [53. \[\].forEach.call($$(&#34;_"),function(a){a.style.outline="1px solid #"+(~~(Math.random()_(1\<\<24))).toString(16)}) 能解释一下这段代码的意思吗？](#53-foreachcallfunctionaastyleoutline1px-solid-mathrandom124tostring16-能解释一下这段代码的意思吗)
 - [54. js 延迟加载的方式有哪些？](#54-js-延迟加载的方式有哪些)
 - [63. 模块化开发怎么做？](#63-模块化开发怎么做)
 - [64. js 的几种模块规范？](#64-js-的几种模块规范)
@@ -87,7 +87,7 @@
 - [94. Unicode 和 UTF-8 之间的关系？](#94-unicode-和-utf-8-之间的关系)
 - [95. js 的事件循环是什么？](#95-js-的事件循环是什么)
 - [js 中的深浅拷贝实现？](#js-中的深浅拷贝实现)
-- [对于\[{'a':1},{'b':2}\]，最快的深拷贝的方法是什么 ？](#对于a1b2最快的深拷贝的方法是什么-)
+- [对于\[{&#39;a&#39;:1},{&#39;b&#39;:2}\]，最快的深拷贝的方法是什么 ？](#对于a1b2最快的深拷贝的方法是什么-)
 - [为什么 0.1 + 0.2 != 0.3？如何解决这个问题？](#为什么-01--02--03如何解决这个问题)
 - [100. 原码、反码和补码的介绍](#100-原码反码和补码的介绍)
 - [101. toPrecision 和 toFixed 和 Math.round 的区别？](#101-toprecision-和-tofixed-和-mathround-的区别)
@@ -112,7 +112,7 @@
 - [130. Symbol 类型的注意点？](#130-symbol-类型的注意点)
 - [131. Set 和 WeakSet 结构？](#131-set-和-weakset-结构)
 - [Map 和 WeakMap 结构？](#map-和-weakmap-结构)
-- [map 和 set 区别 map.set()两次 symbol 会怎样?](#map-和-set-区别-mapset两次symbol会怎样)
+- [map 和 set 区别 map.set()两次 symbol 会怎样?](#map-和-set-区别-mapset两次-symbol-会怎样)
 - [133. 什么是 Proxy ？](#133-什么是-proxy-)
 - [134. Reflect 对象创建目的？](#134-reflect-对象创建目的)
 - [135. require 模块引入的查找方式？](#135-require-模块引入的查找方式)
@@ -145,7 +145,7 @@
 - [CommonJS 规范、AMD 规范、CMD 规范、ES6 Modules 规范](#commonjs-规范amd-规范cmd-规范es6-modules-规范)
 - [babel 编译原理](#babel-编译原理)
 - [null 是对象吗？为什么？](#null-是对象吗为什么)
-- ['1'.toString()为什么可以调用？](#1tostring为什么可以调用)
+- [&#39;1&#39;.toString()为什么可以调用？](#1tostring为什么可以调用)
 - [什么是 BigInt?](#什么是-bigint)
 - [instanceof 能否判断基本数据类型？](#instanceof-能否判断基本数据类型)
 - [\[\] == !\[\]结果是什么？为什么？](#--结果是什么为什么)
@@ -154,15 +154,14 @@
 - [原型对象和构造函数有何关系？](#原型对象和构造函数有何关系)
 - [能不能描述一下原型链？](#能不能描述一下原型链)
 - [什么是高阶函数？](#什么是高阶函数)
-- [reduce](#reduce)
 - [filter](#filter)
 - [sort](#sort)
 - [for...in 和 for...of 的区别，可枚举类型和可迭代类型的区别，在其他语言是否有实现](#forin-和-forof-的区别可枚举类型和可迭代类型的区别在其他语言是否有实现)
-- [JS 如何遍历对象的属性？](#js如何遍历对象的属性)
+- [JS 如何遍历对象的属性？](#js-如何遍历对象的属性)
 - [如何数组取最后一个元素？](#如何数组取最后一个元素)
-- [ES6 新特性了解吗？](#es6新特性了解吗)
+- [ES6 新特性了解吗？](#es6-新特性了解吗)
 - [调用函数的时候，函数的参数是值传递还是引用传递？函数调用的时候，为什么会修改调用方的参数？要避免函数的参数被修改，调用前应该做什么？](#调用函数的时候函数的参数是值传递还是引用传递函数调用的时候为什么会修改调用方的参数要避免函数的参数被修改调用前应该做什么)
-- [如何修改 div 的内容](#如何修改div的内容)
+- [如何修改 div 的内容](#如何修改-div-的内容)
 
 ### 介绍 js 的基本数据类型。
 
@@ -179,7 +178,7 @@
 > 两种类型间的主要区别是它们的存储位置不同，基本数据类型的值直接保存在栈中，而复杂数据类型的值保存在堆中，通过使用在栈中保存对应的指针来获取堆中的值。闭包变量是存在堆内存中的。对于赋值操作，原始类型的数据直接完整地复制变量值，对象数据类型的数据则是复制引用地址。
 
 内存图：
-<img title="" src="https://cdn.nlark.com/yuque/0/2022/png/26096776/1662902382431-ef6b77b2-60df-4e72-aba7-60bc4808dd2e.png#averageHue=%23bfbfbf&clientId=udc955f15-51a6-4&from=paste&height=348&id=u723dcd75&name=image.png&originHeight=632&originWidth=364&originalType=binary&ratio=1&rotation=0&showTitle=false&size=33034&status=done&style=none&taskId=uc5417b72-5263-4b66-b7f7-eadfadac6ad&title=&width=200.6666717529297" alt="image.png" width="164"><img title="" src="https://cdn.nlark.com/yuque/0/2022/png/26096776/1662902397172-947de821-c6be-4daa-b417-98f616167b73.png#averageHue=%23c1c1c1&clientId=udc955f15-51a6-4&from=paste&height=347&id=LyUOS&name=image.png&originHeight=625&originWidth=925&originalType=binary&ratio=1&rotation=0&showTitle=false&size=78034&status=done&style=none&taskId=ud935f7ea-9513-4de0-a180-a24f6e11246&title=&width=514" alt="image.png" width="420">
+`<img title="" src="https://cdn.nlark.com/yuque/0/2022/png/26096776/1662902382431-ef6b77b2-60df-4e72-aba7-60bc4808dd2e.png#averageHue=%23bfbfbf&clientId=udc955f15-51a6-4&from=paste&height=348&id=u723dcd75&name=image.png&originHeight=632&originWidth=364&originalType=binary&ratio=1&rotation=0&showTitle=false&size=33034&status=done&style=none&taskId=uc5417b72-5263-4b66-b7f7-eadfadac6ad&title=&width=200.6666717529297" alt="image.png" width="164"><img title="" src="https://cdn.nlark.com/yuque/0/2022/png/26096776/1662902397172-947de821-c6be-4daa-b417-98f616167b73.png#averageHue=%23c1c1c1&clientId=udc955f15-51a6-4&from=paste&height=347&id=LyUOS&name=image.png&originHeight=625&originWidth=925&originalType=binary&ratio=1&rotation=0&showTitle=false&size=78034&status=done&style=none&taskId=ud935f7ea-9513-4de0-a180-a24f6e11246&title=&width=514" alt="image.png" width="420">`
 
 《JavaScript 高级程序设计第 4 版》 第四章变量、作用域与内存
 
@@ -611,8 +610,6 @@ ToInt32 首先执行 ToNumber 强制类型转换，比如 "123" 会先被转换�
 本题相关知识点：
 
 《JavaScript 高级程序设计第四版》3.5.6 加性操作符 《你不知道的 JS 中》 4.4.2 字符串和数字之间的隐式强制类型转换
-
-> 
 
 - 《JavaScript 高级程序设计第四版》3.5.6 加性操作符
 
@@ -1301,9 +1298,9 @@ f1();
 f3();
 ```
 
-让 f1 执行，给 f3 赋值后，等于说现在`f3拥有了window、f1和f3本身这几个作用域的访问权限`，还是自底向上查找，`最近是在f1`中找到了 a,因此输出 2。
+让 f1 执行，给 f3 赋值后，等于说现在 `f3拥有了window、f1和f3本身这几个作用域的访问权限`，还是自底向上查找，`最近是在f1`中找到了 a,因此输出 2。
 
-在这里是外面的变量`f3存在着父级作用域的引用`，因此产生了闭包，形式变了，本质没有改变。
+在这里是外面的变量 `f3存在着父级作用域的引用`，因此产生了闭包，形式变了，本质没有改变。
 
 ### 闭包有哪些表现形式?
 
@@ -1347,7 +1344,7 @@ $('#app').click(function(){
 })
 ```
 
-4. IIFE(立即执行函数表达式)创建闭包, 保存了`全局作用域window`和`当前函数的作用域`，因此可以全局的变量。
+4. IIFE(立即执行函数表达式)创建闭包, 保存了 `全局作用域window`和 `当前函数的作用域`，因此可以全局的变量。
 
 ```js
 var a = 2;
@@ -1481,7 +1478,7 @@ use strict 指的是严格运行模式，在这种模式对 js 的使用添加�
 ### 49. instanceof 的作用？
 
 - instanceof 原理
-  
+
   1.instanceof 作用
   instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
   是就返回 true，不是就返回 false。 2.实现原理
@@ -1541,7 +1538,7 @@ JSON 可以表示数字、布尔值、字符串、null、数组（值的有序�
 
 《JavaScript 高级程序设计第四版》第 23 章 JSON
 
-### 53. [].forEach.call($$("_"),function(a){a.style.outline="1px solid #"+(~~(Math.random()_(1<<24))).toString(16)}) 能解释一下这段代码的意思吗？
+### 53. [].forEach.call($$("\_"),function(a)) 能解释一下这段代码的意思吗？
 
 （1）选取页面所有 DOM 元素。在浏览器的控制台中可以使用$$()方法来获取页面中相应的元素，
 这是现代浏览器提供的一个命令行 API 相当于 document.querySelectorAll 方法。
@@ -2445,7 +2442,7 @@ const obj2 = Object.assign({}, obj, {name: 'sss'});
 console.log(obj2);//{ name: 'sss', age: 18 }
 
 3. concat浅拷贝数组
-```js
+
 let arr = [1, 2, 3];
 let newArr = arr.concat();
 newArr[1] = 100;
@@ -2462,7 +2459,7 @@ console.log(arr);//[ 1, 2, 3 ]
 深拷贝相对浅拷贝而言，如果遇到属性值为引用类型的时候，它新建一个引用类型并将对应的值复制给它，因此对象获得的一个新的引用类型而不是一个原有类型的引用。
 深拷贝对于一些对象可以使用 JSON 的两个函数来实现，但是由于 JSON 的对象格式比 js 的对象格式更加严格，所以如果属性值里边出现函数或者 Symbol 类型的值时，会转换失败。
 
-### 对于[{'a':1},{'b':2}]，最快的深拷贝的方法是什么 ？
+### 对于[,]，最快的深拷贝的方法是什么 ？
 
 对于 `[{'a':1},{'b':2}]` 数组中含有的对象，最快的深拷贝方法是使用 `JSON.parse(JSON.stringify(obj))`，这种方法可以将一个对象或者数组深拷贝成一个新的对象或者数组。示例如下：
 
@@ -2815,7 +2812,7 @@ setTimeout(() => {
 ### 127. let 和 const ,var 的注意点？如果用 const 定义变量可以不赋初始值吗？为什么不行？
 
 ```javascript
-var：
+如果用 const 定义变量可以不赋初始值吗？为什么不行？var：
 作用域：全局作用域 和 函数作用域
 会进行预解析
 使用var声明的变量既是顶级变量(顶层对象(window对象)的属性)也是全局变量
@@ -2843,7 +2840,8 @@ let 有的它也有
 赋值后不能改动类型
 不可以。使用 const 定义的变量必须在声明时进行初始化，
 因为 const 变量一旦被赋值就不能再修改。
-如果没有初始值，那么该变量可能会包含未定义的值，这可能会导致程序出现意外行为或错误。
+
+使用 `const` 定义的变量必须在定义时就赋初始值，否则会产生语法错误。这是因为 `const` 声明的是常量，即值不能被改变的变量。如果没有初始值，那么它就没有固定的值可以被锁定。如果尝试在后续代码中给未初始化的 `const` 变量赋值，也会报错。因此，为了避免这种错误，定义 `const` 变量时必须同时为其赋初始值。如果需要定义不确定初始值的变量，应该使用 `let` 而不是 `const`。
 ```
 
 ### 128. 什么是 rest 参数？
@@ -3653,7 +3651,7 @@ ES6 Modules 中没有这些顶层变量：arguments、require、module、exports
 ### 什么是 BigInt?
 
 > 什么是 BigInt?
-> BigInt 是一种新的数据类型，用于当整数值大于 Number 数据类型支持的范围时。这种数据类型允许我们安全地对`大整数`执行算术操作，表示高分辨率的时间戳，使用大整数 id，等等，而不需要使用库。
+> BigInt 是一种新的数据类型，用于当整数值大于 Number 数据类型支持的范围时。这种数据类型允许我们安全地对 `大整数`执行算术操作，表示高分辨率的时间戳，使用大整数 id，等等，而不需要使用库。
 
 为什么需要 BigInt?
 
@@ -3693,7 +3691,6 @@ console.log(typeof x);   //"bigint"
 值得警惕的点
 
 1. BigInt 不支持一元加号运算符, 这可能是某些程序可能依赖于 + 始终生成 Number 的不变量，或者抛出异常。另外，更改 + 的行为也会破坏 asm.js 代码。
-
 2. 因为隐式类型转换可能丢失信息，所以不允许在 bigint 和 Number 之间进行混合操作。当混合使用大整数和浮点数时，结果值可能无法由 BigInt 或 Number 精确表示。
 
 10 + 10n;    // → TypeError
@@ -3804,7 +3801,7 @@ console.log(a == 1 && a == 2); //true
 
 ### 什么是高阶函数？
 
-```markdown
+````markdown
 ## 1.什么是高阶函数
 
 概念非常简单，如下:
@@ -3833,7 +3830,9 @@ let newNums = nums.map(function (item, index, array) {
 }, obj);
 console.log(newNums); //[7, 10, 13]
 ```
-```
+````
+
+````
 
 当然，后面的参数都是可选的 ，不用的话可以省略。
 
@@ -3848,7 +3847,7 @@ let newNums = nums.reduce(function (preSum, curVal, array) {
   return preSum + curVal;
 }, 0);
 console.log(newNums); //6
-```
+````
 
 不传默认值会怎样？
 
@@ -3898,26 +3897,22 @@ nums.sort(function (a, b) {
 for…of 是 ES6 新增的遍历方式，允许遍历一个含有 iterator 接口的数据结构（数组、对象等）并且返回各项的值，和 ES3 中的 for…in 的区别如下
 
 - for…of 遍历获取的是对象的键值，for…in 获取的是对象的键名；
-
 - for… in 会遍历对象的整个原型链，性能非常差不推荐使用，而 for … of 只遍历当前对象不会遍历原型链；
-
 - 对于数组的遍历，for…in 会返回数组中所有可枚举的属性(包括原型链上可枚举的属性)，for…of 只返回数组的下标对应的属性值；
-  
+
   可枚举类型和可迭代类型的区别
 
 > 关于 Iterable 的一点：
 
 - 可迭代对象是数组的泛化。这是一个允许我们在 for..of 循环中使任何对象可用的概念；
-
 - iterable 是一个接口，它指定如果一个对象实现了一个 key is [symbol.iterator] [link](https://towardsdatascience.com/javascript-es6-iterables-and-iterators-de18b54f4d4)的方法，则该对象可以被访问。
 
 > 关于 Enumerable 的一点：
 
 - 它只是意味着如果您使用 for..in 循环或 Object.keys 遍历对象，该属性将显示出来；
-
 - JavaScript 中的可枚举属性意味着如果使用 for...in 循环或 Object.keys() 方法迭代该属性，则可以查看该属性。默认情况下，通过简单赋值或属性初始化器创建的所有属性都是可枚举的。
 
-可枚举 [for in] 查看对象内部的属性，而不是值 [仅在哪里`enumerable: true`- 默认情况下适用于所有道具]；
+可枚举 [for in] 查看对象内部的属性，而不是值 [仅在哪里 `enumerable: true`- 默认情况下适用于所有道具]；
 
 可迭代 [for of] 查看值；
 
@@ -3929,7 +3924,7 @@ for…of 是 ES6 新增的遍历方式，允许遍历一个含有 iterator 接�
 
 所以你可以使用
 
-- `for .. of`for`[array, Map, Set, String]`迭代值；
+- `for .. of`for `[array, Map, Set, String]`迭代值；
 - `for .. in`让数组遍历一个键；
 - `for .. in`让对象枚举其（对象的）属性；
 - 循环[NodeList](https://qa.1r1g.com/sf/ask/3989335031/)。
@@ -3947,9 +3942,7 @@ for…of 是 ES6 新增的遍历方式，允许遍历一个含有 iterator 接�
 callback、promise 和 async/await 都是用于处理 JavaScript 中的异步编程问题的技术。
 
 1. Callback 是一种传统的处理异步编程的方式，使用回调函数来处理异步事件。通过定义回调函数来处理异步操作的结果，以便在完成时进行响应。
-
 2. Promise 是 ECMAScript 6 中引入的一种新的异步编程方法，它可以更好地处理异步操作。Promise 本质上是提供了一个异步操作的容器，将异步操作与其完成之后的操作分离开来，以便更好地控制代码的流程，并可通过链式调用 then()和 catch()方法来进行后续处理。
-
 3. Async/await 是在 ES7 中提出的一种用于处理异步编程的方式。它本质上是基于 Promise 的语法糖，可以让我们像处理同步代码一样处理异步操作，让异步代码像同步代码一样易于阅读和维护。
 
 总结：Callback 已经是一种老旧的方式，虽然仍然能够使用，但不推荐。Promise 在 ES6 中被引入并取得了广泛的应用，它能够更好地处理异步操作的情况，并且比 Callback 的代码可读性更强。而 Async/await 是在 ES7 中提出的，它对 Promise 进行了简化，是一种更优雅的处理异步编程的方法，也更加易于理解和维护。
@@ -3967,11 +3960,10 @@ callback、promise 和 async/await 都是用于处理 JavaScript 中的异步编
 在 JavaScript 中，取出数组中最后一个元素有多种方法。以下是其中几种：
 
 1. 通过数组的 length 属性和索引号进行访问：使用 `arr[arr.length - 1]` 的方式即可。具体来说，JavaScript 数组中的索引编号从 0 开始，因此我们可以通过数组的长度 - 1 来获取最后一个元素的位置。
-
 2. 使用 [Array.prototype.at](http://array.prototype.at/)() 方法取出：`arr.at(-1)` 可以直接获取数组的最后一个元素。该方法接收一个整数值并返回该索引的项目，允许正数和负数。
-   
+
    `Array.prototype.at()` 方法是 JavaScript 中 Array 对象的一个方法，用于返回给定索引处的元素。它可以处理负数和超出索引范围的索引，并且具有与使用方括号访问相同的语法（即 `array[index]`）。当传递负数时，`at()` 方法从末尾开始计数。比如，`arr.at(-1)` 将返回数组 `arr` 的最后一个元素。
-   
+
    关于使用 `array[-1]` 访问数组的最后一个元素，Python 和 R 语言都支持这种语法，但在 JavaScript 中不推荐使用。因为 JavaScript 在处理方括号内的负数数字时，将其解释为字符串属性，因此 `array[-1]` 实际上被视为访问名为 "-1" 的属性。而 `at()` 方法则不会出现这个问题。
 
 3. 使用 Array.prototype.slice() 方法：将 `-1` 作为开始位置传递给该方法即可获取数组的最后一个元素。比如，`arr.slice(-1)[0]` 即为数组最后一个元素。
