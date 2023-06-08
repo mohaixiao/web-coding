@@ -258,3 +258,17 @@ const pRecursion = (pList) => {
     // TODO
 };
 pRecursion(pList);
+
+//  ==================================== > 13
+function fn1() {
+    console.log(this)
+}
+var obj = { fn() { console.log(this) }, fn1: fn1 }
+var fn2 = obj.fn
+var fn3 = obj.fn1.bind(obj)
+
+fn1() // window
+fn2() // window
+fn3()  // obj
+obj.fn() // obj
+obj.fn1() // obj
