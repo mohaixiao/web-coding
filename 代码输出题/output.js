@@ -210,3 +210,51 @@ var bar = {
 var _printName = bar.printName
 _printName()//window
 bar.printName()//bar
+
+//======================》 11
+class demo {
+    constructor() {
+        this.name = 'demo';
+        console.log(this.name);
+    }
+
+    getName() {
+        console.log('111' + this.name);
+    }
+}
+
+demo.prototype.getName = () => {
+    console.log('222' + this.name);
+}
+
+let a = new demo();
+a.getName();
+
+// demo
+// 222
+
+//======================》 12
+// mock fun
+let num = 1;
+const add = () => { return num++; };
+// mock request
+const mpromise = (cb, time) => {
+    return () => {
+        return new Promise((resolve) => {
+            setTimeout(async () => {
+                const res = await cb();
+                console.log(time);
+                resolve(res);
+            }, time);
+        });
+    };
+};
+const pList = [mpromise(add, 2000), mpromise(add, 1000), mpromise(add, 2500)];
+// core
+const pIteratorLimit = (pList) => {
+    // TODO
+};
+const pRecursion = (pList) => {
+    // TODO
+};
+pRecursion(pList);

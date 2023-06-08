@@ -37,6 +37,7 @@ const step = () => {
     })
 }
 step()
+
 // 注意看黄灯亮的回调里又再次调用了 step 方法 以完成循环亮灯。
 
 // （2）用 promise 实现
@@ -68,7 +69,7 @@ step()
 const taskRunner = async () => {
     await task(3000, 'red')
     await task(2000, 'green')
-    await task(2100, 'yellow')
+    await task(1000, 'yellow')
     taskRunner()
 }
 taskRunner()
