@@ -4041,3 +4041,18 @@ div.innerHTML = "新的内容";
 - outerHTML：用指定的 HTML 替换当前元素。
 
 无论使用哪种属性，都需要先获取到对应的 HTML 元素，并确保该元素存在才能修改它的内容。
+
+### 箭头函数和普通函数的区别？
+
+- 箭头函数不绑定 `arguments`，可以使用 `...args` 代替
+- 箭头函数没有 `prototype` 属性，不能进行 `new` 实例化
+- 箭头函数不能通过 `call`、`apply` 等绑定 `this`，因为箭头函数底层是使用 `bind`永久绑定 `this`了，`bind`绑定过的 `this`不能修改
+- 箭头函数的 `this`指向创建时父级的 `this`
+- 箭头函数不能使用 `yield`关键字，不能作为 `Generator`函数
+- [箭头函数与普通函数的区别？*箭头函数和普通函数的区别*前端路啊的博客-CSDN 博客](https://blog.csdn.net/m0_62118859/article/details/124661031)
+
+[箭头函数与普通函数的区别详解*箭头函数与普通函数有哪些区别*小弦的博客的博客-CSDN 博客](https://blog.csdn.net/qq_42258904/article/details/110083064)
+
+### map 与 forEach 的区别
+
+[基础篇 | 前端进阶之旅](https://interview.poetries.top/docs/base.html#_50-map%E4%B8%8Eforeach%E7%9A%84%E5%8C%BA%E5%88%AB)

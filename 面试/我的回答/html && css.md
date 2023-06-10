@@ -66,7 +66,7 @@
 >
 > 在 css3 中伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互，也可能是由于元素相对于其父级或兄弟元素的位置。伪类选择器始终以一个冒号（:）开始。
 >
-> 在 css3 中伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方插入内容。
+> 在 css3 中伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML 元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方插入内容。
 >
 > 2 者都是伪元素选择器，单冒号是浏览器为了向后兼容而允许的。
 >
@@ -79,7 +79,7 @@
 
 > 伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互，也可能是由于元素相对于其父级或兄弟元素的位置。伪类选择器始终以一个冒号（:）开始。
 >
-> 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方插入内容。
+> 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML 元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方插入内容。
 >
 > 这些选择器以双冒号（::）开头，尽管大多数浏览器也支持单冒号的语法以便向后兼容。
 >
@@ -95,7 +95,7 @@
 >
 > 伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互（:hover,:focus 等等），也可能是由于元素相对于其父级或兄弟元素的位置（child 类，type 类）。伪类选择器始终以一个冒号（:）开始。
 >
-> 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML元素的特定部分。伪元素选择器可能只匹配元素的一部分（一句话中的第一个字母::first-letter,等等），甚至向 HTML 标记中未定义的地方 （创建一个伪元素，使其成为匹配元素的第一个子元素::before,等等）
+> 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML 元素的特定部分。伪元素选择器可能只匹配元素的一部分（一句话中的第一个字母::first-letter,等等），甚至向 HTML 标记中未定义的地方 （创建一个伪元素，使其成为匹配元素的第一个子元素::before,等等）
 > 插入内容。
 >
 > 伪元素选择器以双冒号（::）开头，尽管大多数浏览器也支持单冒号的语法以便向后兼容。
@@ -163,7 +163,7 @@ p:first-child {
 - font-family：字体系列
 - font-weight：字体的粗细
 - font-size：字体的大小
-- 还得font-style：字体的风格
+- 还得 font-style：字体的风格
 
 2. **文本系列属性**
 
@@ -352,18 +352,18 @@ XML 或者类似于 XML 的文档上，比如 SVG。在这些情况下，该选�
 
 > 对于宽高不定的元素，下面的后面两种方法，可以实现元素的垂直和水平的居中。
 
-**transform移动的是什么？**
+**transform 移动的是什么？**
 
 （4）利用绝对定位，先将元素的左上角通过 top:50%和 left:50%定位到页面的中心，然后再通过 translate 来调整元素的中心点到页面的中心。
 
 （5）使用 flex 布局，通过 align-items:center 和 justify-content:center 设置容器的垂直和水平方向上为居中对齐，然后它的子元素也可以实现垂直和水平的居中。
 
-```css
+````css
 -水平居中：给div设置一个宽度，然后添加margin: 0 auto 属性 ```css div {
   width: 200px;
   margin: 0 auto;
 }
-```
+````
 
 -水平居中，利用 text-align:center 实现
 
@@ -400,15 +400,15 @@ div {
 -水平垂直居中一
 
 ```css
-/*确定容器的宽高宽500高300的层设置层的外边距 */ 
-div{
-    position: absolute; /*绝对定位*/
-    width: 500px;
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    margin: -150px 0 0 -250px; /*外边距为自身宽高的一半*/
-    background-color: pink; /*方便看效果*/
+/*确定容器的宽高宽500高300的层设置层的外边距 */
+div {
+  position: absolute; /*绝对定位*/
+  width: 500px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin: -150px 0 0 -250px; /*外边距为自身宽高的一半*/
+      background-color: pink; /*方便看效果*/
 }
 ```
 
@@ -477,7 +477,7 @@ div {
 
 《深入浅出 CSS》3.2.4 垂直居中内容
 
-[面试官：用CSS实现垂直居中的方法有哪些？](https://www.bilibili.com/video/BV1ne4y137MY/?spm_id_from=333.788&vd_source=037b856144283671f89f562ed7eeb263)
+[面试官：用 CSS 实现垂直居中的方法有哪些？](https://www.bilibili.com/video/BV1ne4y137MY/?spm_id_from=333.788&vd_source=037b856144283671f89f562ed7eeb263)
 
 #### display 有哪些值？说明他们的作用。
 
@@ -516,17 +516,17 @@ grid grid 布局
 
 [MDN display](https://developer.mozilla.org/zh-CN/docs/Web/CSS/display)、[w3c display](https://www.w3cschool.cn/cssref/pr-class-display.html)、[菜鸟教程 display](https://www.runoob.com/cssref/pr-class-display.html)
 
-#### css最常见的4种定位方式，具体解释一下不同？
+#### css 最常见的 4 种定位方式，具体解释一下不同？
 
 [Position](https://www.w3schools.cn/css/css_positioning.asp)
 
-#### 一段简单的css代码考核：position：fixed；top：500px；right：0px；浏览器宽1000，高300，判断元素能否正常在浏览器中显示。追问上一个问题，如果浏览器高500，显示情况是怎样的？
+#### 一段简单的 css 代码考核：position：fixed；top：500px；right：0px；浏览器宽 1000，高 300，判断元素能否正常在浏览器中显示。追问上一个问题，如果浏览器高 500，显示情况是怎样的？
 
 根据已知信息，这段 CSS 代码可以使元素相对于浏览器窗口进行定位，位置在窗口的右上角。具体来说：
 
-- `position: fixed;` 表示使用固定定位，即不受文档流的影响。
-- `top: 500px;` 表示距离窗口顶部的距离为 500 像素。
-- `right: 0px;` 表示距离窗口右边的距离为 0 像素。
+- `position: fixed;`  表示使用固定定位，即不受文档流的影响。
+- `top: 500px;`  表示距离窗口顶部的距离为 500 像素。
+- `right: 0px;`  表示距离窗口右边的距离为 0 像素。
 
 根据题目中的信息，浏览器宽度是 1000 像素，高度是 300 像素。也就是说，浏览器的宽度可以完全容纳这个元素，但是高度却无法容纳，因为元素距离窗口顶部的距离是 500 像素，大于了浏览器窗口的高度 300 像素，所以这个元素不能完全在浏览器窗口中正常显示。
 
@@ -586,9 +586,15 @@ absolute 定位的元素，是相对于它的第一个 position 值不为 static
 
 《深入浅出 CSS》 第五章 Flexbox
 
+#### grid 布局是什么? ，和 flex 布局有什么区别，他们的应用场景你会怎么选?
+
+[13 分钟彻底弄懂 CSS *Grid*基础*布局* / CSS _Grid_ 入门教程](https://www.bilibili.com/video/BV1w84y1r7X8/?spm_id_from=333.337.search-card.all.click)
+
+[前端进阶之旅](https://interview.poetries.top/docs/excellent-docs/2-CSS%E6%A8%A1%E5%9D%97.html#_38-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bgrid%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80)
+
 #### 用纯 CSS 创建一个三角形的原理是什么？
 
-> 采用的是相邻边框连接处的均分原理。将元素的宽高设为 0，只设置border，把任意三条边隐藏掉（颜色设为transparent），剩下的就是一个三角形。
+> 采用的是相邻边框连接处的均分原理。将元素的宽高设为 0，只设置 border，把任意三条边隐藏掉（颜色设为 transparent），剩下的就是一个三角形。
 
 ```
 #demo {
@@ -1014,24 +1020,24 @@ margin合并的3种场景：
 •设置height或者min-height。
 ```
 
-#### 对 BFC 规范（块级格式化上下文：block formatting context）的理解？如何生成一个BFC？BFC里面元素的排列顺序？
+#### 对 BFC 规范（块级格式化上下文：block formatting context）的理解？如何生成一个 BFC？BFC 里面元素的排列顺序？
 
 [P80080 BFC](https://www.bilibili.com/video/BV1G3411k7iV?p=80)
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666859704014-966b69e4-7ed9-4373-9987-08ffa4e77c2e.png#averageHue=%23f7f7f7&clientId=ucf147f61-4011-4&from=paste&height=303&id=u225601ec&name=image.png&originHeight=454&originWidth=1094&originalType=binary&ratio=1&rotation=0&showTitle=false&size=160098&status=done&style=none&taskId=u8a708c00-11b6-4c99-bbe2-b9c32c12b8d&title=&width=729.3333333333334)
 
 块级格式化上下文（block formatting context，BFC）。BFC 是网页的一块区域，元素基于这块区域布局。BFC 本身是环绕文档流的一部分，但它将内部的内容与外部的上下文隔离开。这种隔离为创建 BFC 的元素做出了以下 3 件事情
- (1) 包含了内部所有元素的上下外边距。它们不会跟 BFC 外面的元素产生外边距折叠。
- (2) 包含了内部所有的浮动元素。
- (3) 不会跟 BFC 外面的浮动元素重叠。
- BFC 里的内容不会跟外部的元素重叠或者相互影响。如果给元素增加 clear 属性，它只会清除自身所在 BFC 内的浮动。如果强制给一个元素生成一个新的 BFC，它不会跟其他 BFC 重叠。
+(1) 包含了内部所有元素的上下外边距。它们不会跟 BFC 外面的元素产生外边距折叠。
+(2) 包含了内部所有的浮动元素。
+(3) 不会跟 BFC 外面的浮动元素重叠。
+BFC 里的内容不会跟外部的元素重叠或者相互影响。如果给元素增加 clear 属性，它只会清除自身所在 BFC 内的浮动。如果强制给一个元素生成一个新的 BFC，它不会跟其他 BFC 重叠。
 
-创建BFC
+创建 BFC
 
 （1）根元素或包含根元素的元素
-（2）浮动元素float＝left|right或inherit（≠none）
-（3）绝对定位元素position＝absolute或fixed
-（4）display＝inline-block|flex|inline-flex|table-cell或table-caption
-（5）overflow＝hidden|auto或scroll(≠visible)
+（2）浮动元素 float ＝ left|right 或 inherit（≠none）
+（3）绝对定位元素 position ＝ absolute 或 fixed
+（4）display ＝ inline-block|flex|inline-flex|table-cell 或 table-caption
+（5）overflow ＝ hidden|auto 或 scroll(≠visible)
 （6）display：inline-block、table-cell、table-caption、flex、inline-flex、grid 或 inline-grid。
 拥有这些属性的元素称为块级容器（block container）。
 
@@ -1056,9 +1062,7 @@ margin合并的3种场景：
   <div class="clear-float"></div>
 </div>
 
-.clear-float {
-  clear: both;
-}
+.clear-float { clear: both; }
 ```
 
 这里使用了 `.clear-float` 类来定义一个空元素，并设置 `clear: both` 来清除浮动。
@@ -1070,15 +1074,8 @@ margin合并的3种场景：
   <div class="float-left">浮动元素</div>
 </div>
 
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.parent {
-  overflow: hidden;
-}
+.clearfix:after { content: ""; display: table; clear: both; } .parent {
+overflow: hidden; }
 ```
 
 这里使用了 clearfix 技巧来清除浮动，通过在父元素上添加 `.clearfix` 类，并设置 `:after` 伪元素来清除浮动。同时，将父元素的 overflow 属性设置为 hidden，也能够实现清除浮动的效果。
@@ -1090,10 +1087,7 @@ margin合并的3种场景：
   <div class="float-left">浮动元素</div>
 </div>
 
-.parent {
-  display: flex;
-  flex-wrap: wrap;
-}
+.parent { display: flex; flex-wrap: wrap; }
 ```
 
 这里使用了 flex 布局来实现自适应布局，并且自然而然地清除了子元素的浮动。
@@ -1108,7 +1102,7 @@ margin合并的3种场景：
 
 因为 BFC 元素不会影响外部元素的特点，所以 BFC 元素也可以用来清除浮动的影响，因为如果不清除，子元素浮动则父元素高度塌陷，必然会影响后面元素布局和定位，这显然有违 BFC 元素的子元素不会影响外部元素的设定。
 
-[CSS清除浮动的多种方法 - Web前端工程师面试题讲解](https://www.bilibili.com/video/BV1XJ411u72L/?spm_id_from=333.788&vd_source=037b856144283671f89f562ed7eeb263)
+[CSS 清除浮动的多种方法 - Web 前端工程师面试题讲解](https://www.bilibili.com/video/BV1XJ411u72L/?spm_id_from=333.788&vd_source=037b856144283671f89f562ed7eeb263)
 
 《CSS 权威指南》 10.2 清除浮动 《深入解析 CSS》4.2 容器折叠和清除浮动
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666849453574-019aa093-7d9b-42dc-9187-b866ad7cf5e0.png#averageHue=%23eae9e9&clientId=u2eb5bbcb-fb05-4&from=paste&height=225&id=XFPcI&name=image.png&originHeight=647&originWidth=1200&originalType=binary&ratio=1&rotation=0&showTitle=false&size=219499&status=done&style=none&taskId=u9f4aabd5-4eea-4578-9ea1-5b5ce2d6a65&title=&width=418)![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666849943276-0226ee16-3a3a-4bdd-8a2a-b787b32e62b7.png#averageHue=%23f7faf7&clientId=u2eb5bbcb-fb05-4&from=paste&height=209&id=u6166191f&name=image.png&originHeight=313&originWidth=629&originalType=binary&ratio=1&rotation=0&showTitle=false&size=130583&status=done&style=none&taskId=ue8960a14-1aad-4b7b-8c0a-9e3301445a1&title=&width=419.3333333333333)
@@ -1123,7 +1117,7 @@ clear:none|left|right|both
 
 官方对 clear 属性的解释是：“元素盒子的边不能和前面的浮动元素相邻。”，我们对元素设置 clear 属性是为了避免浮动元素对该元素的影响，而不是清除掉浮动。目标元素不是浮动元素。
 
-还需要注意的一点是 clear 属性指的是元素盒子的边不能和前面的浮动元素相邻，注意这里“前面的”3 个字，也就是 clear 属性对“后面的”浮动元素是不闻不问的。考虑到 float 属性要么是 left，要么是 right，不可能同时存在，同时由于 clear属性对“后面的”浮动元素不闻不问，因此，当 clear:left 有效的时候，clear:right 必定无效，也就是此时 clear:left等同于设置 clear:both；同样地，clear:right 如果有效也是等同于设置 clear:both。由此可见，clear:left 和 clear:right 这两个声明就没有任何使用的价值，至少在 CSS 世界中是如此，直接使用 clear:both 吧。
+还需要注意的一点是 clear 属性指的是元素盒子的边不能和前面的浮动元素相邻，注意这里“前面的”3 个字，也就是 clear 属性对“后面的”浮动元素是不闻不问的。考虑到 float 属性要么是 left，要么是 right，不可能同时存在，同时由于 clear 属性对“后面的”浮动元素不闻不问，因此，当 clear:left 有效的时候，clear:right 必定无效，也就是此时 clear:left 等同于设置 clear:both；同样地，clear:right 如果有效也是等同于设置 clear:both。由此可见，clear:left 和 clear:right 这两个声明就没有任何使用的价值，至少在 CSS 世界中是如此，直接使用 clear:both 吧。
 
 要给包含浮动的元素清除浮动，而不是给别的元素，比如浮动元素本身，或包含浮动的元素后面的兄弟元素。
 
@@ -1141,17 +1135,17 @@ clear 属性只有块级元素才有效的，而::after 等伪元素默认都是
 
 #### zoom:1 的清除浮动原理?
 
-清除浮动，触发hasLayout；
-zoom属性是IE浏览器的专有属性，它可以设置或检索对象的缩放比例。解决ie下比较奇葩的bug。譬如外边距（margin）的重叠，浮动清除，触发ie的haslayout属性等。
+清除浮动，触发 hasLayout；
+zoom 属性是 IE 浏览器的专有属性，它可以设置或检索对象的缩放比例。解决 ie 下比较奇葩的 bug。譬如外边距（margin）的重叠，浮动清除，触发 ie 的 haslayout 属性等。
 
 来龙去脉大概如下：
-当设置了zoom的值之后，所设置的元素就会就会扩大或者缩小，高度宽度就会重新计算了，这里一旦改变zoom值时其实也会发
-生重新渲染，运用这个原理，也就解决了ie下子元素浮动时候父元素不随着自动扩大的问题。
+当设置了 zoom 的值之后，所设置的元素就会就会扩大或者缩小，高度宽度就会重新计算了，这里一旦改变 zoom 值时其实也会发
+生重新渲染，运用这个原理，也就解决了 ie 下子元素浮动时候父元素不随着自动扩大的问题。
 
-zoom属性是IE浏览器的专有属性，火狐和老版本的webkit核心的浏览器都不支持这个属性。然而，zoom现在已经被逐步标
-准化，出现在CSS3.0规范草案中。
+zoom 属性是 IE 浏览器的专有属性，火狐和老版本的 webkit 核心的浏览器都不支持这个属性。然而，zoom 现在已经被逐步标
+准化，出现在 CSS3.0 规范草案中。
 
-目前非ie由于不支持这个属性，它们又是通过什么属性来实现元素的缩放呢？可以通过css3里面的动画属性scale进行缩放。
+目前非 ie 由于不支持这个属性，它们又是通过什么属性来实现元素的缩放呢？可以通过 css3 里面的动画属性 scale 进行缩放。
 
 [P582-7 清除浮动的四种解决办法](https://www.bilibili.com/video/BV1v7411G7JM?p=58)《CSS 权威指南》 10.2 清除浮动 《深入解析 CSS》4.2 容器折叠和清除浮动
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666850065715-baa3f055-5a85-470a-8365-bad3809261a4.png#averageHue=%23eeeeee&clientId=u2eb5bbcb-fb05-4&from=paste&height=194&id=u2cf7249d&name=image.png&originHeight=291&originWidth=707&originalType=binary&ratio=1&rotation=0&showTitle=false&size=130298&status=done&style=none&taskId=uc3e2c50d-b89e-4dbd-8cff-ca318a3c346&title=&width=471.3333333333333)
@@ -1329,7 +1323,7 @@ css雪碧图，同一页面相近部分的小图标
 
 样式系统从关键选择器开始匹配，然后左移查找规则选择器的祖先元素。只要选择器的子树一直在工作，样式系统就会持续左移，直到和规则匹配，或者是因为不匹配而放弃该规则。
 
-试想一下，如果采用从左至右的方式读取CSS规则，那么大多数规则读到最后（最右）才会发现是不匹配的，这样做会费时耗能，最后有很多都是无用的；而如果采取从右向左的方式，那么只要发现最右边选择器不匹配，就可以直接舍弃了，避免了许多无效匹配。
+试想一下，如果采用从左至右的方式读取 CSS 规则，那么大多数规则读到最后（最右）才会发现是不匹配的，这样做会费时耗能，最后有很多都是无用的；而如果采取从右向左的方式，那么只要发现最右边选择器不匹配，就可以直接舍弃了，避免了许多无效匹配。
 
 #### 在网页中应该使用奇数还是偶数的字体？为什么呢？
 
@@ -1338,19 +1332,19 @@ css雪碧图，同一页面相近部分的小图标
 
 #### margin 和 padding 分别适合什么场景使用？
 
-margin是用来隔开元素与元素的间距；padding是用来隔开元素与内容的间隔。
-margin用于布局分开元素使元素与元素互不相干。
-padding用于元素与内容之间的间隔，让内容（文字）与（包裹）元素之间有一段距离。
+margin 是用来隔开元素与元素的间距；padding 是用来隔开元素与内容的间隔。
+margin 用于布局分开元素使元素与元素互不相干。
+padding 用于元素与内容之间的间隔，让内容（文字）与（包裹）元素之间有一段距离。
 
-何时应当使用margin：
-•需要在border外侧添加空白时。
+何时应当使用 margin：
+•需要在 border 外侧添加空白时。
 •空白处不需要背景（色）时。
-•上下相连的两个盒子之间的空白，需要相互抵消时。如15px+20px的margin，将得到20px的空白。
+•上下相连的两个盒子之间的空白，需要相互抵消时。如 15px+20px 的 margin，将得到 20px 的空白。
 
-何时应当时用padding：
-•需要在border内测添加空白时。
+何时应当时用 padding：
+•需要在 border 内测添加空白时。
 •空白处需要背景（色）时。
-•上下相连的两个盒子之间的空白，希望等于两者之和时。如15px+20px的padding，将得到35px的空白。
+•上下相连的两个盒子之间的空白，希望等于两者之和时。如 15px+20px 的 padding，将得到 35px 的空白。
 
 《CSS 权威指南》 10.2 清除浮动 《深入解析 CSS》4.2 容器折叠和清
 
@@ -1799,7 +1793,6 @@ info
 
 #### 画一条 0.5px 的线
 
-info
 采用 meta viewport 的方式
 采用 border-image 的方式
 采用 transform:scale()的方式
@@ -1899,7 +1892,7 @@ info
 
 > 修改 Antd 组件样式是使用 css modules 在需要修改第三方组件的样式的时候找到对应的类名使用 global 进行包裹覆盖，如果要局部修改，就在外部加上自己添加的类名。
 
-#### 为什么有时候⽤translate来改变位置而不是定位？
+#### 为什么有时候⽤ translate 来改变位置而不是定位？
 
 translate 是 transform 属性的⼀个值。改变 transform 或 opacity 不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。⽽改变绝对定位会触发重新布局，进⽽触发重绘和复合。transform 使浏览器为元素创建⼀个 GPU 图层，但改变绝对定位会使⽤到 CPU。 因此 translate()更⾼效，可以缩短平滑动画的绘制时间。 ⽽ translate 改变位置时，元素依然会占据其原始空间，绝对定位就不会发⽣这种情况。
 
@@ -2150,7 +2143,7 @@ robots 的 content 参数有以下几种：
 - noindex：文件将不被检索；
 - nofollow：页面上的链接不可以被查询。
 
-### 9. 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+### 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？块级元素和行内元素的区别
 
 - 行内元素有：a b span img input select strong；
 - 块级元素有：div ul ol li dl dt dd h1 h2 h3 h4 h5 h6 p；
@@ -2159,6 +2152,11 @@ robots 的 content 参数有以下几种：
 
 - 常见的有：`<br>`、`<hr>`、`<img>`、`<input>`、`<link>`、`<meta>`；
 - 鲜见的有：`<area>`、`<base>`、`<col>`、`<colgroup>`、`<command>`、`<embed>`、`<keygen>`、`<param>`、`<source>`、`<track>`、`<wbr>`。
+
+* 行内元素不可以设置宽高，不独占一行，它们会按照从左到右的顺序排列，并尽可能占据内容所需的空间。
+* 块级元素可以设置宽高，独占一行，会自动换行。块级元素会在页面上以独立的块形式展现，并占据其父元素的整个宽度。
+
+[行内元素和块级元素的区别\_块元素和行内元素区别\_zzz19 的博客-CSDN 博客](https://blog.csdn.net/zzz19/article/details/100785224)
 
 ### 10. title 与 h1 的区别、b 与 strong 的区别、i 与 em 的区别？
 
@@ -2370,9 +2368,9 @@ WebComponent 是一套技术的组合，具体涉及到了 Custom elements（自
 首先，使用 template 属性来创建模板。利用 DOM 可以查找到模板的内容，但是模板元素是不会被渲染到页面上的，也就是说 DOM 树中的 template 节点不会出现在布局树中，所以我们可以使用 template 来自定义一些基础的元素结构，这些基础的元素结构是可以被重复使用的。一般模板定义好之后，我们还需要在模板的内部定义样式信息。
 
 其次，我们需要创建一个 GeekBang 的类。在该类的构造函数中要完成三件事：
-        查找模板内容；
-        创建影子 DOM；
-        再将模板添加到影子 DOM 上。
+         查找模板内容；
+         创建影子 DOM；
+         再将模板添加到影子 DOM 上。
 
 影子 DOM 的作用是将模板中的内容与全局 DOM 和 CSS 进行隔离，这样我们就可以实现元素和样式的私有化了。可以把影子 DOM 看成是一个作用域，其内部的样式和元素是不会影响到全局的样式和元素的，而在全局环境下，要访问影子 DOM 内部的样式或者元素也是需要通过约定好的接口的。
 通过影子 DOM，我们就实现了 CSS 和元素的封装，在创建好封装影子 DOM 的类之后，我们就可以使用 customElements.define 来自定义元素了。
@@ -2396,23 +2394,23 @@ WebComponent 是一套技术的组合，具体涉及到了 Custom elements（自
 https://www.jianshu.com/p/960bd6f20164
 https://www.jianshu.com/p/72522cc7ca5c
 
-> 是一种css规范的模式规则，什么是 BEM 呢，是 block element modifer 的缩写吧。
-> BEM代表块（Block），元素（Element），修饰符（Modifier）。
+> 是一种 css 规范的模式规则，什么是 BEM 呢，是 block element modifer 的缩写吧。
+> BEM 代表块（Block），元素（Element），修饰符（Modifier）。
 > block 代表了更高级别的抽象或组件。
-> .block__element 代表.block的后代，用于形成一个完整的.block的整体。
-> block--modifier代表.block的不同状态或不同版本。
+> .block**element 代表.block 的后代，用于形成一个完整的.block 的整体。
+> block--modifier 代表.block 的不同状态或不同版本。
 > block 代表了更高级别的抽象或组件。
-> .block__element 代表.block的后代，用于形成一个完整的.block的整体。
-> block--modifier代表.block的不同状态或不同版本。
+> .block**element 代表.block 的后代，用于形成一个完整的.block 的整体。
+> block--modifier 代表.block 的不同状态或不同版本。
 > 下面命名规则，双下划线表示元素，两个中划线表示修饰符。这个只是一种约定俗成的，
 > 使用习惯你也可以根据自己来定义自己的规范。
 > .block
-> .block__element
-> .block__element----modifier
+> .block**element
+> .block**element----modifier
 
-### 实现三个div元素并排,一个div中有3个子块，水平排列，如何用flex布局实现？宽度相等，三等分父元素的宽度
+### 实现三个 div 元素并排,一个 div 中有 3 个子块，水平排列，如何用 flex 布局实现？宽度相等，三等分父元素的宽度
 
-### 项目中用到sass，出一个sass的题，下面代码编译后是什么样子的？有什么区别？
+### 项目中用到 sass，出一个 sass 的题，下面代码编译后是什么样子的？有什么区别？
 
 ```
 .a{
@@ -2425,11 +2423,28 @@ https://www.jianshu.com/p/72522cc7ca5c
 }
 ```
 
+### 移动端中css你是使用什么单位
+
+ **比较常用的** ：
+
+* `em`：定义字体大小时以父级的字体大小为基准；定义长度单位时以当前字体大小为基准。例父级 `font-size: 14px`，则子级 `font-size: 1em;`为 `font-size: 14px;`；若定义长度时，子级的字体大小如果为 `14px`，则子级 `width: 2em;`为 `width: 24px`。
+* `rem`：以根元素的字体大小为基准。例如 `html`的 `font-size: 14px`，则子级 `1rem = 14px`。
+* `%`：以父级的宽度为基准。例父级 `width: 200px`，则子级 `width: 50%;height:50%;`为 `width: 100px;height: 100px;`
+* `vw和vh`：基于视口的宽度和高度(视口不包括浏览器的地址栏工具栏和状态栏)。例如视口宽度为 `1000px`，则 `60vw = 600px;`
+* `vmin和vmax`：`vmin`为当前 `vw` 和 `vh`中较小的一个值；`vmax`为较大的一个值。例如视口宽度 `375px`，视口高度 `812px`，则 `100vmin = 375px;`，`100vmax = 812px;`
+
+**不常用的：**
+
+* `ex和ch`：`ex`以字符 `"x"`的高度为基准；例如 `1ex`表示和字符 `"x"`一样长。`ch`以数字 `"0"`的宽度为基准；例如 `2ch`表示和2个数字 `"0"`一样长。
+
+ **移动端布局总结** ：
+
+1. 移动端布局的方式主要使用rem和flex，可以结合各自的优点，比如flex布局很灵活，但是字体的大小不好控制，我们可以使用rem和媒体查询控制字体的大小，媒体查询视口的大小，然后不同的上视口大小下设置设置 `html`的 `font-size`。
+2. 可单独制作移动端页面也可响应式pc端移动端共用一个页面。没有好坏，视情况而定，因势利导
+
 ### 单行溢出变为省略号
 
 标签语义化
-
-行内元素和块级元素
 
 `<a>`标签平常用来做什么
 
