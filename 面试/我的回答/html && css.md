@@ -60,6 +60,40 @@
 > 如果在 ie6，7，8 中 DOCTYPE 缺失会将盒子模型解释为 IE 盒子模型。
 > 若在页面中声明了 DOCTYPE 类型，所有的浏览器都会把盒模型解释为 W3C 盒模型。
 
+### 盒子与盒子之间的距离是盒子与边框距离的两倍，这个需要使用哪个属性?两边的盒子贴边，中间的距离等分，这是哪一种属性?
+
+盒子与盒子之间的距离是盒子与边框距离的两倍，可以使用 CSS 盒模型中的 `padding` 属性来进行设置。`padding` 属性用于设置元素的内边距，指的是内容区域和边框之间的距离。可以使用 `padding` 属性为盒子设置内边距，然后使用 `margin` 属性将盒子之间的距离扩大为内边距的两倍。
+
+具体实现代码如下所示：
+
+```css
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 20px; /* 内边距为20px */
+  margin: 40px; /* 盒子之间的距离为内边距的两倍，也就是40px * 2 = 80px */
+}
+```
+
+对于两边的盒子贴边，中间的距离等分的效果，可以通过使用 Flex 布局来实现。具体实现代码如下所示：
+
+```css
+.container {
+  display: flex;
+  justify-content: space-between; /* 将盒子放置在容器的两端 */
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  margin: 0 10px; /* 盒子之间的距离为10px */
+}
+```
+
+在上面的例子中，我们使用 Flex 布局将盒子放置在容器的两端，并通过 `margin` 属性设置盒子之间的距离为10px。由于我们使用了 `justify-content: space-between` 属性，因此中间的距离会自动等分。
+
 #### ::before 和:after 中双冒号和单冒号有什么区别？解释一下这 2 个伪元素的作用。
 
 > 双冒号和单冒号的区别
