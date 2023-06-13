@@ -15,3 +15,4 @@ Promise.resolve = (param) => {
         }
     })
 }
+ 
