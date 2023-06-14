@@ -43,3 +43,19 @@
     const res = await httpRequestUtil.get('http://golderbrother.cn/');
     console.log(res);
 })();
+
+
+// 异步方法
+async function myFetchAsync(url, options) {
+    try {
+        //等 获取到数据
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`${response.status} ${response.statusText}`);
+        }
+        return response;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}

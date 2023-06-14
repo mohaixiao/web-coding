@@ -15,7 +15,7 @@ function getJSON(url) {
                 reject(new Error(this.statusText));
             }
         };
-        // 设置错误监听函数
+        // 设置错误监听函数请求5s未完成就终止
         xhr.onerror = function () {
             reject(new Error(this.statusText));
         };
