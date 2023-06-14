@@ -573,7 +573,7 @@ grid grid 布局
 
 综上所述，当浏览器宽度为 1000 像素时，这个元素能够正常在浏览器中显示，它的宽度可以超过 1000 像素而不会影响布局，并且它会紧贴浏览器窗口右侧，距离窗口顶部 500 像素。
 
-#### position 的值 relative 和 absolute 定位原点是？
+#### position 的值 relative 和 absolute 定位原点是？Position 定位，fixed，absolute ,绝对定位是对于哪个视图
 
 relative 定位的元素，是相对于元素本身的正常位置来进行定位的。
 absolute 定位的元素，是相对于它的第一个 position 值不为 static 的祖先元素的 padding box 来进行定位的。这句话我们可以这样来理解，我们首先需要找到绝对定位元素的一个 position 的值不为 static 的祖先元素，然后相对于这个祖先元素的 padding box 来定位，也就是说在计算定位距离的时候，padding 的值也要算进去。
@@ -2493,7 +2493,7 @@ https://www.jianshu.com/p/72522cc7ca5c
 }
 ```
 
-### 移动端中 css 你是使用什么单位
+### 移动端中 css 你是使用什么单位?em，rem，vm,vh 谈一谈,css 有哪些长度单位
 
 **比较常用的** ：
 

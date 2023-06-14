@@ -44,3 +44,39 @@ Promise.race([delay(3), requestData(url, "get")])
     .catch((err) => {
         console.log("sb", err);
     });
+
+
+
+
+
+
+
+
+    
+    function err(time) {
+        return new Promise((reslove, reject) => {
+            setTimeout(() => {
+                reject(time)
+            }, time)
+        })
+    }
+    
+    function post(time) {
+        return new Promise((reslove, reject) => {
+            setTimeout(() => {
+                reslove(time)
+            }, time)
+        })
+    }
+    
+    (async function () {
+        let start = new Date();
+        let result = await Promise.race([post(4000), err(3000)])
+        await console.log(new Date() - start)
+        await console.log(result, 'result');
+        // 6s
+    })();
+    
+    
+    
+    

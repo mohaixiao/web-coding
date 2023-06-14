@@ -34,3 +34,55 @@ Promise.allSettled = function (promises) {
         }
     })
 }
+
+
+
+
+Promise.allSettled = function (promises) {
+    if (!(typeof promises == 'object' && typeof promises[Symbol.iterator] == "function" && promises !== null)) {
+        throw new Error("Type Error")
+    }
+
+    return new Promise((resolve, reject) => {
+        let count = 0;
+        promises = [...promises];
+        let len = promises.length;
+        let result = [];
+        if (len == 0) {
+            resolve(result)
+        }
+        for (let i = 0; i < len; i++) {
+            Promise.resolve(promises[i]).then((res) => {
+                result.push({ status: 'fulfilled', value: res })
+                if (++count == len) {
+                    resolve(result);
+                }
+            }, err => {
+                result.push({ status: 'rejected', value: err })
+                if (++count == len) {
+                    resolve(result);
+                }
+            })
+        }
+    })
+}
+
+
+//test
+const p1 = Promise.resolve(1);
+const p2 = new Promise(resolve => {
+    setTimeout(() => resolve(2), 1000);
+});
+const p3 = new Promise(resolve => {
+    setTimeout(() => resolve(3), 3000);
+});
+
+const p4 = Promise.reject('err4');
+// const p5 = Promise.reject('err5');
+
+const p11 = Promise.allSettled([p1, p2, p3])
+    .then(console.log) // [ 1, 2, 3 ]
+    .catch(console.log);
+
+// 2. 有一个Promise失败了
+const p12 = Promise.allSettled([p1, p2, p4]).then(console.log).catch(console.log); // err4

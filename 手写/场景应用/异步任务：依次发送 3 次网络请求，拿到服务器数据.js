@@ -111,3 +111,26 @@ function fetchData() {
 }
 
 fetchData();
+
+
+
+function post(time) {
+    return new Promise((reslove, reject) => {
+        setTimeout(() => {
+            console.log(time);
+            reslove()
+        }, time)
+    })
+}
+
+// (async function () {
+//     let start = new Date();
+//     await post(1000)
+//     await post(2000)
+//     await post(3000)
+//     console.log(new Date() - start);  // 6s
+// })()
+
+let start = new Date();
+post(1000).then(() => post(2000)).then(() => post(3000)).then(() => console.log(new Date() - start))
+ // 6s
