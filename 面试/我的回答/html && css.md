@@ -1,7 +1,7 @@
 #### CSS 选择器及其优先级
 
-> css 选择器种类
->
+css 选择器种类
+
 > （1）id 选择器（#myid）1,0,0
 > （2）类选择器（.myclassname）0,1,0
 > （3）伪类选择器（a:hover,li:nth-child）0,1,0
@@ -13,20 +13,20 @@
 > （9）兄弟选择器（li~a）(通用兄弟选择器：是选中元素后的> 所有兄弟元素（不须为相邻）)
 > （10）相邻兄弟选择器（li+a）(相邻兄弟选择器：选择紧接在> 另一个元素后的元素，而且二者有相同的父元素)
 > （11）通配符选择器（\*）0,0,0
->
-> 选择器优先级
->
-> 有 3 大类选择器。他们有不同的优先级。
-> 如果选择器的 ID 数量更多，则它会胜出（即它更明确）。
-> 如果 ID 数量一致，那么拥有最多类的选择器胜出。
-> 如果以上两次比较都一致，那么拥有最多标签名的选择器胜出。> (id > 类,伪类 ,属性> 标签,伪元素)
->
-> 伪类选择器（如:hover）和属性选择器（如[type="input"]）
-> 与一个类选择器的优先级相同。通用选择器（\*）和组合器> （>、+、~）对优先级没有影响
->
-> 总结排序: !important >行内样式>ID 选择器>类选择器>标签>> 通配符>继承>浏览器默认属性
->
-> [这次彻底搞定 CSS 层叠、优先级！](https://juejin.cn/post/7125759307761025060) 《深入浅出 CSS》 第 1 章 层叠、优先级和继承
+
+选择器优先级
+
+有 3 大类选择器。他们有不同的优先级。
+如果选择器的 ID 数量更多，则它会胜出（即它更明确）。
+如果 ID 数量一致，那么拥有最多类的选择器胜出。
+如果以上两次比较都一致，那么拥有最多标签名的选择器胜出。> (id > 类,伪类 ,属性> 标签,伪元素)
+
+伪类选择器（如:hover）和属性选择器（如[type="input"]）
+与一个类选择器的优先级相同。通用选择器（\*）和组合器> （>、+、~）对优先级没有影响
+
+总结排序: !important >行内样式>ID 选择器>类选择器>标签>> 通配符>继承>浏览器默认属性
+
+[这次彻底搞定 CSS 层叠、优先级！](https://juejin.cn/post/7125759307761025060) 《深入浅出 CSS》 第 1 章 层叠、优先级和继承
 
 #### 介绍一下标准的 CSS 的盒子模型？低版本 IE 的盒子模型有什么不同的？
 
@@ -2521,3 +2521,102 @@ https://www.jianshu.com/p/72522cc7ca5c
 `localStorage`和 `sessionStorage`
 
 结合 `cookie`实现广告在某个时间段投放，到时就过期
+
+### 选择器选择 div 中的 div,不知道内层有多少个 div，尽可能多种方法实现选择器选择到第 1 第 2 个 div，倒数第 1 倒数第 2 个 div
+
+CSS 尽量用多种方法实现
+
+```html
+<div class="container">
+  <div class="cell"></div>
+  <div class="cell"></div>
+  <div class="cell"></div>
+  <div class="cell"></div>
+  <div class="cell"></div>
+  <div class="cell"></div>
+  <div class="cell"></div>
+</div>
+```
+
+可以使用以下 CSS 选择器来选择 div 中的第 1 个 div 和第 2 个 div：
+
+```css
+.container > div:nth-child(1) {
+  /* 选中第1个 div */
+}
+
+.container > div:nth-child(2) {
+  /* 选中第2个 div */
+}
+```
+
+同样，可以使用以下选择器来选择倒数第 1 个 div 和倒数第 2 个 div：
+
+```css
+.container > div:nth-last-child(1) {
+  /* 选中倒数第1个 div */
+}
+
+.container > div:nth-last-child(2) {
+  /* 选中倒数第2个 div */
+}
+```
+
+另外，如果要选择所有 div，可以使用以下选择器：
+
+```css
+.container > div {
+  /* 选中所有 div */
+}
+```
+
+还可以使用 JavaScript 来选择第 1 个、第 2 个、倒数第 1 个和倒数第 2 个 div。例如，可以使用以下代码选择第 1 个 div：
+
+```javascript
+const firstDiv = document.querySelector(".container > div:first-child");
+```
+
+类似地，可以使用以下代码选择倒数第 2 个 div：
+
+```javascript
+const secondLastDiv = document.querySelector(
+  ".container > div:nth-last-child(2)"
+);
+```
+
+### 下面的 div，需要长方形，宽高比是 4：3，同时左右两边距离屏幕左右两边的间距都是 50px
+
+```html
+<div class="container"></div>
+```
+
+除了使用绝对定位实现宽高比为 4:3 的长方形外，也可以使用 padding 和 margin 实现。具体做法如下：
+
+```html
+<div class="container">
+  <div class="content"></div>
+</div>
+```
+
+```css
+.container {
+  position: relative;
+  width: calc(100% - 100px); /* 距离屏幕左右两边的间距都是 50px */
+  height: 0; /* 高度设为 0 */
+  padding-top: 75%; /* 宽高比为 4:3 */
+  margin: 0 50px; /* 距离屏幕左右两边的间距都是 50px */
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+}
+```
+
+在这个做法中，我们首先将容器的高度设为 0，并利用 `padding-top` 来撑开容器的高度，从而实现宽高比为 4:3 的效果。然后通过 `margin` 属性来调整容器与浏览器左右边缘的距离。最后使用绝对定位来使内容填充整个容器。
+
+需要注意的是，为了保证容器与内容始终比例一致，应该将容器的宽度设置为 `calc(100% - 100px)`，其中 100px 是两侧的间距总和。这样的话，当浏览器窗口大小调整时，容器与内容始终保持比例一致。

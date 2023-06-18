@@ -3917,6 +3917,8 @@ nums.sort(function (a, b) {
 
 ### for...in 和 for...of 的区别，可枚举类型和可迭代类型的区别，在其他语言是否有实现
 
+[扒一扒，javascript 中 for...in 和 for...of 二者区别细谈 - 掘金](https://juejin.cn/post/7125803980675874823)
+
 for…of 是 ES6 新增的遍历方式，允许遍历一个含有 iterator 接口的数据结构（数组、对象等）并且返回各项的值，和 ES3 中的 for…in 的区别如下
 
 - for…of 遍历获取的是对象的键值，for…in 获取的是对象的键名；
@@ -4018,6 +4020,44 @@ async function test() {
 [JavaScript 中获取数组最后一个元素 4 种方法及性能 - 掘金](https://juejin.cn/post/7197300642062204988)
 
 ### ES6 新特性了解吗？
+
+1、let 和 const
+2、symbol
+3、模板字符串
+3.1 字符串新方法（补充）
+4、解构表达式
+4.1 数组解构
+4.2 对象解构
+5、对象方面
+5.1 Map 和 Set
+5.1.1 Map
+5.1.2 Set
+5.3 数组的新方法
+5.3.1 Array.from()方法
+5.3.2 includes()方法
+5.3.3 map()、filter() 方法
+5.3.4 forEach()方法
+5.3.4 find()方法
+5.3.6 some()、every() 方法
+5.4 object 的新方法
+5.4.1 Object.is()
+5.4.2 Object.assign()
+5.4.3 Object.keys()、Object.values()、Object.entries()
+5.5 对象声明简写
+5.6 ...(对象扩展符)
+6、函数方面
+6.1 参数默认值
+6.2 箭头函数
+6.3 箭头函数和普通函数最大的区别在于其内部 this 永远指向其父级对象的 this。(重点)
+7、class（类）
+8、promise 和 proxy
+9、模块化
+10、运算符
+————————————————
+版权声明：本文为 CSDN 博主「admin_zlj」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/ZLJ_999/article/details/124122540
+
+[最全的—— ES6 有哪些新特性？\_es6 新特性\_admin_zlj 的博客-CSDN 博客](https://blog.csdn.net/ZLJ_999/article/details/124122540?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168675546616800197071735%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=168675546616800197071735&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-124122540-null-null.142%5Ev88%5Einsert_down1,239%5Ev2%5Einsert_chatgpt&utm_term=ES6%E6%96%B0%E7%89%B9%E6%80%A7&spm=1018.2226.3001.4187)
 
 ### 调用函数的时候，函数的参数是值传递还是引用传递？函数调用的时候，为什么会修改调用方的参数？要避免函数的参数被修改，调用前应该做什么？
 
@@ -4123,3 +4163,115 @@ const obj3 = { ...obj1, ...obj2 }; // { name: 'Alice', age: 21, gender: 'female'
 ```
 
 总的来说，扩展运算符可以方便地处理数组和对象的操作，提高了 JavaScript 的开发效率。但需要注意的是，在某些情况下，使用扩展运算符可能会产生副作用或性能问题，因此需要谨慎使用。
+
+### 3 个后端接口都要响应数据，前端如何处理
+
+在前端处理后端接口响应数据时，一般采用以下几种方法：
+
+1. 使用回调函数：在发送请求的时候，将一个回调函数作为参数传递给后端接口。当后端接口响应数据时，会调用该回调函数，并将响应数据作为参数传递给它。例如：
+
+```javascript
+function getData(callback) {
+  $.ajax({
+    url: "https://example.com/api",
+    success: function (data) {
+      callback(data);
+    },
+  });
+}
+
+getData(function (data) {
+  // 处理响应数据
+});
+```
+
+2. 使用 Promise 对象：可以使用 Promise 将异步操作封装成一个可以链式调用的对象。当后端接口响应数据时，Promise 对象会自动触发 `resolve` 回调函数，并将响应数据作为参数传递给它。例如：
+
+```javascript
+function getData() {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      url: "https://example.com/api",
+      success: function (data) {
+        resolve(data);
+      },
+      error: function (xhr, status, error) {
+        reject(error);
+      },
+    });
+  });
+}
+
+getData()
+  .then(function (data) {
+    // 处理响应数据
+  })
+  .catch(function (error) {
+    // 处理错误信息
+  });
+```
+
+3. 使用 async/await：可以使用 ES7 中的 async/await 语法来实现更加清晰简洁的异步操作代码。当使用 await 关键字调用 Promise 对象时，在后端接口响应数据时，会自动触发 async 函数的 `then` 回调函数，并将响应数据作为返回值传递给它。例如：
+
+```javascript
+async function getData() {
+  try {
+    const data = await $.ajax({ url: "https://example.com/api" });
+    // 处理响应数据
+  } catch (error) {
+    // 处理错误信息
+  }
+}
+
+getData();
+```
+
+使用这些方法，可以轻松地处理多个后端接口响应数据，并在前端进行进一步的处理和展示。
+
+### 判断元素是否在可视区域的方法
+
+判断元素是否在可视区域可以使用以下方法：
+
+1. getBoundingClientRect()
+
+该方法可以返回一个元素的大小及其相对于视口的位置。利用这个方法可以计算出元素上下左右边的坐标值，再结合窗口的大小，就可以判断出元素是否在可视区域内。
+
+示例代码如下：
+
+```javascript
+function inViewPort(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+```
+
+上述代码中，inViewPort 函数接受一个参数 element，表示需要判断的元素。函数内部使用 getBoundingClientRect 方法获取元素的位置信息，并计算出元素的上下左右坐标。然后判断当前元素是否在视口内，如果在的话就返回 true，否则返回 false。
+
+2. IntersectionObserver
+
+IntersectionObserver 是一个新的 API，可以用来观察元素与其祖先元素或viewport交叉情况的变化。通过实例化一个 IntersectionObserver 对象并指定一个回调函数，就可以监听到目标元素进入和离开视口的事件。相比 getBoundingClientRect 方法，IntersectionObserver API 更加灵活和高效。
+
+示例代码如下：
+
+```javascript
+function inViewPort(element) {
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            console.log(entry);
+            return entry.isIntersecting;
+        },
+        { threshold: [0, 1] }
+    );
+
+    observer.observe(element);
+}
+```
+
+上述代码中，inViewPort 函数接受一个参数 element，表示需要判断的元素。函数内部实例化一个 IntersectionObserver 对象，并指定一个回调函数和一些选项。回调函数中的 entry 参数是一个 IntersectionObserverEntry 对象，包含了与目标元素相关的信息，如是否可见、进入视口时的时间等。通过判断 isIntersecting 属性，就可以得到元素是否在视口内的结果。
+
+总之，以上两种方法都可以用来判断元素是否在可视区域内。如果只是判断单个元素，可以使用 getBoundingClientRect 方法；如果需要监听多个元素的进入和离开视口事件，可以使用 IntersectionObserver API。

@@ -2746,7 +2746,7 @@ HTTP 状态码=200（正常响应）的情况，大家见得多了。101 确实�
 
 ![图片](https://cdn.xiaolincoding.com//mysql/other/437a076935f82be1d36960c9a4785fbd.png)
 
-另外，可以看到，我们存放** payload 长度的字段有好几个**，我们既可以用最前面的 `7bit`, 也可以用后面的 `7+16bit 或 7+64bit。`
+另外，可以看到，我们存放 **payload 长度的字段有好几个**，我们既可以用最前面的 `7bit`, 也可以用后面的 `7+16bit 或 7+64bit。`
 
 那么问题就来了。
 
@@ -2795,3 +2795,7 @@ WebSocket 完美继承了 TCP 协议的**全双工**能力，并且还贴心的�
 - 对于客户端和服务端之间需要频繁交互的复杂场景，比如网页游戏，都可以考虑使用 WebSocket 协议。
 - WebSocket 和 socket 几乎没有任何关系，只是叫法相似。
 - 正因为各个浏览器都支持 HTTP 协 议，所以 WebSocket 会先利用 HTTP 协议加上一些特殊的 header 头进行握手升级操作，升级成功后就跟 HTTP 没有任何关系了，之后就用 WebSocket 的数据格式进行收发数据。
+
+[为什么有 HTTP 还要有*websocket*](http://www.bilibili.com/video/BV1684y1k7VP)
+
+[1 HTTP 报文的组成部分 | 前端进阶之旅](https://interview.poetries.top/docs/excellent-docs/15-HTTP%E6%A8%A1%E5%9D%97.html#_7-websocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%92%8C%E5%BA%94%E7%94%A8)
