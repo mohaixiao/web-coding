@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>菜鸟教程(runoob.com)</title>
+    <style>
+      div {
+        margin: 50px;
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+      /* 半圆 */
+      .half-circle {
+        height: 50px;
+        border-radius: 50px 50px 0 0;
+      }
+      /* 扇形 */
+      .sector {
+        border-radius: 100px 0 0;
+      }
+      /* 三角 */
+      .triangle {
+        width: 0px;
+        height: 0px;
+        background: none;
+        border: 50px solid red;
+        border-color: red transparent transparent transparent;
+      }
+      /* 梯形 */
+      .ladder {
+        width: 50px;
+        height: 0px;
+        background: none;
+        border: 50px solid red;
+        border-color: red transparent transparent transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="half-circle"></div>
+    <div class="triangle"></div>
+    <div class="ladder"></div>
+    <div class="sector"></div>
+  </body>
+</html>
