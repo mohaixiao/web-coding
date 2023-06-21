@@ -69,7 +69,7 @@ const max = a.reduce((pre, next) => pre > cur ? pre : cur, 0); // 342
 // 3. 数组转对象
 var streams = [{ name: '技术', id: 1 }, { name: '设计', id: 2 }];
 var obj = streams.reduce((accumulator, cur) => { accumulator[cur.id] = cur; return accumulator; }, {});
-
+console.log(obj);
 // 4. 扁平一个二维数组
 var arr = [[1, 2, 8], [3, 4, 9], [5, 6, 10]];
 var res = arr.reduce((x, y) => x.concat(y), []);
