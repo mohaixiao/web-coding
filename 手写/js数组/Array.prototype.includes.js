@@ -6,3 +6,6 @@ Array.prototype.myIncludes = function (value, start = 0) {
     }
     return false;
 };
+
+let arr = [1, 2, 3, 4, 5, 7];
+console.log(arr.myIncludes(99, 1, 5));
