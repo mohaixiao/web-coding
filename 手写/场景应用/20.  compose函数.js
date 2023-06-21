@@ -34,3 +34,28 @@ function compose(...funs) {
 
 // 更换Api接口：把reduce改为reduceRight
 // 交互包裹位置：把a(b(...args))改为b(a(...args))
+
+
+
+
+//其实是力扣一道题的改编：https://leetcode.cn/problems/function-composition/
+
+var compose = function () {
+    const arr = [...arguments]
+    return function (x) {
+        for (let i = arr.length - 1; i >= 0; i--) {
+            x = arr[i](x)
+        }
+        return x
+    }
+};
+
+//2分钟写出来之后，面试官说用reduce实现一下，又花了2分钟写了一下：
+var compose = function () {
+    const arr = [...arguments]
+    return function (x) {
+        return arr.reduce((pre, cur) => cur(pre), x)
+    }
+};
+
+//运行结果正确，面试结束

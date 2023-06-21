@@ -2867,6 +2867,25 @@ let 有的它也有
 使用 `const` 定义的变量必须在定义时就赋初始值，否则会产生语法错误。这是因为 `const` 声明的是常量，即值不能被改变的变量。如果没有初始值，那么它就没有固定的值可以被锁定。如果尝试在后续代码中给未初始化的 `const` 变量赋值，也会报错。因此，为了避免这种错误，定义 `const` 变量时必须同时为其赋初始值。如果需要定义不确定初始值的变量，应该使用 `let` 而不是 `const`。
 ```
 
+### 暂时性死区是什么？
+
+暂时性死区 (Temporal Dead Zone，简称 TDZ) 是指在代码块中使用 let 或 const 声明变量之前，该变量是不能被访问的一个区域。这意味着在声明变量之前，任何对该变量的访问都会触发 ReferenceError 错误。
+
+具体来说，TDZ 的存在意味着当程序进入当前变量的作用域时，该变量已经存在于作用域中，但是却无法访问该变量，直到该变量被声明后才能访问。
+
+例如：
+
+```javascript
+console.log(a); // 抛出 ReferenceError 错误
+let a = 1;
+```
+
+在这个例子中，由于 a 被使用了，但是它还没有被声明，因此会触发 TDZ，抛出 ReferenceError 错误。
+
+TDZ 的存在是为了保证 let 和 const 的作用域规则更加严格和可预测。相较于使用 var 声明变量（它有变量提升的机制），使用 let 和 const 会更加安全。
+
+需要注意的是，在同一个作用域内，不允许使用 let 或 const 重复声明一个已经存在的变量。这也是为了防止变量被误用或者变量覆盖等问题。
+
 ### 128. 什么是 rest 参数？
 
 ```javascript
@@ -4240,13 +4259,14 @@ getData();
 
 ```javascript
 function inViewPort(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
 }
 ```
 
@@ -4254,24 +4274,73 @@ function inViewPort(element) {
 
 2. IntersectionObserver
 
-IntersectionObserver 是一个新的 API，可以用来观察元素与其祖先元素或viewport交叉情况的变化。通过实例化一个 IntersectionObserver 对象并指定一个回调函数，就可以监听到目标元素进入和离开视口的事件。相比 getBoundingClientRect 方法，IntersectionObserver API 更加灵活和高效。
+IntersectionObserver 是一个新的 API，可以用来观察元素与其祖先元素或 viewport 交叉情况的变化。通过实例化一个 IntersectionObserver 对象并指定一个回调函数，就可以监听到目标元素进入和离开视口的事件。相比 getBoundingClientRect 方法，IntersectionObserver API 更加灵活和高效。
 
 示例代码如下：
 
 ```javascript
 function inViewPort(element) {
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            console.log(entry);
-            return entry.isIntersecting;
-        },
-        { threshold: [0, 1] }
-    );
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      console.log(entry);
+      return entry.isIntersecting;
+    },
+    { threshold: [0, 1] }
+  );
 
-    observer.observe(element);
+  observer.observe(element);
 }
 ```
 
 上述代码中，inViewPort 函数接受一个参数 element，表示需要判断的元素。函数内部实例化一个 IntersectionObserver 对象，并指定一个回调函数和一些选项。回调函数中的 entry 参数是一个 IntersectionObserverEntry 对象，包含了与目标元素相关的信息，如是否可见、进入视口时的时间等。通过判断 isIntersecting 属性，就可以得到元素是否在视口内的结果。
 
 总之，以上两种方法都可以用来判断元素是否在可视区域内。如果只是判断单个元素，可以使用 getBoundingClientRect 方法；如果需要监听多个元素的进入和离开视口事件，可以使用 IntersectionObserver API。
+
+### ajax 原理，实现，请求体写在哪
+
+[*Ajax*工作*原理*和*实现*步骤](http://www.baidu.com/link?url=YINO7f5ZTyD3VpfJQqmZ1yTXHAxhzTeJD_lTI_C4sGSMRkk6WMwVJW4ewPQYPV9b3FOKRYVxy7P5t9GbSyPAQ5i1NU9JYrf9tVVtTpWldDe)
+
+### 接口出现网络异常在哪里处理的？（axios的全局响应配置）
+
+在使用 axios 进行网络请求时，可以通过 axios 的全局响应配置进行处理接口出现网络异常的情况。具体实现步骤如下：
+
+1. 首先引入 axios 和相关配置：
+
+```
+import axios from 'axios';
+
+// 全局响应配置
+axios.interceptors.response.use(
+  (response) => {
+    return response.data;
+  },
+  (error) => {
+    if (error.response) {
+      // 请求已发出，但服务器返回状态码不在 2xx 范围内
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else {
+      // 网络异常，或者其他原因导致没有收到响应
+      console.log(error.message);
+    }
+    return Promise.reject(error);
+  }
+);
+```
+
+2. 使用 axios 发送网络请求：
+
+```
+axios.get('/api/data')
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+```
+
+这里的 `axios.get('/api/data')` 是一个网络请求示例，如果请求成功则返回 `response` 的数据，否则会被 `catch` 捕获，输出错误信息。
+
+在这个过程中，通过全局响应配置的 `axios.interceptors.response.use()` 方法可以捕获网络请求的状态，如果出现网络异常或者服务器返回了错误的状态码，则会输出错误信息。这样，就可以在全局范围内统一处理接口出现网络异常的情况，避免了重复的代码编写。

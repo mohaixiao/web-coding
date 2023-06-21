@@ -19,7 +19,7 @@ var lengthOfLongestSubstring = function (s) {
                 left = i + 1;
             }
         }
-        maxLength = maxLength < right - left + 1 ? right - left + 1 : maxLength;
+        maxLength = Math.max(maxLength, right - left + 1)
     }
     return maxLength;
 };

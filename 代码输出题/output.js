@@ -272,3 +272,56 @@ fn2() // window
 fn3()  // obj
 obj.fn() // obj
 obj.fn1() // obj
+
+//  ==================================== > 14
+
+const length = 10
+const fn = function () {
+    return this.length + 1
+}
+const obj = {
+    length: 5,
+    test: function () {
+        return fn()
+    }
+
+}
+//下面输出是什么？
+console.log(obj.test())
+
+
+//  ==================================== > 14
+
+const arr1 = [1, 2, 3];
+
+const arr2 = [1, 2, 3];
+
+console.log(arr1 === arr2);// 这里会输出什么
+
+const arr3 = arr2;
+
+arr2[1] = 4;
+
+console.log(arr3);// 这里会输出什么？
+
+//  ==================================== > 15
+
+class Student {
+    constructor() {
+        this.name = "Jerry"
+    }
+
+    getInfo() {
+        return {
+            name: "Tom",
+            getName() {
+                return this.name
+            }
+        }
+    }
+}
+
+const stu = new Student()
+
+console.log(stu.getInfo().getName())
+
