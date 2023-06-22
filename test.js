@@ -1,94 +1,194 @@
+之字形打印矩阵
+实现简单路由
+封装一个 localstorage 的 setItem 和 getItem 方法
 
-// Promise._all = function (promises) {
-//     if (!(typeof promises == "object" && promises !== null)) {
-//         throw new Error("promises 不可迭代！")
-//     }
-
-//     return new Promise((resolve, reject) => {
-//         let count = 0;
-//         promises = [...promises];
-//         let len = promises.length;
-//         let result = []
-
-//         if (len == 0) {
-//             resolve(result)
-//         }
-//         for (let i of promises) {
-//             Promise.resolve(i).then(res => {
-//                 if (len == ++count) {
-//                     resolve(result);
-//                 }
-//                 result.push(res);
-//             }, err => {
-//                 reject(err);
-//             })
-//         }
-//     })
-// }
-
-
-// let p1 = Promise.resolve(1);
-// let p2 = Promise.reject(2)
-// let p3 = Promise.resolve(3);
-// let p4 = Promise.resolve(4);
-
-// Promise._all([p1, p3, p2, p4]).then(err => console.log(err)).catch(err => console.log(err));
-
-
-
-// let nums = [1, 2, 3, 4, 5];
-
-// function findTwo(nums, target) {
-//     let i = 0;
-//     let j = nums.length - 1;
-//     let total = 0;
-//     while (i <= j) {
-//         total = nums[i] + nums[j];
-//         if (total < target) {
-//             i++;
-//         } else if (total > target) {
-//             j--;
-//         } else {
-//             return [i, j];
-//         }
-//     }
-//     return [-1, -1]
-// }
-
-// console.log(findTwo(nums, 4));
-
-
-// function findTwo1(nums, target) {
-
-//     let obj = {};
-//     for (let i = 0; i < nums.length; i++) {
-//         if (obj[target - nums[i]] !== undefined) {
-//             return [i, obj[target - nums[i]]]
-//         }
-//         obj[nums[i]] = i
-//     }
-
-//     return [-1, -1]
-// }
-
-// console.log(findTwo1(nums, 4));
-
-
-console.log(typeof new Object());
-console.log(new Array() instanceof Array);
-console.log(Object.prototype.toString.call('xxxxx').slice(8, -1));
-console.log(Array.prototype.constructor === Array);
-console.log(Object.getPrototypeOf([]) === Array.prototype);
-
-function myInstanceof(constructor, object) {
-    let curObj = Object.getPrototypeOf(object);
-    while (true) {
-        if (constructor.prototype == curObj) {
-            return true;
-        }
-        curObj = Object.getPrototypeOf(curObj);
-        if(!curObj) return false;
-    }
-}
-
-console.log(myInstanceof(Object,new Object()));
+String string 值一样返回 true Object Object 返回 true function function 都是声明的一个新的变量 返回 false
+对输入的字符串：去除其中的字符'b'；去除相邻的'a'和'c'
+用一行代码，将数组中的字符串和字符串对象(new String(123))直接判定出来
+before
+实现一下 console.log
+实现(5).add(3).minus(2)功能
+将十进制数字转为二进制数字字符串
+封装 remove child.remove()销毁自身
+字符串中字母的出现次数
+输出一个等腰三角形
+实现一个函数 a，使其奇数次调用时返回 1，偶数次调用时返回 2（不能使用全局变量）
+求 最接近的值
+不用循环求和
+连续赋值操作
+输入一串字符串，根据字符串求出每个字母的数量并返回结果对象。（数字为 1 时可省略
+创建包含 10 个 1 的数组 多种方法
+['zm', 'za', 'b', 'lm', 'ln', 'k']
+["0->2", "4->5", "7", "13", "15->16"]
+['ab', 'c', 'ab', 'd', 'c'] => ['ab1', 'c1' ,'ab2', 'd', 'c2']
+移除空属性
+判断两个对象是否相等
+一个数组，找出每个数组元素右侧第一个比当前数大的数的下标，时间复杂度 O(N)
+寻找出现次数最多的三个标签
+素数
+实现日期格式化函数
+实现 jsonp
+URL 反转
+解析 URL Params 为对象
+调用计数器（支持重置）
+颜色生成
+JavaScript 怎么清空数组
+判断 A、B 数组的包含关系（值和数量），A 属于 B 返回 1，B 属于 A 返回 2，两者相等返回 0，其他返回-1
+对象的合并
+实现一个 无限延伸数组)
+多行字符串转二维数组
+请实现一个通用的 Array 解构赋值
+数组合并
+数组交集，并集，差集
+多维数组全排列
+判断对象是否存在循环引用
+实现函数 solution(arr, k)
+逆对象扁平
+对象扁平化
+实现 执行一次的函数
+链式调用
+偏函数
+实现管道函数
+手写事件代理（委托）
+数据类型判断
+类数组转数组
+预加载
+图片懒加载
+数组去重
+防抖 节流
+函数组合 compose redux-saga koa 洋葱模型
+sum(x,y)和 sum(x)(y)
+curry 柯里化
+实现 xxx 时间之前的函数
+n 个 2 的 n 次方之和
+无限动画
+瀑布流
+匹配 "a*c", "abcaacc"
+一个字符串中是否出现某串字符,出现的话返回索引
+实现一个属性选择器
+字符串转数字
+实现一个跨浏览器事件工具
+12 调用计数器（支持重置）
+实现内存函数缓存函数调用结果
+返回给定七个扑克牌是否有同花顺，数据结构 [{num: 1, hua: 's'}, ...]
+JS 定义一个 log 方法
+阿拉伯数字专汉字(偏难)
+用代码实现把字符串转换成 base64 编码
+设计 LRU 缓存结构
+实现一个 LazyMan
+标签整理分类题
+求集合单词组合起来的不同结果，集合中的单词不重复，每个结果包含所有单词
+单例模式
+命令模式
+策略模式
+观察者模式
+发布订阅者模式
+工厂模式
+代理模式
+装饰器模式
+DOM2JSON
+JSON2DOM = react 的 render 函数
+计算目录树的深度
+树形结构获取路径名
+树形结构转成列表
+列表转成树形结构
+对象树遍历
+获取树对象属性
+查找 json 中的 children 路径
+对象字符串转化成树形结构
+判断有无符合路径和 -> 打印所有路径
+获取树结构中的 name：getName
+lodash.get
+lodash.chunk
+lodash.once
+classnames
+判断一个对象是否是 isPlainObject
+手写 nodejs 模块
+promisify
+正则相关
+正则表达式模版字符串
+正则判断手机号，qq，颜色，邮箱
+字符串的大小写取反
+检验字符串首尾是否含有数字
+去除字符串空格
+去除字符串中的字母
+正则：短横线 => 驼峰
+正则：驼峰 => 短横线
+对象 key 的驼峰转下划线
+判断字符串中是否存在连续的三个数
+((2+3)+(3*4))+2---->['(2 + 3)+(3 * 4)', '2 + 3', '3 * 4']
+排序算法
+冒泡排序
+选择排序
+快速排序
+插入排序
+归并排序
+基数排序
+计数排序
+希尔排序
+桶排序
+堆排序
+Hooks 怎么封装手势逻辑
+Hooks 实现移动端的滑动轮播插件
+如何用 Hooks 模拟 componentDidMount 与 componentWillUnmount
+实现一个 useBodyScrollLock ，当出现弹窗时 阻止背景滚动
+ts 实现 hooks: useInterval
+实现 useQuery
+实现 useRequest
+实现 usePosition
+实现 useStorage
+实现 防抖收藏 useFavorite
+全选
+轮播图
+根据 response 渲染 table
+歌词滚动功能(hot)
+实现一个 百度搜索框 （搜索提示）
+实现 todos
+计时器或倒计时组件
+设计一个公会入驻信息提交页
+编码实现宽高不相同图片的自适配排列
+列表子元素顺序反转
+遍历树组件
+选项卡
+拖拽
+Vue 原理题
+手写 v-model 简易版
+手写 vue2 响应式
+手写 vue3 proxy 实现数据响应式
+手写 v-bind 简易版
+手写 v-html 和 v-text
+实现圆形环状进度条
+等边三角形
+实现 扇形
+实现平行四边形
+实现 九宫格
+实现一个秒针绕一点转动的效果
+实现一个 球 字节
+圆弧旋转
+使用 div 和 css 实现一个圆形，红色部分站 60%，绿色 40%
+现在有一个进度条，进度条中间有一串文字，当我的进度条覆盖了文字之后，文字要去进度条反色，怎么实现？
+shadowDOM 实现 css 隔离
+两栏布局
+宽高自适应正方形
+1px 问题
+实现 筛子
+css3 实现多行文字截断处理
+三栏布局移动优先设计
+css 实现一个自适应搜索框
+css 书卡布局
+实现宽高比例固定的 div
+实现一个五点骰子
+实现圣杯布局
+黑白主题切换
+队列结构
+哈希表
+实现集合
+用 Javascript 创建一个单链表
+树结构
+图结构
+栈结构
+js 实现 堆
+实现 Trie (前缀树)
+top K
+其他
+tools-js
