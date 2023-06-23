@@ -743,8 +743,74 @@ var regex = /^[a-zA-Z\$][a-zA-Z0-9_\$]{4,16}$/;
 
 ### 34. javascript 创建对象的几种方式？
 
-> 我们一般使用字面量的形式直接创建对象，但是这种创建方式对于创建大量相似对象的时候，会产生大量的重复代码。但 js
-> 和一般的面向对象的语言不同，在 ES6 之前它没有类的概念。但是我们可以使用函数来进行模拟，从而产生出可复用的对象
+字面量对象
+
+- 字面量的意思是，看字面意思，看结构就能知道它是什么类型
+- 看到 {} 说明是对象，看到 [] 说明是数组，这就是字面量的意思
+- 键只能是 字符串或数字
+  - 字符串如果有 - ，则必须加引号
+  - 键如果是数字，一般都是伪数组
+- 值可以是任意类型
+- 访问对象的属性值
+  - 对象.属性
+  - 对象['属性'] ------------ 键有 - 这样的特殊字符，必须用这个语法
+  - 对象[变量] ------------- 键用一个变量表示的，必须用方括号语法，并且变量 不能加引号
+
+```javascript
+let obj = {
+  uname: "zs",
+  "user-name": "lisi",
+  age: 20,
+  bb: {
+    dname: "汪仔",
+  },
+  cc: ["琪琪", "pink"],
+  dd: null,
+  ee: true,
+  ff: function () {},
+  gg: function () {},
+};
+
+// obj.属性
+console.log(obj.uname);
+// obj['属性']
+console.log(obj["user-name"]);
+// obj[变量]
+let a = "age";
+console.log(obj[a]); // 相当于是 obj['age']
+```
+
+### new Object 创建对象（没什么用）
+
+```javascript
+let obj = new Object();
+console.log(obj); // {}
+
+let obj = new Object({ uname: "zs", age: 20 });
+console.log(obj); // { uname: 'zs', age: 20 }
+```
+
+### 通过构造函数创建对象
+
+```javascript
+// 构造函数，本质肯定也是函数（构造函数要求首字母大写）
+function Pig(name, age, gender) {
+  // 把对象的属性，放到构造函数内部，写一份即可
+  // 把对象的所有属性，都加给 this
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+}
+
+// 通过构造函数，创建对象语法
+// let 对象 = new 构造函数(参数, 参数, ....)
+let Peppa = new Pig("佩奇", 6, "女");
+let George = new Pig("乔治", 3, "男");
+console.log(Peppa);
+console.log(George);
+```
+
+> 我们一般使用字面量的形式直接创建对象，但是这种创建方式对于创建大量相似对象的时候，会产生大量的重复代码。但 js 和一般的面向对象的语言不同，在 ES6 之前它没有类的概念。但是我们可以使用函数来进行模拟，从而产生出可复用的对象
 > 创建方式，我了解到的方式有这么几种：
 
 （1）第一种是工厂模式，工厂模式的主要工作原理是用函数来封装创建对象的细节，从而通过调用函数来达到复用的目的。
@@ -1237,6 +1303,12 @@ return false;
 后面两个阶段和 IE 事件模型的两个阶段相同。这种事件模型，事件绑定的函数是 addEventListener，其中第三个参数可以指定事件是否在捕获阶段执行。
 
 《JavaScript 权威指南第七版》15.2 事件
+
+### addEventListener 的第三参数
+
+第三个参数涉及到冒泡和捕获，是 `true`时为捕获，是 `false`则为冒泡。
+
+> 或者是一个对象 `{passive: true}`，针对的是 `Safari`浏览器，禁止/开启使用滚动的时候要用到。
 
 ### 44. 事件委托是什么？什么场景应用，使用过代码实现吗
 
@@ -2958,6 +3030,8 @@ console.log(map.get(s));  // 'baz'
 
 因此，`Map.set()` 方法是一种更新或添加键值对的方法，如果重复添加相同的键，则后一次操作会覆盖前一次的操作。
 
+https://zhuanlan.zhihu.com/p/523850774
+
 ### 133. 什么是 Proxy ？
 
 Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”，即对编程语言进行编程。
@@ -3476,7 +3550,17 @@ DOM 使用：
 bCapture 参数用于设置事件绑定的阶段，true 为捕获阶段，false 为冒泡阶段。
 ```
 
-《红宝书》17.1 事件流
+事件发生时会在元素节点之间按照**特定的顺序**传播，这个传播过程就叫做 DOM 事件流。
+
+> DOM 事件流分为三个阶段：
+
+1. **捕获阶段** ：事件从 `window`发出，自上而下向目标节点传播的阶段
+2. **目标阶段** ：真正的目标阶段正在处理事件的阶段
+3. **冒泡阶段** ：事件从目标节点自下而上向 `window`传播的阶段
+
+(注意 ⚠️：`JS`代码只能执行捕获或者冒泡其中一个阶段，要么是捕获要么是冒泡)
+
+[1 如何理解 HTML 语义化 | 前端进阶之旅](https://interview.poetries.top/docs/excellent-docs/1-HTML%E6%A8%A1%E5%9D%97.html#_19-%E5%86%92%E6%B3%A1%E5%92%8C%E6%8D%95%E8%8E%B7%E7%9A%84%E5%85%B7%E4%BD%93%E8%BF%87%E7%A8%8B)
 
 ### 点击一个 input 依次触发的事件
 
@@ -4034,6 +4118,7 @@ async function test() {
    `Array.prototype.at()` 方法是 JavaScript 中 Array 对象的一个方法，用于返回给定索引处的元素。它可以处理负数和超出索引范围的索引，并且具有与使用方括号访问相同的语法（即 `array[index]`）。当传递负数时，`at()` 方法从末尾开始计数。比如，`arr.at(-1)` 将返回数组 `arr` 的最后一个元素。
 
    关于使用 `array[-1]` 访问数组的最后一个元素，Python 和 R 语言都支持这种语法，但在 JavaScript 中不推荐使用。因为 JavaScript 在处理方括号内的负数数字时，将其解释为字符串属性，因此 `array[-1]` 实际上被视为访问名为 "-1" 的属性。而 `at()` 方法则不会出现这个问题。
+
 3. 使用 Array.prototype.slice() 方法：将 `-1` 作为开始位置传递给该方法即可获取数组的最后一个元素。比如，`arr.slice(-1)[0]` 即为数组最后一个元素。
 
 [JavaScript 中获取数组最后一个元素 4 种方法及性能 - 掘金](https://juejin.cn/post/7197300642062204988)
@@ -4300,7 +4385,11 @@ function inViewPort(element) {
 
 [*Ajax*工作*原理*和*实现*步骤](http://www.baidu.com/link?url=YINO7f5ZTyD3VpfJQqmZ1yTXHAxhzTeJD_lTI_C4sGSMRkk6WMwVJW4ewPQYPV9b3FOKRYVxy7P5t9GbSyPAQ5i1NU9JYrf9tVVtTpWldDe)
 
-### 接口出现网络异常在哪里处理的？（axios的全局响应配置）
+### ajax、axios、fetch 区别
+
+[基础篇 | 前端进阶之旅](https://interview.poetries.top/docs/base.html#_95-ajax%E3%80%81axios%E3%80%81fetch%E5%8C%BA%E5%88%AB)
+
+### 接口出现网络异常在哪里处理的？（axios 的全局响应配置）
 
 在使用 axios 进行网络请求时，可以通过 axios 的全局响应配置进行处理接口出现网络异常的情况。具体实现步骤如下：
 

@@ -26,12 +26,12 @@ var getIntersectionNode = function (headA, headB) {
     [lenA, lenB] = [lenB, lenA];
   }
   let i = lenA - lenB; // 求长度差
-//   长度长的先走
+  //   长度长的先走
   while (i-- > 0) {
     // 让curA和curB在同一起点上（末尾位置对齐）
     curA = curA.next;
   }
-// 一起遍历
+  // 一起遍历
   while (curA && curA !== curB) {
     // 遍历curA 和 curB，遇到相同则直接返回
     curA = curA.next;
