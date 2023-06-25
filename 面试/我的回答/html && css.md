@@ -516,15 +516,15 @@ div {
 
 #### display 有哪些值？说明他们的作用。
 
-| **属性值** | **作用**                                             |
-| ---------------- | ---------------------------------------------------------- |
-| none             | 元素不显示，并且会从文档流中移除。                         |
-| block            | 块类型。默认宽度为父元素宽度，可设置宽高，换行显示。       |
-| inline           | 行内元素类型。默认宽度为内容宽度，不可设置宽高，同行显示。 |
-| inline-block     | 默认宽度为内容宽度，可以设置宽高，同行显示。               |
-| list-item        | 像块类型元素一样显示，并添加样式列表标记。                 |
-| table            | 此元素会作为块级表格来显示。                               |
-| inherit          | 规定应该从父元素继承 display 属性的值。                    |
+| **属性值**   | **作用**                                                   |
+| ------------ | ---------------------------------------------------------- |
+| none         | 元素不显示，并且会从文档流中移除。                         |
+| block        | 块类型。默认宽度为父元素宽度，可设置宽高，换行显示。       |
+| inline       | 行内元素类型。默认宽度为内容宽度，不可设置宽高，同行显示。 |
+| inline-block | 默认宽度为内容宽度，可以设置宽高，同行显示。               |
+| list-item    | 像块类型元素一样显示，并添加样式列表标记。                 |
+| table        | 此元素会作为块级表格来显示。                               |
+| inherit      | 规定应该从父元素继承 display 属性的值。                    |
 
 值 描述
 none 此元素不会被显示。
@@ -1973,6 +1973,10 @@ info
 
 [《怎么画一条 0.5px 的边（更新）》](https://juejin.im/post/5ab65f40f265da2384408a95)
 
+### 1px 2px 介绍 px
+
+[#](https://interview.poetries.top/docs/base/high-frequency.html#%E8%AF%B4%E8%AF%B4em-px-rem-vh-vw%E5%8C%BA%E5%88%AB)说说 em/px/rem/vh/vw 区别
+
 #### transition 和 animation 的区别
 
 info
@@ -2193,9 +2197,13 @@ https://zhuanlan.zhihu.com/p/122214519
   }
   以上代码会将所有元素的外边距（margin）、内边距（padding）、盒模型（box-sizing）和字体（font-family）设置为相同的默认值，从而实现全局样式。但是，需要注意的是，过度使用通配符选择器可能会影响性能，因此应避免滥用它。
 
+#### css 变量使用
+
+https://blog.csdn.net/qq_32247819/article/details/123788346
+
 #### css 怎么保证变量不被污染，scoped 的原理
 
-> 通过 Webpack 调用 VueJS 中相应 Loader , 给组件 HTML 模板添加自定义属性 (Attribute) data-v-x, 以及给组件内 CSS 选择器添加对应的属性选择器 (Attribute Selector) [data-v-x], 达到组件内样式只能生效与组件内 HTML 的效果, 代码效果如下:
+> 通过 Webpack 调用 VueJS 中相应 Loader , 给组件 HTML 模板添加自定义属性 (Attribute) data-v-x, 以及给组件内 CSS 选择器添加对应的属性选择器 (Attribute Selector) [data-v-x], 达到组件内样式只能生效与组件内 HTML 的效果, 代码效果如下
 
 <div class='lionad' data-v-lionad></div>
 <style>
@@ -2367,7 +2375,7 @@ dragend：事件主体是被拖放元素，在整个拖放操作结束时触发�
 
 label 标签来定义表单控件的关系：当用户选择 label 标签时，浏览器会自动将焦点转到和 label 标签相关的表单控件上。
 
-### 14. Canvas 和 SVG 标签的区别
+### Canvas 和 SVG 标签的区别
 
 **（1）SVG：** SVG 可缩放矢量图形（Scalable Vector Graphics）是基于可扩展标记语言 XML 描述的 2D 图形的语言，SVG 基于 XML 就意味着 SVG DOM 中的每个元素都是可用的，可以为某个元素附加 Javascript 事件处理器。在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。
 其特点如下：
@@ -2386,6 +2394,10 @@ label 标签来定义表单控件的关系：当用户选择 label 标签时，�
 - 弱的文本渲染能力
 - 能够以 .png 或 .jpg 格式保存结果图像
 - 最适合图像密集型的游戏，其中的许多对象会被频繁重绘
+
+[#](https://interview.poetries.top/improve-learn/canvas.html#svg-%E5%92%8C-canvas-%E7%9A%84%E5%8C%BA%E5%88%AB)svg 和 Canvas 的区别
+
+[Canvas | 前端进阶之旅](https://interview.poetries.top/improve-learn/canvas.html#svg-%E5%92%8C-canvas-%E7%9A%84%E5%8C%BA%E5%88%AB)
 
 ### 15. head 标签有什么作用，其中什么标签必不可少？
 
@@ -2524,7 +2536,7 @@ W3C 对 web 标准提出了规范化的要求，也就是在实际编程中的�
 把 `<link>` 标签放在 `<head></head>` 之间是规范要求的内容。这种做法可以让页面逐步呈现，提高了用户体验。如果将样式表放在文档底部附近，会使许多浏览器（包括 Internet Explorer）不能逐步呈现页面。
 一些浏览器会阻止渲染，以避免在页面样式发生变化时，重新绘制页面中的元素。这种做法可以防止呈现给用户空白的页面或没有样式的内容
 
-### 为什么最好把 JS 的 `<script>` 标签恰好放在 `</body>` 之前？
+### 为什么最好把 JS 的 script 标签恰好放在 body 之前？
 
 脚本在下载和执行期间会阻止 HTML 解析。把 `<script>` 标签放在底部，保证 HTML 首先完成解析，将页面尽早呈现给用户。
 例外情况：
@@ -2801,7 +2813,7 @@ HTML 中的行内元素是指默认情况下在一行内显示，并且不会独
    - 网格布局（Grid Layout）：使用 `display: grid` 和相关的属性来创建复杂的网格布局。
 4. 响应式布局：使用媒体查询和其他 CSS 技术，可以根据设备的屏幕尺寸和特性，调整页面的布局和样式，以实现响应式设计。
 
-#### css 中实现背景图片平铺 用哪一个属性
+### css 中实现背景图片平铺 用哪一个属性
 
 要将背景图片平铺到元素的背景中，可以使用 CSS 的 `background-repeat` 属性。该属性用于控制背景图片的平铺方式，有以下几个值可选：
 
@@ -2858,3 +2870,11 @@ HTML 中的行内元素是指默认情况下在一行内显示，并且不会独
 7. 数据加载和填充：如果页面中需要加载数据，如通过 AJAX 请求获取数据或从服务器动态生成数据，浏览器会在渲染过程中进行数据加载，并将数据填充到相应的位置，更新页面的内容。
 
 需要注意的是，这些步骤并非严格的线性顺序，而是并行和交叉进行的。浏览器会尽可能地优化渲染过程，提升页面的加载速度
+
+### 如何理解原子化 CSS,优劣?
+
+https://www.zhihu.com/question/588711219/answer/2930982867?utm_id=0
+
+### CSS 动画
+
+[前端进阶之旅](https://interview.poetries.top/docs/base/high-frequency.html#css%E5%8A%A8%E7%94%BB%E5%92%8C%E8%BF%87%E6%B8%A1)
