@@ -1221,7 +1221,7 @@ new Function(..) 函数的行为也很类似，最后一个参数可以接受代
 解释代码字符串的能力是非常强大的，但也非常危险。在使用 eval()的时候必须极为慎重，特别是在解释用户输入的内容时。
 因为这个方法会对 XSS 利用暴露出很大的攻击面。恶意用户可能插入会导致你网站或应用崩溃的代码。
 
-### 40. 什么是 DOM 和 BOM？
+### 40. 什么是 DOM 和 BOM？说一下 api,原生获取 DOM 节点的 API
 
 > DOM 指的是文档对象模型，它指的是把文档当做一个对象来对待，这个对象主要定义了处理网页内容的方法和接口。
 
@@ -1238,6 +1238,19 @@ on 对象、navigator 对象、screen 对象等子对象，并且 DOM 的最根�
 
 《JavaScript 高级程序设计第四版》 第 14 章 DOM 第 12 章 BOM
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666964064987-40999dc5-b338-43b4-b796-a668eb45008a.png#averageHue=%23303329&clientId=u43669192-13ab-4&from=paste&height=147&id=u924e84fa&name=image.png&originHeight=220&originWidth=1287&originalType=binary&ratio=1&rotation=0&showTitle=false&size=240419&status=done&style=none&taskId=ude08419a-9d9f-48f2-a18b-997a88efd97&title=&width=858)
+
+[1 数据类型基础 | 前端进阶之旅](https://interview.poetries.top/docs/excellent-docs/3-JS%E6%A8%A1%E5%9D%97.html#_18-%E6%93%8D%E4%BD%9Cdom)
+
+原生获取 DOM 节点的 API 有以下几种：
+
+1. getElementById(id)：根据元素的唯一标识符（id）获取对应的 DOM 节点。返回匹配到的第一个元素。
+2. getElementsByClassName(className)：通过元素的类名获取匹配的 DOM 节点列表。返回一个类数组对象（HTMLCollection 或 NodeList）。
+3. getElementsByTagName(tagName)：通过元素的标签名获取匹配的 DOM 节点列表。返回一个类数组对象。
+4. getElementsByName(name)：通过元素的 name 属性获取匹配的 DOM 节点列表。返回一个类数组对象。
+5. querySelector(selector)：通过指定的 CSS 选择器获取匹配的 DOM 节点中的第一个节点。返回一个节点对象。
+6. querySelectorAll(selector)：通过指定的 CSS 选择器获取匹配的 DOM 节点列表。返回一个类数组对象。
+
+这些方法可以调用在文档对象上（`document`）或特定元素节点上，例如 `document.getElementById()`、`element.getElementsByClassName()` 等。它们是原生 JavaScript 提供的常用方法，用于获取和操作 DOM 节点。
 
 ### 事件是什么？IE 与火狐的事件机制有什么区别？ 如何阻止冒泡？说一说冒泡和事件捕获？
 
@@ -4450,3 +4463,13 @@ axios.get('/api/data')
 这里的 `axios.get('/api/data')` 是一个网络请求示例，如果请求成功则返回 `response` 的数据，否则会被 `catch` 捕获，输出错误信息。
 
 在这个过程中，通过全局响应配置的 `axios.interceptors.response.use()` 方法可以捕获网络请求的状态，如果出现网络异常或者服务器返回了错误的状态码，则会输出错误信息。这样，就可以在全局范围内统一处理接口出现网络异常的情况，避免了重复的代码编写。
+
+### setInterval 的问题，为什么 settimeout 能解决，setInterval 实现不了吗，间隔不可靠的原因，为什么会出现延迟累计的问题呢
+
+[JavaScript 用*set*Timeout 模拟实现*setInterval* - Web 前端工](https://m.bilibili.com/video/BV1DA411Y7Xe/?spm_id_from=333.788.videocard.8)
+
+[1 数据类型基础 | 前端进阶之旅](https://interview.poetries.top/docs/excellent-docs/3-JS%E6%A8%A1%E5%9D%97.html#_20-%E5%AE%9A%E6%97%B6%E5%99%A8)
+
+### 有哪些稳定的排序算法？最快的？归并排序是如何排序的，快排是怎么排序的？极端情况下时间复杂度是多少？
+
+冒泡排序，选择排序，插入排序，希尔排序，归并排序，快速排序，计数排序，桶排序，基数排序

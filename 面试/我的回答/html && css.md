@@ -2878,3 +2878,5 @@ https://www.zhihu.com/question/588711219/answer/2930982867?utm_id=0
 ### CSS 动画
 
 [前端进阶之旅](https://interview.poetries.top/docs/base/high-frequency.html#css%E5%8A%A8%E7%94%BB%E5%92%8C%E8%BF%87%E6%B8%A1)
+
+[前端菌带你彻底了解 _CSS 动画_ ,不会的赶紧来学~~](https://www.bilibili.com/video/BV1V34y1t7Pm/)

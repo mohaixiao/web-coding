@@ -2835,3 +2835,5 @@ WebSocket 完美继承了 TCP 协议的**全双工**能力，并且还贴心的�
 [为什么有 HTTP 还要有*websocket*](http://www.bilibili.com/video/BV1684y1k7VP)
 
 [1 HTTP 报文的组成部分 | 前端进阶之旅](https://interview.poetries.top/docs/excellent-docs/15-HTTP%E6%A8%A1%E5%9D%97.html#_7-websocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%92%8C%E5%BA%94%E7%94%A8)
+
+### 什么是队头阻塞呢？http 几.0 解决了？http2.0 怎么还有队头阻塞，能说一下嘛？ 头部压缩，能讲一下是什么方式来进行压缩？（我记得是 gzip，但是这方面我没有做过多的理解）那如果 etag 改了，last-modify 没改这种情况呢,为啥有了 last-modify 还要有 etag 呢？命中协商缓存状态码是多少(304)，那命中强缓存状态码平时有注意吗？（200）
