@@ -86,6 +86,7 @@ var isSymmetric = function (root) {
 
 
 // 100.相同的树
+
 var isSameTree = function (p, q) {
     return compare(p, q)
 };

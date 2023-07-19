@@ -516,15 +516,15 @@ div {
 
 #### display 有哪些值？说明他们的作用。
 
-| **属性值** | **作用**                                             |
-| ---------------- | ---------------------------------------------------------- |
-| none             | 元素不显示，并且会从文档流中移除。                         |
-| block            | 块类型。默认宽度为父元素宽度，可设置宽高，换行显示。       |
-| inline           | 行内元素类型。默认宽度为内容宽度，不可设置宽高，同行显示。 |
-| inline-block     | 默认宽度为内容宽度，可以设置宽高，同行显示。               |
-| list-item        | 像块类型元素一样显示，并添加样式列表标记。                 |
-| table            | 此元素会作为块级表格来显示。                               |
-| inherit          | 规定应该从父元素继承 display 属性的值。                    |
+| **属性值**   | **作用**                                                   |
+| ------------ | ---------------------------------------------------------- |
+| none         | 元素不显示，并且会从文档流中移除。                         |
+| block        | 块类型。默认宽度为父元素宽度，可设置宽高，换行显示。       |
+| inline       | 行内元素类型。默认宽度为内容宽度，不可设置宽高，同行显示。 |
+| inline-block | 默认宽度为内容宽度，可以设置宽高，同行显示。               |
+| list-item    | 像块类型元素一样显示，并添加样式列表标记。                 |
+| table        | 此元素会作为块级表格来显示。                               |
+| inherit      | 规定应该从父元素继承 display 属性的值。                    |
 
 值 描述
 none 此元素不会被显示。
@@ -993,7 +993,7 @@ collapse与用在非表格元素上的hidden具有相同的作用。
 [《CSS 里的 visibility 属性有个鲜为人知的属性值：collapse》](http://www.webhek.com/post/visibility-collapse.html)
 《CSS 权威指南》 11.5 元素的可见性
 
-#### width:auto 和 width:100%的区别
+#### width:auto 和 width:100%的区别?
 
 ```
 一般而言
@@ -1005,7 +1005,10 @@ collapse与用在非表格元素上的hidden具有相同的作用。
 
 width:100%会使元素box的宽度等于父元素的content box的宽度。
 width:auto会使元素撑满整个父元素，margin、border、padding、content区域会自动分配水平空间。
+https://blog.csdn.net/qq_35727582/article/details/123421928
 ```
+
+https://blog.csdn.net/qq_35727582/article/details/123421928
 
 #### 绝对定位元素与非绝对定位元素的百分比计算的区别
 
@@ -1067,19 +1070,13 @@ margin重叠指的是在垂直方向上，两个相邻元素的margin发生重�
 
 一般来说可以分为四种情形：
 
-第一种是相邻兄弟元素的marin-bottom和margin-top的值发生重叠。这种情况下我们可以通过设置其中一个元素为BFC
-来解决。
+第一种是相邻兄弟元素的marin-bottom和margin-top的值发生重叠。这种情况下我们可以通过设置其中一个元素为BFC来解决。
 
-第二种是父元素的margin-top和子元素的margin-top发生重叠。它们发生重叠是因为它们是相邻的，所以我们可以通过这
-一点来解决这个问题。我们可以为父元素设置border-top、padding-top值来分隔它们，当然我们也可以将父元素设置为BFC
-来解决。
+第二种是父元素的margin-top和子元素的margin-top发生重叠。它们发生重叠是因为它们是相邻的，所以我们可以通过这一点来解决这个问题。我们可以为父元素设置border-top、padding-top值来分隔它们，当然我们也可以将父元素设置为BFC来解决。
 
-第三种是高度为auto的父元素的margin-bottom和子元素的margin-bottom发生重叠。它们发生重叠一个是因为它们相
-邻，一个是因为父元素的高度不固定。因此我们可以为父元素设置border-bottom、padding-bottom来分隔它们，也可以为
-父元素设置一个高度，max-height和min-height也能解决这个问题。当然将父元素设置为BFC是最简单的方法。
+第三种是高度为auto的父元素的margin-bottom和子元素的margin-bottom发生重叠。它们发生重叠一个是因为它们相邻，一个是因为父元素的高度不固定。因此我们可以为父元素设置border-bottom、padding-bottom来分隔它们，也可以为父元素设置一个高度，max-height和min-height也能解决这个问题。当然将父元素设置为BFC是最简单的方法。
 
-第四种情况，是没有内容的元素，自身的margin-top和margin-bottom发生的重叠。我们可以通过为其设置border、pa
-dding或者高度来解决这个问题。
+第四种情况，是没有内容的元素，自身的margin-top和margin-bottom发生的重叠。我们可以通过为其设置border、padding或者高度来解决这个问题。
 ```
 
 《CSS 权威指南》8.5.4 外边距折叠 《深入解析 CSS》4.2 容器折叠和清除浮动
@@ -1158,7 +1155,7 @@ BFC 里的内容不会跟外部的元素重叠或者相互影响。如果给元�
 
 #### IFC 是什么？
 
-[《[译]:BFC 与 IFC》](https://segmentfault.com/a/1190000004466536#articleHeader5) [《BFC 和 IFC 的理解（布局）》](https://blog.csdn.net/paintandraw/article/details/80401741)[P81081 IFC](https://www.bilibili.com/video/BV1G3411k7iV?p=81)《深入解析 CSS》
+[《[译]:BFC 与 IFC》](https://segmentfault.com/a/1190000004466536#articleHeader5) [《BFC 和 IFC 的理解（布局）》](https://blog.csdn.net/paintandraw/article/details/80401741)[P81081 IFC](https://www.bilibili.com/video/BV1G3411k7iV?p=81)
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666858174579-f288cbdd-6694-47d2-944f-96076e87e0e0.png#averageHue=%23f8f8f8&clientId=ucf147f61-4011-4&from=paste&height=344&id=u8b46800e&name=image.png&originHeight=516&originWidth=1089&originalType=binary&ratio=1&rotation=0&showTitle=false&size=176795&status=done&style=none&taskId=u669d002f-c8a9-404e-8729-40513c8fecc&title=&width=726)
 
 #### 请解释一下为什么需要清除浮动？清除浮动的方式
@@ -1897,19 +1894,13 @@ info
 
 #### 什么是 CSS 预处理器/后处理器？
 
-CSS 预处理器定义了一种新的语言，其基本思想是，用一种专门的编程语言，为 CSS 增加了一些编程的特性，将 CSS 作为目标生成
-文件，然后开发者就只要使用这种语言进行编码工作。通俗的说，CSS 预处理器用一种专门的编程语言，进行 Web 页面样式设计，然
-后再编译成正常的 CSS 文件。
+CSS 预处理器定义了一种新的语言，其基本思想是，用一种专门的编程语言，为 CSS 增加了一些编程的特性，将 CSS 作为目标生成文件，然后开发者就只要使用这种语言进行编码工作。通俗的说，CSS 预处理器用一种专门的编程语言，进行 Web 页面样式设计，然后再编译成正常的 CSS 文件。
 
-预处理器例如：LESS、Sass、Stylus，用来预编译 Sass 或 less csssprite，增强了 css 代码的复用性，还有层级、mixin、
-变量、循环、函数等，具有很方便的 UI 组件模块化开发能力，极大的提高工作效率。
+预处理器例如：LESS、Sass、Stylus，用来预编译 Sass 或 less csssprite，增强了 css 代码的复用性，还有层级、mixin、变量、循环、函数等，具有很方便的 UI 组件模块化开发能力，极大的提高工作效率。
 
-CSS 后处理器是对 CSS 进行处理，并最终生成 CSS 的预处理器，它属于广义上的 CSS 预处理器。我们很久以前就在用 CSS 后
-处理器了，最典型的例子是 CSS 压缩工具（如 clean-css），只不过以前没单独拿出来说过。还有最近比较火的 Autoprefixer，
-以 CanIUse 上的浏览器支持数据为基础，自动处理兼容性问题。
+CSS 后处理器是对 CSS 进行处理，并最终生成 CSS 的预处理器，它属于广义上的 CSS 预处理器。我们很久以前就在用 CSS 后处理器了，最典型的例子是 CSS 压缩工具（如 clean-css），只不过以前没单独拿出来说过。还有最近比较火的 Autoprefixer，以 CanIUse 上的浏览器支持数据为基础，自动处理兼容性问题。
 
-后处理器例如：PostCSS，通常被视为在完成的样式表中根据 CSS 规范处理 CSS，让其更有效；目前最常做的是给 CSS 属性添加浏
-览器私有前缀，实现跨浏览器兼容性的问题。
+后处理器例如：PostCSS，通常被视为在完成的样式表中根据 CSS 规范处理 CSS，让其更有效；目前最常做的是给 CSS 属性添加浏览器私有前缀，实现跨浏览器兼容性的问题。
 
 [《CSS 预处理器和后处理器》](https://blog.csdn.net/yushuangyushuang/article/details/79209752)
 
@@ -2629,13 +2620,61 @@ https://www.jianshu.com/p/72522cc7ca5c
 
 ### 单行溢出变为省略号
 
-标签语义化
+要将单行文本溢出时显示省略号，可以使用 CSS 的 `text-overflow`和 `white-space`属性结合，并设置容器的宽度。
 
-`<a>`标签平常用来做什么
+下面是一个示例：
 
-`localStorage`和 `sessionStorage`
+```css
+.container {
+  width: 200px; /* 设置容器的宽度 */
+  white-space: nowrap; /* 禁止文本换行 */
+  overflow: hidden; /* 隐藏溢出部分 */
+  text-overflow: ellipsis; /* 显示省略号 */
+}
+```
 
-结合 `cookie`实现广告在某个时间段投放，到时就过期
+在上述示例中，将容器的宽度设为适当的数值，例如 200px。然后，通过 `white-space: nowrap;`禁止文本换行，使用 `overflow: hidden;`隐藏溢出部分，最后通过 `text-overflow: ellipsis;`显示省略号。
+
+在 HTML 中，将需要应用这个样式的文本放置在具有 `.container`类名的容器中即可：
+
+```html
+<div class="container">单行文本溢出时显示省略号</div>
+```
+
+这样，当文本超出容器宽度时，就会自动显示省略号来代替多余的内容。
+
+多行溢出
+
+要实现多行文本溢出时显示省略号，可以使用 CSS 的 `display`、`-webkit-line-clamp`和 `-webkit-box-orient`属性结合，并设置容器的高度。
+
+下面是一个示例：
+
+```css
+.container {
+  display: -webkit-box; /* 使用弹性盒子布局 */
+  -webkit-line-clamp: 3; /* 设置最大行数 */
+  -webkit-box-orient: vertical; /* 设置排列方向为垂直 */
+  overflow: hidden; /* 隐藏溢出部分 */
+  text-overflow: ellipsis; /* 显示省略号 */
+}
+```
+
+在上述示例中，通过应用 `display: -webkit-box;`将容器设置为弹性盒子布局。然后，使用 `-webkit-line-clamp`属性来指定最大行数，例如设置为 3 行。接下来，通过 `-webkit-box-orient: vertical;`设置弹性盒子的排列方向为垂直方向，并使用 `overflow: hidden;`隐藏溢出部分。最后，使用 `text-overflow: ellipsis;`显示省略号。
+
+在 HTML 中，将需要应用这个样式的多行文本放置在具有 `.container`类名的容器中即可：
+
+```html
+<div class="container">
+  多行文本溢出时显示省略号，这是一行。 多行文本溢出时显示省略号，这是第二行。
+  多行文本溢出时显示省略号，这是第三行。
+</div>
+```
+
+这样，当文本超出容器高度时，就会自动显示省略号来代替多余的内容，并限制在指定的行数内。请注意，`-webkit-line-clamp`属性在某些浏览器中可能需要额外的前缀或其他兼容性处理。
+
+### 标签语义化
+
+### a 标签平常用来做什么
 
 ### 选择器选择 div 中的 div,不知道内层有多少个 div，尽可能多种方法实现选择器选择到第 1 第 2 个 div，倒数第 1 倒数第 2 个 div
 
@@ -2878,6 +2917,6 @@ https://www.zhihu.com/question/588711219/answer/2930982867?utm_id=0
 
 [前端进阶之旅](https://interview.poetries.top/docs/base/high-frequency.html#css%E5%8A%A8%E7%94%BB%E5%92%8C%E8%BF%87%E6%B8%A1)
 
-[前端菌带你彻底了解 *CSS 动画* ,不会的赶紧来学~~](https://www.bilibili.com/video/BV1V34y1t7Pm/)
+[前端菌带你彻底了解 _CSS 动画_ ,不会的赶紧来学~~](https://www.bilibili.com/video/BV1V34y1t7Pm/)
 
-### css的颜色有哪些形式，rgb/rgba，pink之类的字符串，'#666fff'为什么有6位，各表示什么
+### css 的颜色有哪些形式，rgb/rgba，pink 之类的字符串，'#666fff'为什么有 6 位，各表示什么
