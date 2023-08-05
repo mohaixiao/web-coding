@@ -47,3 +47,49 @@ input.addEventListener('keyup', function (e) {
     proxy.text = e.target.value;
 });
 
+
+// 定义一个数据对象
+const data = {
+    message: 'Hello Vue!',
+  };
+  
+  // 通过Object.defineProperty()劫持数据对象
+  Object.defineProperty(data, 'message', {
+    get() {
+      console.log('访问数据');
+      return this._message;
+    },
+    set(newValue) {
+      console.log('更新数据');
+      this._message = newValue;
+      // 通知订阅者，执行更新操作
+      notifySubscribers();
+    },
+  });
+  
+  // 定义一个订阅者列表
+  const subscribers = [];
+  
+  // 订阅者订阅数据
+  function subscribe(callback) {
+    subscribers.push(callback);
+  }
+  
+  // 通知订阅者，执行更新操作
+  function notifySubscribers() {
+    subscribers.forEach((callback) => {
+      callback();
+    });
+  }
+  
+  // 订阅者更新视图
+  function updateView() {
+    console.log('视图更新：', data.message);
+  }
+  
+  // 订阅数据变化
+  subscribe(updateView);
+  
+  // 修改数据，触发更新
+  data.message = 'Hello VueJS!';
+  
