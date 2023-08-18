@@ -42,6 +42,7 @@ var generateMatrix = function (n) {
         // 更新offset
         offset++;
     }
+    
     // 如果n为奇数的话，需要单独给矩阵最中间的位置赋值
     if (n % 2 === 1) {
         res[mid][mid] = count;
