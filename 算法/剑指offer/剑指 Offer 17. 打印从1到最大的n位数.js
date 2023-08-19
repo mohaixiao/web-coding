@@ -28,11 +28,8 @@ var printNumbers = function (n) {
  * 大数操作
  * Accepted
  * 5/5 cases passed (92 ms)
- * Your runtime beats 52.2 % of javascript submissions
- * Your memory usage beats 14.5 % of javascript submissions (52.6 MB)
  */
 var printNumbers = function (n) {
-  const len = Math.pow(10, n) - 1;
   var dfs = function (num, i) {
     if (num.length === i) return res.push(Number(num)); //这里的Number(num)是为了通过本题，若支持大数肯定涉及返回字符串数组
     for (let k = 0; k <= 9; k++) {
