@@ -34,11 +34,11 @@ css 选择器种类
 ![](https://cdn.nlark.com/yuque/0/2020/png/1500604/1603600820555-dc6ed390-d47e-412b-942a-857bbe5f280d.png?x-oss-process=image%2Fresize%2Cw_791%2Climit_0#align=left&display=inline&height=368&margin=%5Bobject%20Object%5D&originHeight=462&originWidth=791&size=0&status=done&style=none&width=630#averageHue=%23f0e097&from=url&id=s4hoL&originHeight=462&originWidth=791&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 > 盒模型指的是网页元素的结构。当指定一个元素的宽度或高度时，便设置了元素内容（content）的尺寸——任何内边距（padding）、边框（border）、外边距（margin）都会基于它叠加。
->
+> 
 > 盒模型都是由四个部分组成的，分别是 margin、border、padding 和 content。
->
+> 
 > 标准盒模型和 IE 盒模型的区别在于设置 width 和 height 时，所对应的范围不同。
->
+> 
 > 标准盒模型的 width 和 height 属性的 范围只包含了 content，
 > 而 IE 盒模型的 width 和 height 属性的范围包含了 border、padding 和 content。
 > 一般来说，我们可以通过修改元素的 box-sizing 属性来改变元素的盒模型。
@@ -49,10 +49,10 @@ css 选择器种类
 > （2）盒模型：分为内容（content）、填充（padding）、边界（margin）、边框（border）四个部分
 
 > IE 盒模型和 W3C 标准盒模型的区别：
->
+> 
 > （1）W3C 标准盒模型：属性 width，height 只包含内容 content，不包含 border 和 padding
 > （2）IE 盒模型：属性 width，height 包含 content、border 和 padding，指的是 content+padding+border。
->
+> 
 > ①box-sizing 的默认值为 content-box，这意味任何指定的宽或高都只会设置内容盒子的大小
 > ② 在 ie8+浏览器中使用哪个盒模型可以由 box-sizing（CSS 新增的属性）控制，
 > 默认值为 content-box，即标准盒模型；
@@ -97,28 +97,28 @@ css 选择器种类
 #### ::before 和:after 中双冒号和单冒号有什么区别？解释一下这 2 个伪元素的作用。
 
 > 双冒号和单冒号的区别
->
+> 
 > 在 css3 中伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互，也可能是由于元素相对于其父级或兄弟元素的位置。伪类选择器始终以一个冒号（:）开始。
->
+> 
 > 在 css3 中伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML 元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方插入内容。
->
+> 
 > 2 者都是伪元素选择器，单冒号是浏览器为了向后兼容而允许的。
->
+> 
 > ::after,::before 作用:
->
+> 
 > 创建一个伪元素，使其成为匹配元素的第(最后)一个子元素，该元素默认是行内元素，可用于插入文字、图片或其他形状，必须指定 content 属性才能让元素出现。
 
 《深入浅出 CSS》 附录 A 　选择器
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26096776/1666697260759-ead31974-b19c-4ff2-affb-1bc83de8747c.png#averageHue=%23f3f3f3&clientId=u258f02ec-022e-4&from=paste&height=235&id=ua43a1d49&name=image.png&originHeight=246&originWidth=843&originalType=binary&ratio=1&rotation=0&showTitle=false&size=91147&status=done&style=none&taskId=u807d244a-f23d-452b-bce2-d9c46d1fdd7&title=&width=804)
 
 > 伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互，也可能是由于元素相对于其父级或兄弟元素的位置。伪类选择器始终以一个冒号（:）开始。
->
+> 
 > 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML 元素的特定部分。伪元素选择器可能只匹配元素的一部分，甚至向 HTML 标记中未定义的地方插入内容。
->
+> 
 > 这些选择器以双冒号（::）开头，尽管大多数浏览器也支持单冒号的语法以便向后兼容。
->
+> 
 > ::before——创建一个伪元素，使其成为匹配元素的第一个子元素。该元素默认是行内元素，可用于插入文字、图片或其他形状。必须指定 content 属性才能让元素出现，例如：.menu::before。
->
+> 
 > ::after——创建一个伪元素，使其成为匹配元素的最后一个子元素。该元素默认是行
 > 内元素，可用于插入文字、图片或其他形状。必须指定 content 属性才能让元素出现，例如：.menu::after。
 
@@ -126,12 +126,12 @@ css 选择器种类
 
 > css 引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，
 > 比如，一句话中的第一个字母（伪元素），或者是列表中的第一个元素（伪类）。
->
+> 
 > 伪类选择器用于选中处于某个特定状态的元素。这种状态可能是由于用户交互（:hover,:focus 等等），也可能是由于元素相对于其父级或兄弟元素的位置（child 类，type 类）。伪类选择器始终以一个冒号（:）开始。
->
+> 
 > 伪元素类似于伪类，但是它不匹配特定状态的元素，而是匹配在文档中没有直接对应 HTML 元素的特定部分。伪元素选择器可能只匹配元素的一部分（一句话中的第一个字母::first-letter,等等），甚至向 HTML 标记中未定义的地方 （创建一个伪元素，使其成为匹配元素的第一个子元素::before,等等）
 > 插入内容。
->
+> 
 > 伪元素选择器以双冒号（::）开头，尽管大多数浏览器也支持单冒号的语法以便向后兼容。
 
 > 伪元素：在内容元素的前后插入额外的元素或样式，但是这些元素实际上并不在文档中生成。它们只在外部显示可见，但不会在文档的源代码中找到它们，因此，称为“伪”元素。例如：
@@ -175,13 +175,11 @@ p:first-child {
 
 1. **display**：规定元素应该生成的框的类型
 2. **文本属性**：
-
 - vertical-align：垂直文本对齐
 - text-decoration：规定添加到文本的装饰
 - text-shadow：文本阴影效果
 - white-space：空白符的处理
 - unicode-bidi：设置文本的方向
-
 3. **盒子模型的属性**：width、height、margin、border、padding
 4. **背景属性**：background、background-color、background-image、background-repeat、background-position、background-attachment
 5. **定位属性**：float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip、z-index
@@ -193,32 +191,32 @@ p:first-child {
 **二、有继承性的属性**
 
 1. **字体系列属性**
-
 - font-family：字体系列
+
 - font-weight：字体的粗细
+
 - font-size：字体的大小
+
 - 还得 font-style：字体的风格
-
 2. **文本系列属性**
-
 - text-indent：文本缩进
+
 - text-align：文本水平对齐
+
 - line-height：行高
+
 - word-spacing：单词之间的间距
+
 - letter-spacing：中文或者字母之间的间距
+
 - text-transform：控制文本大小写（就是 uppercase、lowercase、capitalize 这三个）
+
 - color：文本颜色
-
 3. **元素可见性**
-
 - visibility：控制元素显示隐藏
-
 4. **列表布局属性**
-
 - list-style：列表风格，包括 list-style-type、list-style-image 等
-
 5. **光标属性**
-
 - cursor：光标显示为何种形态
 
 > 当一个属性不是继承属性的时候，我们也可以通过将它的值设置为 inherit 来使它从父元素那获取同名的属性值来继承。
@@ -392,12 +390,12 @@ XML 或者类似于 XML 的文档上，比如 SVG。在这些情况下，该选�
 
 （5）使用 flex 布局，通过 align-items:center 和 justify-content:center 设置容器的垂直和水平方向上为居中对齐，然后它的子元素也可以实现垂直和水平的居中。
 
-````css
+```css
 -水平居中：给div设置一个宽度，然后添加margin: 0 auto 属性 ```css div {
   width: 200px;
   margin: 0 auto;
 }
-````
+```
 
 -水平居中，利用 text-align:center 实现
 
@@ -516,15 +514,15 @@ div {
 
 #### display 有哪些值？说明他们的作用。
 
-| **属性值**   | **作用**                                                   |
-| ------------ | ---------------------------------------------------------- |
-| none         | 元素不显示，并且会从文档流中移除。                         |
-| block        | 块类型。默认宽度为父元素宽度，可设置宽高，换行显示。       |
+| **属性值**      | **作用**                        |
+| ------------ | ----------------------------- |
+| none         | 元素不显示，并且会从文档流中移除。             |
+| block        | 块类型。默认宽度为父元素宽度，可设置宽高，换行显示。    |
 | inline       | 行内元素类型。默认宽度为内容宽度，不可设置宽高，同行显示。 |
-| inline-block | 默认宽度为内容宽度，可以设置宽高，同行显示。               |
-| list-item    | 像块类型元素一样显示，并添加样式列表标记。                 |
-| table        | 此元素会作为块级表格来显示。                               |
-| inherit      | 规定应该从父元素继承 display 属性的值。                    |
+| inline-block | 默认宽度为内容宽度，可以设置宽高，同行显示。        |
+| list-item    | 像块类型元素一样显示，并添加样式列表标记。         |
+| table        | 此元素会作为块级表格来显示。                |
+| inherit      | 规定应该从父元素继承 display 属性的值。      |
 
 值 描述
 none 此元素不会被显示。
@@ -2323,9 +2321,10 @@ robots 的 content 参数有以下几种：
 空元素，即没有内容的 HTML 元素。空元素是在开始标签中关闭的，也就是空元素没有闭合标签：
 
 - 常见的有：`<br>`、`<hr>`、`<img>`、`<input>`、`<link>`、`<meta>`；
-- 鲜见的有：`<area>`、`<base>`、`<col>`、`<colgroup>`、`<command>`、`<embed>`、`<keygen>`、`<param>`、`<source>`、`<track>`、`<wbr>`。
 
+- 鲜见的有：`<area>`、`<base>`、`<col>`、`<colgroup>`、`<command>`、`<embed>`、`<keygen>`、`<param>`、`<source>`、`<track>`、`<wbr>`。
 * 行内元素不可以设置宽高，不独占一行，它们会按照从左到右的顺序排列，并尽可能占据内容所需的空间。
+
 * 块级元素可以设置宽高，独占一行，会自动换行。块级元素会在页面上以独立的块形式展现，并占据其父元素的整个宽度。
 
 [行内元素和块级元素的区别\_块元素和行内元素区别\_zzz19 的博客-CSDN 博客](https://blog.csdn.net/zzz19/article/details/100785224)
@@ -2438,12 +2437,12 @@ HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SG
 
 它们都属于标记语言。
 
-| 语言  | 中文名               | 说明                                                                                                                                        |
-| ----- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| HTML4 | 超文本标记语言       | 主要用于做界面呈现。HTML 是先有实现，后面才慢慢制定标准的，导致 HTML ⾮常混乱和松散，语法非常的不严谨。                                     |
-| XML   | 可扩展标记语言       | 主要⽤于存储数据和结构。语法严谨，可扩展性强。由于 JSON 也有类似作⽤但更轻量⾼效， XML 的市场变得越来越⼩。                                 |
+| 语言    | 中文名        | 说明                                                                                      |
+| ----- | ---------- | --------------------------------------------------------------------------------------- |
+| HTML4 | 超文本标记语言    | 主要用于做界面呈现。HTML 是先有实现，后面才慢慢制定标准的，导致 HTML ⾮常混乱和松散，语法非常的不严谨。                               |
+| XML   | 可扩展标记语言    | 主要⽤于存储数据和结构。语法严谨，可扩展性强。由于 JSON 也有类似作⽤但更轻量⾼效， XML 的市场变得越来越⼩。                             |
 | XHTML | 可扩展超文本标记语言 | 属于加强版 HTML，为解决 HTML 的混乱问题而生，在语法方面变得和 XML 一样严格。另外，XHTML 的出现也催生了 HTML 5，让 HTML 向规范化严谨化过渡。 |
-| HTML5 | 超文本标记语言       | 在 HTML 的基础上进行拓展，用于页面呈现 (目前标准)                                                                                           |
+| HTML5 | 超文本标记语言    | 在 HTML 的基础上进行拓展，用于页面呈现 (目前标准)                                                           |
 
 XML 的要求会比较严格:
 
@@ -2553,16 +2552,16 @@ WebComponent 是一套技术的组合，具体涉及到了 Custom elements（自
 最后，就很简单了，可以像正常使用 HTML 元素一样使用该元素，如上述代码中的 `<geek-bang></geek-bang>`。
 
 > 影子 DOM 内部的样式是不会影响到全局 CSSOM 的。另外，使用 DOM 接口也是无法直接查询到影子 DOM 内部元素的，比如你可以使用 document.getElementsByTagName('div')来查找所有 div 元素，这时候你会发现影子 DOM 内部的元素都是无法查找的，因为要想查找影子 DOM 内部的元素需要专门的接口，所以通过这种方式又将影子内部的 DOM 和外部的 DOM 进行了隔离。
->
+> 
 > 通过影子 DOM 可以隔离 CSS 和 DOM，影子 DOM 的 JavaScript 脚本是不会被隔离的，比如在影子 DOM 定义的 JavaScript 函数依然可以被外部访问，这是因为 JavaScript 语言本身已经可以很好地实现组件化了。
 > 影子 DOM 的作用主要有以下两点：
 > 影子 DOM 中的元素对于整个网页是不可见的；
 > 影子 DOM 的 CSS 不会影响到整个网页的 CSSOM，影子 DOM 内部的 CSS 只对内部的元素起作用。
->
+> 
 > 该图是上面那段示例代码对应的 DOM 结构图，从图中可以看出，我们使用了两次 geek-bang 属性，那么就会生成两个影子 DOM，并且每个影子 DOM 都有一个 shadow root 的根节点，我们可以将要展示的样式或者元素添加到影子 DOM 的根节点上，每个影子 DOM 你都可以看成是一个独立的 DOM，它有自己的样式、自己的属性，内部样式不会影响到外部样式，外部样式也不会影响到内部样式。
->
+> 
 > 浏览器为了实现影子 DOM 的特性，在代码内部做了大量的条件判断，比如当通过 DOM 接口去查找元素时，渲染引擎会去判断 geek-bang 属性下面的 shadow-root 元素是否是影子 DOM，如果是影子 DOM，那么就直接跳过 shadow-root 元素的查询操作。所以这样通过 DOM API 就无法直接查询到影子 DOM 的内部元素了。
->
+> 
 > 另外，当生成布局树的时候，渲染引擎也会判断 geek-bang 属性下面的 shadow-root 元素是否是影子 DOM，如果是，那么在影子 DOM 内部元素的节点选择 CSS 样式的时候，会直接使用影子 DOM 内部的 CSS 属性。所以这样最终渲染出来的效果就是影子 DOM 内部定义的样式。
 
 ### 说说 BEM 规范
@@ -2612,9 +2611,8 @@ https://www.jianshu.com/p/72522cc7ca5c
 **不常用的：**
 
 - `ex和ch`：`ex`以字符 `"x"`的高度为基准；例如 `1ex`表示和字符 `"x"`一样长。`ch`以数字 `"0"`的宽度为基准；例如 `2ch`表示和 2 个数字 `"0"`一样长。
-
+  
   **移动端布局总结** ：
-
 1. 移动端布局的方式主要使用 rem 和 flex，可以结合各自的优点，比如 flex 布局很灵活，但是字体的大小不好控制，我们可以使用 rem 和媒体查询控制字体的大小，媒体查询视口的大小，然后不同的上视口大小下设置设置 `html`的 `font-size`。
 2. 可单独制作移动端页面也可响应式 pc 端移动端共用一个页面。没有好坏，视情况而定，因势利导
 
